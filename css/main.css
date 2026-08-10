@@ -73,8 +73,8 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
    各级页面也不必各写一份相对路径。 */
 .brand-logo {
   display: block;
-  height: 30px;
-  aspect-ratio: 296.25 / 88.49;
+  height: 18px;              /* 新字标已裁去留白，18px 即字标实高 */
+  aspect-ratio: 296.2 / 49.16;
   background-color: var(--text);
   -webkit-mask-image: url("../assets/svg/Logo_main.svg");
           mask-image: url("../assets/svg/Logo_main.svg");
