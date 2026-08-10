@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 296.25 88.49">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Helvetica-Bold, Helvetica;
+        font-size: 66px;
+        font-weight: 700;
+        isolation: isolate;
+        letter-spacing: -.02em;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #0b0b0b;
+      }
+    </style>
+  </defs>
+  <g id="_图层_1-2" data-name="图层 1">
+    <rect class="cls-2" y="8.75" width="8" height="48"/>
+    <rect class="cls-2" x="12" y="8.75" width="4" height="48"/>
+    <circle class="cls-2" cx="26" cy="24.75" r="4.5"/>
+    <circle class="cls-2" cx="26" cy="40.75" r="4.5"/>
+    <text class="cls-1" transform="translate(42 56.75)"><tspan x="0" y="0">HANze</tspan></text>
+    <circle class="cls-2" cx="268.25" cy="24.75" r="4.5"/>
+    <circle class="cls-2" cx="268.25" cy="40.75" r="4.5"/>
+    <rect class="cls-2" x="278.25" y="8.75" width="4" height="48"/>
+    <rect class="cls-2" x="288.25" y="8.75" width="8" height="48"/>
+  </g>
+</svg>

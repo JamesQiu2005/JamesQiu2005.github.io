@@ -65,19 +65,28 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .subnav .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.02em;
   color: var(--text);
 }
 .subnav .brand:hover { text-decoration: none; }
 
-.brand-mark-slot {
-  display: none;
-  width: 30px;
+/* 字标用 mask 上色：SVG 文件本身保持黑色原稿，颜色由 --text 决定，
+   各级页面也不必各写一份相对路径。 */
+.brand-logo {
+  display: block;
   height: 30px;
-  flex: 0 0 auto;
+  aspect-ratio: 296.25 / 88.49;
+  background-color: var(--text);
+  -webkit-mask-image: url("../assets/svg/Logo_main.svg");
+          mask-image: url("../assets/svg/Logo_main.svg");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  /* 原稿是近黑色：必须按 alpha 取遮罩，按亮度取会几乎全透明 */
+  -webkit-mask-mode: alpha;
+          mask-mode: alpha;
 }
 
 .subnav nav { display: flex; gap: clamp(14px, 2.4vw, 28px); align-items: center; }
@@ -374,56 +383,26 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
   pointer-events: none;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
-.notation-system {
-  position: relative;
-  background-image: url("../assets/svg/vendor/bravura/staff-5-lines.svg");
-  background-repeat: repeat-x;
+/* 谱面按 Bravura 单位内联绘制：1 个间 = 250，底线 = y0。
+   高度定死 → 1 个间恒为 20px，音符、加线、终止线都落在真实谱位上。 */
+.notation {
+  display: block;
+  color: var(--accent);
+  fill: currentColor;
 }
 
-.notation-system--hero {
-  width: 200%;
-  height: 180px;
-  flex: 0 0 200%;
-  background-size: 50% 80px;
-  background-position: left center;
+.notation--hero {
+  height: 180px;          /* 2250 单位 → 1 个间 20px，谱高 80px */
+  width: auto;
+  max-width: none;
+  flex: 0 0 auto;
   animation: staff-drift 90s linear infinite;
 }
 
-.notation-measure {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 50%;
-}
-.notation-measure--repeat { left: 50%; }
-
-.notation-clef,
-.notation-time img,
-.notation-note,
-.notation-leger,
-.notation-final,
-.bach-note,
-.bach-sharp {
-  position: absolute;
-  display: block;
-  object-fit: contain;
-}
-
-.notation-system--hero .notation-clef { left: 3%; top: 24px; width: 52px; height: 132px; }
-.notation-time { position: absolute; left: 15%; top: 49px; width: 22px; height: 82px; }
-.notation-time img { left: 0; width: 22px; height: 39px; }
-.notation-time img:last-child { top: 41px; }
-.notation-note { width: 32px; height: 72px; }
-.notation-note--g { left: 55%; top: 98px; }
-.notation-note--d { left: 67%; top: 82px; }
-.notation-note--a { left: 79%; top: 40px; }
-.notation-note--e { left: 88%; top: 49px; }
-.notation-leger { left: calc(55% - 3px); width: 38px; height: 7px; }
-.notation-leger--g-upper { top: 128px; }
-.notation-leger--g-lower { top: 144px; }
-.notation-final { left: 96%; top: 49px; width: 14px; height: 82px; }
-
+/* 共 12 小节，位移 50% 正好是 6 小节，接缝无痕 */
 @keyframes staff-drift {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -589,23 +568,11 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
   padding: 0 clamp(20px, 4vw, 48px);
 }
 
-.notation-system--bach {
+.notation--bach {
   width: 100%;
-  height: 108px;
+  height: auto;
   opacity: 0.55;
-  background-size: 100% 54px;
-  background-position: left center;
-  background-repeat: no-repeat;
 }
-.notation-system--bach .notation-measure { width: 100%; }
-.notation-system--bach .notation-clef { left: 2%; top: 9px; width: 34px; height: 90px; }
-.bach-note { width: 24px; height: 52px; }
-.bach-note--b { left: 27%; top: 44px; }
-.bach-note--a { left: 39%; top: 20px; }
-.bach-note--g { left: 51%; top: 26px; }
-.bach-sharp { left: 62%; top: 42px; width: 18px; height: 30px; }
-.bach-note--f { left: 66%; top: 32px; }
-.notation-system--bach .notation-final { left: 95%; top: 27px; width: 11px; height: 54px; }
 
 /* ---------- 页脚 ---------- */
 
@@ -670,6 +637,6 @@ body.tuning-mode .subnav .brand {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .notation-system--hero { animation: none; }
+  .notation--hero { animation: none; }
   * { transition-duration: 0.01ms !important; }
 }
