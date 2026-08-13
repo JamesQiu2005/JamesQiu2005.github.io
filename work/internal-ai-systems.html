@@ -55,7 +55,17 @@
 
   <div class="decision-archive">
     <article class="decision-card reveal">
-      <p class="decision-number">Decision 01</p><h3>从“能不能修”转向“值不值得继续投入”</h3>
+      <p class="decision-number">Decision 01</p><h3>先建立事实，再谈推行</h3>
+      <dl class="decision-grid">
+        <div class="decision-field"><dt>处境</dt><dd>一种常见判断是：模型继续增强后，体验与采纳问题会自然减弱。</dd></div>
+        <div class="decision-field"><dt>约束</dt><dd>我不能靠立场赢得讨论，也不能让一次宣讲替代真实使用证据。</dd></div>
+        <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>推动使用基线调研，按具体工具拆分频率、分别评价不同 AI 角色，并避免让临时检索替代真实经验。结果显示阻塞采纳的核心不是模型上限，而是稳定性、上下文连续性、工作流连接与概念理解；这四项共同指向的是使用者对 AI 输出的信任度，而不是模型能力上限。我据此把 enablement 从“推广活动”重定义为供需对齐机制。</dd></div>
+        <div class="decision-field decision-field--cost"><dt>代价</dt><dd>先调研、后演示放慢了短期推进节奏；第一次讨论也没有可立即宣布的成果。</dd></div>
+      </dl>
+    </article>
+
+    <article class="decision-card reveal">
+      <p class="decision-number">Decision 02</p><h3>从“能不能修”转向“值不值得继续投入”</h3>
       <dl class="decision-grid">
         <div class="decision-field"><dt>处境</dt><dd>组织已有一项持续投入的多 Agent 协作方向，最自然的动作是继续修补。</dd></div>
         <div class="decision-field"><dt>约束</dt><dd>我不是最终决策者，只能提供足以改变投资判断的可复现证据。</dd></div>
@@ -65,7 +75,7 @@
     </article>
 
     <article class="decision-card reveal">
-      <p class="decision-number">Decision 02</p><h3>不自己写：先找到值得改造的基础设施</h3>
+      <p class="decision-number">Decision 03</p><h3>不自己写：先找到值得改造的基础设施</h3>
       <dl class="decision-grid">
         <div class="decision-field"><dt>处境</dt><dd>交付窗口短、工作线并行，任何一条从零自研都会挤占关键判断与验收。</dd></div>
         <div class="decision-field"><dt>约束</dt><dd>团队没有余量长期维护新轮子，“先可用”和“架构完美”在这个窗口里冲突。</dd></div>
@@ -75,7 +85,7 @@
     </article>
 
     <article class="decision-card reveal">
-      <p class="decision-number">Decision 03</p><h3>先画边界，再写功能</h3>
+      <p class="decision-number">Decision 04</p><h3>先画边界，再写功能</h3>
       <dl class="decision-grid">
         <div class="decision-field"><dt>处境</dt><dd>统一调用入口要兼容多类客户端与上游通路，早期又因权限边界后补发生返工。</dd></div>
         <div class="decision-field"><dt>约束</dt><dd>通用中间格式会损失语义；外部身份协议的字段也不归我们控制。</dd></div>
@@ -85,22 +95,12 @@
     </article>
 
     <article class="decision-card reveal">
-      <p class="decision-number">Decision 04</p><h3>不为能力共享再建一个后台</h3>
+      <p class="decision-number">Decision 05</p><h3>不为能力共享再建一个后台</h3>
       <dl class="decision-grid">
         <div class="decision-field"><dt>处境</dt><dd>组织需要可配置、可共享、有版本且可审计的 Agent 能力机制。</dd></div>
         <div class="decision-field"><dt>约束</dt><dd>团队没有余量维护新的管理后台，既有版本协作基础设施已经承载权限与审计。</dd></div>
         <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>直接复用已有平台：权限沿用现有体系，提交历史提供审计，差异与评审管理变更，回滚也使用团队熟悉的动作。产品形态服从已有基建，而不是为一张更漂亮的界面复制整套治理能力。</dd></div>
         <div class="decision-field decision-field--cost"><dt>代价</dt><dd>非技术同事必须面对版本协作的心智模型。模板和薄封装只能缓解，不能消除——这是全页最有争议的取舍。</dd></div>
-      </dl>
-    </article>
-
-    <article class="decision-card reveal">
-      <p class="decision-number">Decision 05</p><h3>先建立事实，再谈推行</h3>
-      <dl class="decision-grid">
-        <div class="decision-field"><dt>处境</dt><dd>一种常见判断是：模型继续增强后，体验与采纳问题会自然减弱。</dd></div>
-        <div class="decision-field"><dt>约束</dt><dd>我不能靠立场赢得讨论，也不能让一次宣讲替代真实使用证据。</dd></div>
-        <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>推动使用基线调研，按具体工具拆分频率、分别评价不同 AI 角色，并避免让临时检索替代真实经验。结果显示阻塞采纳的核心不是模型上限，而是稳定性、上下文连续性、工作流连接与概念理解。我据此把 enablement 从“推广活动”重定义为供需对齐机制。</dd></div>
-        <div class="decision-field decision-field--cost"><dt>代价</dt><dd>先调研、后演示放慢了短期推进节奏；第一次讨论也没有可立即宣布的成果。</dd></div>
       </dl>
     </article>
   </div>

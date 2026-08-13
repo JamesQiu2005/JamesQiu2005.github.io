@@ -138,6 +138,7 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; }
   color: var(--text-dim);
 }
 .chapter-copy strong { color: var(--text); font-weight: 600; }
+.chapter-copy + .chapter-copy { margin-top: 18px; }
 
 .chapter-cta {
   display: inline-block;

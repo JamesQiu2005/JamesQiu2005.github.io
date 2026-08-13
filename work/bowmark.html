@@ -28,6 +28,8 @@
     <p class="eyebrow reveal">Problem</p>
     <h2 class="chapter-title reveal">乐谱不是一叠 PDF。<br>批注也不该只是一层墨迹。</h2>
     <p class="chapter-copy reveal">作为校管弦乐团第一小提琴手，我面对的并不只是“怎么在 PDF 上写字”。同一部作品可能同时有总谱、不同乐器分谱、多个乐章和演奏版本；但通用文件管理只看见一份份彼此无关的文件。进入阅读后，连续滚动、常驻工具栏和通用批注逻辑，又没有围绕排练与演出的节奏设计。<strong>缺少的不是更多笔刷，而是以乐谱为中心的组织与阅读方式。</strong></p>
+    <p class="chapter-copy reveal">我进一步访谈了乐团内不同声部的乐手，确认这不是个人习惯问题：分谱版本在排练中被反复混淆，而排练时写下的指法与弓法，在换用另一份 PDF 后就失去了上下文。</p>
+    <p class="chapter-copy reveal">我也看过现有的专业乐谱应用（如 forScore、Newzik）与通用笔记产品（如 GoodNotes）：前者解决了谱面阅读，却没有解决作品的组织；后者解决了批注，却不理解乐谱的结构。Bowmark 选择切在两者之间——既把作品组织起来，也让批注依附于正确的谱面语境。</p>
   </section>
 
   <figure class="product-visual reveal">
@@ -67,7 +69,7 @@
     <p class="eyebrow reveal">Process</p>
     <h2 class="chapter-title reveal">为一个足够具体的场景，<br>重写阅读器的默认假设。</h2>
     <p class="chapter-copy reveal">我先用 PRD 与持续演进的 RFC 固化产品边界，再编排 Coding Agent 完成 Swift 实现，由自己负责方案取舍、代码审查、Git 变更管理、回归测试与 iPad 真机验收。开发中逐步替换通用 PDF 视口，建立 Bowmark 自己的分页、缩放、预渲染与墨迹坐标系统，解决快速翻页白屏、缩放跳变和 PencilKit 墨迹偏移等设备级问题。</p>
-    <a class="chapter-cta reveal" href="https://github.com/JamesQiu2005" target="_blank" rel="noopener">技术决策：缩放视口 · 墨迹持久化 · 扫描增强 <span class="arrow">→</span></a>
+    <p class="chapter-copy reveal">技术决策：缩放视口 · 墨迹持久化 · 扫描增强</p>
   </section>
 
   <hr class="hairline">
@@ -75,7 +77,7 @@
   <section class="chapter">
     <p class="eyebrow reveal">Outcome</p>
     <h2 class="chapter-title reveal">从文件进入作品，<br>从作品进入演奏。</h2>
-    <p class="chapter-copy reveal">当前 MVP 已覆盖作品化曲库、总谱与分谱组织、文件与相机导入、页面增强、沉浸式乐谱阅读、Markup Layers 和 Apple Pencil 自由批注，并在真机上验证持久化与缩放稳定性。下一阶段将在这套模型之上，把指法、弓法和连弓从自由墨迹进一步转化为可选择、修改与重新渲染的演奏对象。</p>
+    <p class="chapter-copy reveal">当前 MVP 已覆盖作品化曲库、总谱与分谱组织、文件与相机导入、页面增强、沉浸式乐谱阅读、Markup Layers 和 Apple Pencil 自由批注，并在真机上验证持久化与缩放稳定性。<strong>MVP 已在校乐团内推广使用，真实排练场景成为后续迭代的需求来源与验收环境。</strong>下一阶段将在这套模型之上，把指法、弓法和连弓从自由墨迹进一步转化为可选择、修改与重新渲染的演奏对象。</p>
   </section>
 
   <hr class="hairline">

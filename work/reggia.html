@@ -30,6 +30,7 @@
     <p class="eyebrow reveal">Problem</p>
     <h2 class="chapter-title reveal">模型看见一段对话。<br>人活在一段连续的情境里。</h2>
     <p class="chapter-copy reveal">通用聊天产品常从对话里猜测什么值得记住，却把稳定背景、当前任务和偶然一句话混在同一层。Reggia 把长期背景与短期状态拆开，并把收录、修改与删除的决定留给用户。<strong>Agent 不拥有记忆；它只在获得许可时读取 context。</strong></p>
+    <p class="chapter-copy reveal">另一条主流路径是向量检索式 RAG：把资料切片、嵌入、按相似度召回。它的问题不在效果，而在召回过程对用户不可见、也不可干预——用户无法知道 Agent 读到了什么，更无法撤回。Reggia 选择相反的方向：读取路径必须可解释。</p>
   </section>
 
   <figure class="product-visual product-visual--full reveal">
@@ -151,40 +152,10 @@ return StreamingResponse(event_stream(), media_type=<span class="code-accent">"t
   <section class="chapter">
     <p class="eyebrow reveal">Outcome</p>
     <h2 class="chapter-title reveal">记忆可以长期存在，<br>但每次读取都应有理由。</h2>
-    <p class="chapter-copy reveal">会话与消息、当前事项、长期页面分别落在本地 SQLite 中；长期内容当前与外部知识页面同步并保留冲突状态。Reggia 已成为我自己的日常 AI 入口，验证了一个更克制的假设：<strong>准确性不只来自更强的模型，也来自用户能维护、检查并撤回的 context。</strong></p>
+    <p class="chapter-copy reveal">会话与消息、当前事项、长期页面分别落在本地 SQLite 中；长期内容当前与外部知识页面同步并保留冲突状态。Reggia 已成为我自己的日常 AI 入口，验证了一个更克制的假设：<strong>准确性与用户信任度不只来自更强的模型，也来自用户能维护、检查并撤回的 context。</strong></p>
     <a class="chapter-cta reveal" href="https://github.com/JamesQiu2005/reggia" target="_blank" rel="noopener">查看 GitHub 仓库 <span class="arrow">→</span></a>
+    <p class="evidence-caption reveal">短期会话保存完整消息与工具调用；长期内容独立存储，并显式记录本地修改、远端版本与同步冲突。</p>
   </section>
-
-  <div class="code-evidence reveal">
-    <div class="terminal">
-      <div class="terminal-head"><span>backend/db.py</span><span>short-term · selected lines</span></div>
-      <pre><code>def append_message(session_id, role, content, ..., tool_calls=None):
-    cur = conn.execute(
-        """INSERT INTO messages
-           (session_id, role, content, created_at, ..., tool_calls)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-        (session_id, role, content, now, ..., tool_calls),
-    )
-    conn.execute("UPDATE sessions SET updated_at = ? WHERE id = ?",
-                 (now, session_id))
-    conn.commit()</code></pre>
-    </div>
-    <div class="terminal">
-      <div class="terminal-head"><span>backend/longterm_db.py</span><span>long-term · selected lines</span></div>
-      <pre><code>CREATE TABLE IF NOT EXISTS long_term_memory (
-    domain              TEXT PRIMARY KEY,
-    notion_page_id      TEXT NOT NULL UNIQUE,
-    title               TEXT,
-    content_md          TEXT NOT NULL DEFAULT '',
-    notion_pending_md   TEXT,
-    notion_last_edited  TEXT,
-    local_modified_at   TEXT,
-    synced_at           TEXT,
-    sync_state          TEXT NOT NULL DEFAULT <span class="code-accent">'clean'</span>
-);</code></pre>
-    </div>
-    <p class="evidence-caption">真实实现节选，非关键参数以省略号标记。短期会话保存完整消息与工具调用；长期内容独立存储，并显式记录本地修改、远端版本与同步冲突。</p>
-  </div>
 
   <hr class="hairline">
 
