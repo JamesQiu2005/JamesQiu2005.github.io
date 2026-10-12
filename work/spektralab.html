@@ -483,10 +483,79 @@
         </div>
         <dl class="stats" style="--n: 4">
           <div><dt>篇 RFC</dt><dd>30</dd></div>
-          <div><dt>个测试用例</dt><dd>555</dd></div>
+          <div><dt>个测试用例</dt><dd>560</dd></div>
           <div><dt>次提交，自 2026.08.24 起</dt><dd>400<span>+</span></dd></div>
-          <div><dt>代码，其中近三分之一是测试。2026.09.23 统计</dt><dd>6<span>万行</span></dd></div>
+          <div><dt>代码，其中近三成是测试。2026.10.09 统计</dt><dd>8.7<span>万行</span></dd></div>
         </dl>
+
+        <figure class="viz viz--bars">
+          <p class="viz-title">8.7 万行，按用途拆开</p>
+          <p class="viz-sub">单位：行，含空行与注释。统计于 v1.3.3（2026.10.09），工具为 cloc 2.10。只计 macOS 产品线里自己写的代码；不含 Windows 与 Linux 移植、第三方库、生成文件与数据。</p>
+          <p class="legend"><span class="k0"><i></i>产品与构建</span><span><i></i>测试</span></p>
+          <table class="bars">
+            <tbody>
+              <tr>
+                <th scope="row"><b>Swift 应用</b><span>SwiftUI / AppKit</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="Swift 应用：36,106 行，占 41.6%" data-tip="36,106 行|Swift 应用 · 99 个文件 · 有效代码 21,965 行" style="--v:36106; --max:36106"><i></i>36,106</span>
+                </td>
+                <td class="delta">41.6%</td>
+              </tr>
+              <tr>
+                <th scope="row"><b>C++ 引擎</b><span>21 个节点的移植</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="C++ 引擎：16,652 行，占 19.2%" data-tip="16,652 行|C++ 引擎 · 47 个文件 · 有效代码 11,059 行" style="--v:16652; --max:36106"><i></i>16,652</span>
+                </td>
+                <td class="delta">19.2%</td>
+              </tr>
+              <tr>
+                <th scope="row"><b>Metal 着色器</b><span>GPU 内核</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="Metal 着色器：2,799 行，占 3.2%" data-tip="2,799 行|Metal 着色器 · 10 个文件 · 有效代码 1,930 行" style="--v:2799; --max:36106"><i></i>2,799</span>
+                </td>
+                <td class="delta">3.2%</td>
+              </tr>
+              <tr>
+                <th scope="row"><b>CLI / MCP</b><span>脚本与 Agent 入口</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="CLI / MCP：1,465 行，占 1.7%" data-tip="1,465 行|CLI / MCP · 7 个文件 · 有效代码 1,163 行" style="--v:1465; --max:36106"><i></i>1,465</span>
+                </td>
+                <td class="delta">1.7%</td>
+              </tr>
+              <tr>
+                <th scope="row"><b>测试</b><span>XCTest 与对拍</span></th>
+                <td>
+                  <span class="bar now" tabindex="0" role="img" aria-label="测试：24,442 行，占 28.2%" data-tip="24,442 行|测试 · 87 个文件 · 有效代码 16,821 行" style="--v:24442; --max:36106"><i></i>24,442</span>
+                </td>
+                <td class="delta">28.2%</td>
+              </tr>
+              <tr>
+                <th scope="row"><b>构建脚本</b><span>打包、基线与工具</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="构建脚本：5,322 行，占 6.1%" data-tip="5,322 行|构建脚本 · 37 个文件 · 有效代码 3,674 行" style="--v:5322; --max:36106"><i></i>5,322</span>
+                </td>
+                <td class="delta">6.1%</td>
+              </tr>
+            </tbody>
+          </table>
+          <details>
+            <summary>以表格查看文件数、行数与有效代码行数</summary>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">部分</th><th scope="col">文件</th><th scope="col">行</th><th scope="col">有效代码（不含空行与注释）</th></tr></thead>
+                <tbody>
+                  <tr><td>Swift 应用</td><td class="n">99</td><td class="n">36,106</td><td class="n">21,965</td></tr>
+                  <tr><td>C++ 引擎</td><td class="n">47</td><td class="n">16,652</td><td class="n">11,059</td></tr>
+                  <tr><td>Metal 着色器</td><td class="n">10</td><td class="n">2,799</td><td class="n">1,930</td></tr>
+                  <tr><td>CLI / MCP</td><td class="n">7</td><td class="n">1,465</td><td class="n">1,163</td></tr>
+                  <tr><td>测试</td><td class="n">87</td><td class="n">24,442</td><td class="n">16,821</td></tr>
+                  <tr><td>构建脚本</td><td class="n">37</td><td class="n">5,322</td><td class="n">3,674</td></tr>
+                  <tr><td>合计</td><td class="n">287</td><td class="n">86,786</td><td class="n">56,612</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </figure>
       </div>
     </div>
   </section>

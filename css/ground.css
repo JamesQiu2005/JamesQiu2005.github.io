@@ -360,7 +360,7 @@ a:hover .arr--l { transform: translateX(-2px); }
 .bars th, .bars td { padding: 12px 0; border-top: 1px solid var(--row); vertical-align: middle; text-align: left; font-weight: 400; }
 .bars tr:last-child > * { border-bottom: 1px solid var(--row); }
 .bars th { width: 9.5em; padding-right: 16px; }
-.bars th b { display: block; font-size: var(--fs-ui); font-weight: 600; }
+.bars th b { display: block; font-size: var(--fs-ui); font-weight: 600; word-break: keep-all; }
 .bars th span { font-size: var(--fs-micro); color: var(--ink-2); }
 .bars .delta { width: 4.5em; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
 .bar { display: flex; align-items: center; gap: 8px; height: 14px; font-size: var(--fs-micro); color: var(--ink-2); font-variant-numeric: tabular-nums; outline-offset: 2px; }
