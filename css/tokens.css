@@ -1,0 +1,208 @@
+/* tokens.css — the design language as values.
+
+   Everything in kit.css is built from these, so a new look is an edit here and nowhere else.
+   Light is the reference theme: it is what spektralab.app ships. Dark is derived from the same
+   rules and switched on with <html data-theme="dark">.
+
+   What is a token: anything you would change to make the system yours (colour, type, radius,
+   elevation, motion, page measure). What is not: the small measurements inside a component,
+   which stay literal in kit.css because they are the component. */
+
+:root {
+  color-scheme: light;
+
+  /* ── Ground ─────────────────────────────────────────────────────────────── */
+  --bg: #ffffff;                    /* the page */
+  --bg-2: #f5f5f7;                  /* alternate band, footer, flat panels */
+  --surface: #ffffff;               /* cards, chips, controls */
+  --surface-raised: #ffffff;        /* a thumb or a popover sitting on a surface */
+  --surface-inverse: #1d1d1f;       /* the one dark card on a light page */
+  --fill: rgba(0, 0, 0, 0.055);     /* tracks, quiet buttons, inline code */
+  --fill-hover: rgba(0, 0, 0, 0.09);
+
+  /* ── Ink ────────────────────────────────────────────────────────────────── */
+  --ink: #1d1d1f;                   /* text and primary buttons      16.8 : 1 on --bg */
+  --ink-strong: #000000;            /* a primary button, hovered */
+  --ink-2: #6e6e73;                 /* secondary text                 5.1 : 1 */
+  --ink-3: #86868b;                 /* captions and fine print        3.6 : 1, see README */
+  --on-inverse: #ffffff;
+  --on-inverse-2: rgba(255, 255, 255, 0.68);
+  --line: rgba(0, 0, 0, 0.08);      /* hairlines and card borders */
+  --line-2: rgba(0, 0, 0, 0.13);    /* control borders */
+  --line-3: rgba(0, 0, 0, 0.22);    /* a control border, hovered */
+
+  /* ── Accent: one warm colour, used sparingly ────────────────────────────── */
+  --accent: #e1a95f;                /* fills and highlights. Too light to be text on white. */
+  --accent-ink: #996017;            /* the accent as text: eyebrows, links   5.2 : 1 */
+  --accent-soft: rgba(225, 169, 95, 0.2);
+
+  /* ── The three tints: the only saturated colour in the chrome ───────────── */
+  --tint-1: #1fa3e6;
+  --tint-2: #e8407f;
+  --tint-3: #f2d23b;
+  --aurora-opacity: 0.6;
+  --grad-stops: #7552db, #1a73d5 30%, #008e96 52%, #c96900 76%, #de3e2d;  /* headline gradient, each stop ≥ 3 : 1 */
+  --focus: rgba(31, 163, 230, 0.55);                                      /* --tint-1 at 55 % */
+
+  /* ── Glass ──────────────────────────────────────────────────────────────── */
+  --glass: rgba(255, 255, 255, 0.62);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-solid: rgba(255, 255, 255, 0.96);      /* where blur is unavailable or unwanted */
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-highlight: rgba(255, 255, 255, 0.95);  /* the 1 px lit top edge */
+  --nav-glass: rgba(250, 250, 252, 0.8);
+  --scrim: rgba(0, 0, 0, 0.5);                   /* caption pills on photographs */
+  --on-scrim: #ffffff;
+
+  /* ── Media and code ─────────────────────────────────────────────────────── */
+  --frame-bg: #111111;              /* behind a picture while it loads */
+  --code-bg: #1d1d1f;
+  --code-ink: #e8e6e3;
+  --code-dim: #8b8b90;
+
+  /* ── Elevation: layered, tinted, never pure black ───────────────────────── */
+  --shadow-color: 220deg 30% 25%;
+  --shadow-1: 0 1px 1px hsl(var(--shadow-color) / 0.04), 0 2px 6px hsl(var(--shadow-color) / 0.05), 0 12px 32px -12px hsl(var(--shadow-color) / 0.1);
+  --shadow-2: 0 1px 2px hsl(var(--shadow-color) / 0.05), 0 8px 24px -8px hsl(var(--shadow-color) / 0.12), 0 32px 64px -24px hsl(var(--shadow-color) / 0.18);
+  --shadow-3: 0 2px 4px rgba(0, 0, 0, 0.06), 0 24px 48px -16px rgba(0, 0, 0, 0.22), 0 80px 120px -40px rgba(0, 0, 0, 0.22), 0 60px 140px -40px rgba(31, 163, 230, 0.14);
+
+  /* ── Radius: the bigger the object, the bigger the corner ───────────────── */
+  --r-xl: 28px;                     /* panels, feature cards */
+  --r-l: 20px;                      /* cards inside panels, overlays */
+  --r-m: 14px;                      /* pictures */
+  --r-s: 10px;                      /* small controls */
+  --r-pill: 980px;                  /* buttons, chips, tags */
+
+  /* ── Type ───────────────────────────────────────────────────────────────── */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, Inter,
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --fs-display: clamp(2.75rem, 7.2vw, 5.5rem);   /* h1 */
+  --fs-title: clamp(2rem, 4.4vw, 3.25rem);       /* h2 */
+  --fs-heading: 1.375rem;                        /* h3, 22 px */
+  --fs-lede: clamp(1.0625rem, 1.5vw, 1.3125rem); /* 17 to 21 px */
+  --fs-body: 1.0625rem;                          /* 17 px */
+  --fs-ui: 0.9375rem;                            /* 15 px: buttons, eyebrows */
+  --fs-small: 0.875rem;                          /* 14 px: nav, chips */
+  --fs-caption: 0.8125rem;                       /* 13 px */
+  --fs-micro: 0.75rem;                           /* 12 px */
+
+  --measure: 62ch;                  /* the longest comfortable line */
+
+  /* ── Space ──────────────────────────────────────────────────────────────── */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-section: clamp(72px, 10vw, 128px);     /* above and below every section */
+  --space-section-tight: clamp(40px, 6vw, 72px);
+  --space-head: clamp(36px, 5vw, 64px);          /* between a section's heading and its content */
+  --gap: 20px;                                   /* between cards */
+  --pad-card: 30px;
+
+  /* ── Page ───────────────────────────────────────────────────────────────── */
+  --wrap: 1180px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --nav-h: 56px;
+
+  /* ── Motion ─────────────────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);     /* things arriving */
+  --ease-apple: cubic-bezier(0.4, 0, 0.6, 1);    /* things cross-fading */
+  --spring-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --spring-bouncy: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --dur-fast: 200ms;                /* colour and border changes */
+  --dur-snappy: 650ms;
+  --dur-bouncy: 750ms;
+  --dur-reveal: 900ms;
+  --reveal-rise: 18px;
+  --reveal-stagger: 70;             /* milliseconds between siblings, read by kit.js */
+}
+
+/* Real damped springs where the browser can draw them (response 0.5 s; damping 0.85 is close
+   to SwiftUI's .snappy, 0.7 to .bouncy). The cubic-beziers above are the fallback. */
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --spring-snappy: linear(0, .005 1.2%, .022 2.8%, .055 4.5%, .098 6.2%, .186 9.2%, .51 19.2%, .609 22.8%, .689 26%, .758 29.2%, .816 32.5%, .863 35.8%, .903 39.2%, .937 43.2%, .965 47.8%, .985 52.8%, .997 58.2%, 1.006 70.8%, 1);
+    --spring-bouncy: linear(0, .006 1.2%, .029 2.8%, .065 4.2%, .111 5.8%, .223 8.8%, .585 17.5%, .693 20.5%, .778 23.2%, .85 26%, .909 28.7%, .958 31.8%, .994 34.8%, 1.018 37.5%, 1.034 40.5%, 1.046 47.2%, 1.005 75.5%, 1);
+  }
+}
+
+/* ── Tracking and line height, by script ──────────────────────────────────────
+   Latin first: the root, and any element that switches back to a Latin-script language inside
+   a Chinese page (lang="en" on a quotation, say). */
+:root, [lang]:not(:lang(zh), :lang(ja), :lang(ko)) {
+  --track-display: -0.035em;        /* the larger the type, the tighter it is set */
+  --track-title: -0.03em;
+  --track-heading: -0.02em;
+  --lh-display: 1.02;
+  --lh-title: 1.08;
+  --lh-heading: 1.25;
+  --lh-lede: 1.5;
+  --lh-body: 1.5;
+  --lh-quote: 1.2;
+}
+
+/* Chinese, Japanese, Korean. Han characters fill their box, so they want no negative tracking
+   and more room between lines. Set lang on <html>, or on any element, and the type follows. */
+:lang(zh), :lang(ja), :lang(ko) {
+  --track-display: 0em;
+  --track-title: 0em;
+  --track-heading: 0em;
+  --lh-display: 1.14;
+  --lh-title: 1.2;
+  --lh-heading: 1.4;
+  --lh-lede: 1.65;
+  --lh-body: 1.7;
+  --lh-quote: 1.4;
+}
+
+/* ── Dark ─────────────────────────────────────────────────────────────────────
+   Not on spektralab.app. Derived by the same rules: one ink, two greys, hairlines, colour only
+   in the tints. On a dark ground depth comes from lighter surfaces and lit edges, because a
+   shadow has nothing to darken. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0a0a0b;
+  --bg-2: #111113;
+  --surface: #18181b;
+  --surface-raised: #2c2c30;
+  --surface-inverse: #f5f5f7;
+  --fill: rgba(255, 255, 255, 0.08);
+  --fill-hover: rgba(255, 255, 255, 0.13);
+
+  --ink: #f5f5f7;                   /* 18.2 : 1 on --bg */
+  --ink-strong: #ffffff;
+  --ink-2: #a1a1a6;                 /*  7.7 : 1 */
+  --ink-3: #8e8e93;                 /*  6.1 : 1 */
+  --on-inverse: #1d1d1f;
+  --on-inverse-2: rgba(0, 0, 0, 0.62);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-2: rgba(255, 255, 255, 0.16);
+  --line-3: rgba(255, 255, 255, 0.28);
+
+  --accent-ink: #e9b877;            /* 10.9 : 1 */
+  --accent-soft: rgba(225, 169, 95, 0.18);
+
+  --aurora-opacity: 0.42;
+  --grad-stops: #a78bfa, #60a5fa 30%, #2dd4bf 52%, #fbbf24 76%, #fb7185;
+  --focus: rgba(84, 190, 245, 0.7);
+
+  --glass: rgba(30, 30, 34, 0.55);
+  --glass-strong: rgba(30, 30, 34, 0.78);
+  --glass-solid: rgba(24, 24, 27, 0.96);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --nav-glass: rgba(10, 10, 11, 0.72);
+
+  --code-bg: #161618;
+
+  --shadow-1: 0 1px 1px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.3), 0 12px 32px -12px rgba(0, 0, 0, 0.5);
+  --shadow-2: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px -8px rgba(0, 0, 0, 0.5), 0 32px 64px -24px rgba(0, 0, 0, 0.6);
+  --shadow-3: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 48px -16px rgba(0, 0, 0, 0.6), 0 80px 120px -40px rgba(0, 0, 0, 0.6), 0 60px 140px -40px rgba(31, 163, 230, 0.2);
+}

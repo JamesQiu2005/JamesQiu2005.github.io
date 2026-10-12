@@ -1,152 +1,249 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="zh-Hans" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>公司内部 AI 工具体系 · 邱瀚泽</title>
-  <meta name="description" content="从供给、介入与采纳三层定义内部 AI 工具体系，并以三次脱敏后的方式记录五个真实决策及其代价。">
-  <link rel="stylesheet" href="../css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>内部 AI 工具体系 · 判断什么该交给 Agent · 邱瀚泽</title>
+  <meta name="description" content="一段 AI Native 实习的脱敏案例：叫停一条负收益的自研方向，把 Agent 的介入方式写成可执行的标准，五周从需求到上线。">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="内部 AI 工具体系 · 判断什么该交给 Agent，什么不该">
+  <meta property="og:description" content="五个有代价的判断：处境、约束、决定与代价。">
+  <meta property="og:image" content="https://jamesqiu2005.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/kit.css">
+  <link rel="stylesheet" href="../css/ground.css">
 </head>
 <body>
+<a class="skip" href="#main">跳到正文</a>
 
-  <header class="subnav">
-    <a class="brand" href="../" aria-label="邱瀚泽"><span class="brand-logo" aria-hidden="true"></span></a>
-    <nav>
-      <a href="../#work">← What I build</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="a-r" viewBox="0 0 12 12"><path d="M1 6h10M6.5 1.5 11 6l-4.5 4.5"/></symbol>
+  <symbol id="a-l" viewBox="0 0 12 12"><path d="M11 6H1M5.5 1.5 1 6l4.5 4.5"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top__inner">
+    <a class="top__mark" href="../" aria-label="邱瀚泽，回到首页">
+      <svg viewBox="0 0 290 108" aria-hidden="true"><rect x="24" y="42" width="12" height="60"/><rect x="6" width="36" height="12"/><rect x="6" y="36" width="36" height="12"/><rect width="12" height="102"/><rect y="96" width="42" height="12"/><path d="M80,12 H68 A12,12 0 1 1 80,24 Z"/><rect x="50" width="30" height="12"/><polygon points="80,12 90.1760,18.3600 70.4861,49.8638 60.3101,43.5038"/><polygon points="60.3101,43.5038 74.3080,43.7488 92,74.3923 78.6077,75.1962"/><polygon points="75.6077,70 92,74.3923 50,98.6410 50,84.7846"/><rect x="44" width="12" height="108"/><path d="M120,24 A24,24 0 0 1 96,0 H108 A12,12 0 0 0 120,12 Z"/><path d="M120,60 A24,24 0 0 1 96,36 H108 A12,12 0 0 0 120,48 Z"/><path d="M108,72 H120 V84 A24,24 0 0 1 96,108 V96 A12,12 0 0 0 108,84 Z"/><rect x="122" y="12" width="20" height="12"/><rect x="126" width="12" height="32"/><rect x="122" y="84" width="20" height="12"/><rect x="126" y="76" width="12" height="32"/><path d="M126,26 H138 A4,4 0 0 1 142,30 V78 A4,4 0 0 1 138,82 H126 A4,4 0 0 1 122,78 V30 A4,4 0 0 1 126,26 Z M131,36 V48 H133 V36 Z M131,60 V72 H133 V60 Z"/><path d="M144,24 A24,24 0 0 1 168,0 A24,24 0 0 1 192,24 H180 A12,12 0 0 0 168,12 A12,12 0 0 0 156,24 Z"/><polygon points="144,26 167,26 167,102 155,102 155,36 144,36"/><rect x="146" y="48" width="7" height="12"/><rect x="146" y="72" width="7" height="12"/><path d="M146,96 H167 V108 H158 A12,12 0 0 1 146,96 Z"/><polygon points="169,26 192,26 192,102 180,102 180,36 169,36"/><rect x="171" y="48" width="7" height="12"/><rect x="171" y="72" width="7" height="12"/><path d="M171,96 H192 V108 H183 A12,12 0 0 1 171,96 Z"/><path d="M228,24 A24,24 0 0 1 204,0 H216 A12,12 0 0 0 228,12 Z"/><path d="M228,60 A24,24 0 0 1 204,36 H216 A12,12 0 0 0 228,48 Z"/><path d="M216,72 H228 V84 A24,24 0 0 1 204,108 V96 A12,12 0 0 0 216,84 Z"/><path d="M290,0 A60,60 0 0 1 230,60 V48 A48,48 0 0 0 276.4758,12 H272 V0 Z"/><path d="M230,0 A60,60 0 0 0 290,60 V48 A48,48 0 0 1 242,0 Z"/><rect x="240" width="38" height="12"/><rect x="230" y="62" width="60" height="12"/><rect x="230" y="86" width="60" height="12"/><rect x="254" y="60" width="12" height="48"/></svg>
+    </a>
+    <nav class="top__links" aria-label="站点导航">
+      <a href="../#work" aria-current="true">作品<span lang="en">Work</span></a>
+      <a href="../#practice">方法<span lang="en">Practice</span></a>
+      <a href="../#experience">经历<span lang="en">Experience</span></a>
+      <a href="../#imaging">影像<span lang="en">Imaging</span></a>
+      <a href="../#contact">联系<span lang="en">Contact</span></a>
     </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================================================================ Head -->
+  <header class="mast">
+    <div class="wrap sheet">
+      <div class="rail mast__facts">
+        <p><a href="../#work"><svg class="arr arr--l"><use href="#a-l"/></svg>全部作品</a></p>
+        <p><b>04 / 04</b></p>
+        <p><span class="nw">实习</span><span class="sep"> · </span><span class="nw">一家早期科技公司</span></p>
+        <p>2026.07 – 2026.09</p>
+      </div>
+      <div class="main">
+        <h1>内部 AI 工具体系</h1>
+        <p class="title mast__claim"><span class="beat">判断什么该交给 Agent，</span><span class="beat">什么不该。</span></p>
+        <div class="cols mast__leads">
+          <p class="measure span-6">2026 年夏天，我在一家早期科技公司任 AI Native 实习生，直接向 CEO 汇报，负责 AI-Native 产品与内部工具。这一页保留真实的判断结构：每个决定当时的处境、约束、判断与代价。</p>
+          <dl class="spec span-4">
+            <div><dt>角色</dt><dd>AI Native 实习生，直接向 CEO 汇报</dd></div>
+            <div><dt>周期</dt><dd>2026.07 – 2026.09</dd></div>
+            <div><dt>范围</dt><dd>AI-Native 产品与内部工具</dd></div>
+            <div><dt>方式</dt><dd>PRD 与 RFC 驱动；本人定义测试范围与上线验收</dd></div>
+            <div><dt>披露</dt><dd>已脱敏。不呈现公司身份、内部系统名称、供应商、代码与文档原文</dd></div>
+          </dl>
+        </div>
+
+        <dl class="stats" style="--n: 4">
+          <div><dt>Agent 介入标准覆盖的职能部门</dt><dd>3<span>个部门</span></dd></div>
+          <div><dt>单类任务耗时下降</dt><dd>60<span>% 以上</span></dd></div>
+          <div><dt>节省的时间，约数</dt><dd>8<span>人时 / 周</span></dd></div>
+          <div><dt>从需求到上线</dt><dd>5<span>周</span></dd></div>
+        </dl>
+      </div>
+    </div>
   </header>
 
-  <section class="chapter case-hero">
-    <div>
-    <p class="eyebrow reveal">Case Study · 2026.07 – 至今 · 早期科技公司</p>
-    <h1 class="chapter-title reveal">内部 AI<br>工具与治理体系</h1>
-    <p class="chapter-copy reveal"><span class="case-kicker">把 AI 的供给、介入与采纳，变成可以运行的系统。</span>产品经理实习生（AI-Native 产品与内部工具方向）。本页保留真实的判断结构，但公司身份、组织、实现与结果信息均已三次脱敏。</p>
+  <!-- ========================================================== 01 Problem -->
+  <section class="sec" id="problem">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">01</span>问题<span lang="en">Problem</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">公司开始用 AI，</span><span class="beat">但供给、介入与采纳都没有被定义。</span></h2>
+        <p class="measure">模型能力的使用缺少统一的边界，Agent 进入工作流的方式没有定义，组织也没有可靠的使用事实。这不是一个工具缺口。我没有把问题收敛成「做一个内部工具」，而是拆成三层，三层互相约束：供给没有边界会失控，介入没有闭环会失责，采纳没有事实基线会变成口号。</p>
+        <div class="grid grid--3 notes">
+          <div>
+            <h3>供给 · Supply</h3>
+            <p><b>决策与执行分层。</b>控制面负责身份、权限、预算与审计；执行层只执行已经做出的策略。</p>
+          </div>
+          <div>
+            <h3>介入 · Intervention</h3>
+            <p><b>先判断介入形式。</b>对每个工作流区分替代执行、辅助生成与结果校验，并写明人保留在哪个闭环节点。</p>
+          </div>
+          <div>
+            <h3>采纳 · Adoption</h3>
+            <p><b>把采纳当作产品问题。</b>建立使用事实、能力准备度与可复用知识的沉淀路径，让供给对应真实的需求。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <hr class="hairline">
+  <!-- ======================================================== 02 Decisions -->
+  <section class="sec" id="decisions">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">02</span>决策<span lang="en">Decisions</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">真正稀缺的产出，</span><span class="beat">是五次有代价的判断。</span></h2>
+        <p class="measure">实现细节大多不能公开，判断可以。没有代价的决定，不值得被写成案例。</p>
 
-  <section class="chapter">
-    <p class="eyebrow reveal">Problem</p>
-    <h2 class="chapter-title reveal">公司开始使用 AI，<br>但供给、介入与采纳都未被定义。</h2>
-    <p class="chapter-copy reveal">模型能力的使用缺少统一边界，Agent 进入工作流的方式尚未定义，组织也没有可靠的使用事实。<strong>这不是一个工具缺口，而是供给、介入与采纳三个层面必须同时被定义的问题。</strong></p>
-  </section>
+        <div>
+          <div class="record__head">
+            <h3>一 · 从「能不能修」转向「值不值得继续投入」</h3>
+            <p>叫停负收益的自研框架</p>
+          </div>
+          <dl class="record record--4">
+            <div><dt>处境</dt><dd>组织已有一项持续投入的多 Agent 协作方向。最自然的动作是继续修补。</dd></div>
+            <div><dt>约束</dt><dd>我不是最终决策者，只能提供足以改变投资判断、并且可以复现的证据。</dd></div>
+            <div class="key"><dt>判断</dt><dd>用同类产品的实测复现问题：多 Agent 在缺少确定性调度时，会进入不可检测、不可恢复的语义死锁。据此向 CEO 论证继续投入的边际收益为负。结论被采纳，这条方向停止投入。</dd></div>
+            <div><dt>代价</dt><dd>证据是在并行工作里逐步积累的。如果先定义「什么证据足以下结论」，可以更早收口。</dd></div>
+          </dl>
+        </div>
 
-  <hr class="hairline">
+        <div>
+          <div class="record__head">
+            <h3>二 · 把「哪些交给 Agent」写成可执行的标准</h3>
+            <p>场景切分与人机分工</p>
+          </div>
+          <dl class="record record--4">
+            <div><dt>处境</dt><dd>多个职能部门的工作流都可以接入 Agent，但以什么方式接入，没有人定义过。</dd></div>
+            <div><dt>约束</dt><dd>介入没有闭环就会失责。每个环节都要说得清：出了问题，由谁接住。</dd></div>
+            <div class="key"><dt>判断</dt><dd>逐个流程判断 Agent 以替代执行、辅助生成还是结果校验的方式介入，并写明哪些环节允许自主重试，哪些必须升级给人。</dd></div>
+            <div><dt>结果</dt><dd>标准覆盖 3 个职能部门；单类任务耗时下降 60% 以上，每周节省约 8 人时。</dd></div>
+          </dl>
+        </div>
 
-  <section class="chapter">
-    <p class="eyebrow reveal">Definition</p>
-    <h2 class="chapter-title reveal">不是一个平台，<br>是三个必须同时成立的定义。</h2>
-    <p class="chapter-copy reveal">我没有把问题收敛成“做一个内部工具”，而是把它拆成三层：公司如何供应 AI，Agent 如何进入工作流，以及组织如何形成真实采纳。三层互相约束：供给没有边界会失控，介入没有闭环会失责，采纳没有事实基线会变成口号。</p>
-    <div class="definition-stack reveal">
-      <div class="definition-row"><h3>Supply</h3><p><strong>决策与执行分层。</strong> 控制面负责身份、权限、预算与审计；执行层只执行已经做出的策略。</p></div>
-      <div class="definition-row"><h3>Intervention</h3><p><strong>先判断介入形式。</strong> 对每个工作流区分替代执行、辅助生成与结果校验，并明确人保留在哪个闭环节点。</p></div>
-      <div class="definition-row"><h3>Adoption</h3><p><strong>把采纳当作产品问题。</strong> 建立使用事实、能力准备度与可复用知识的沉淀路径，让供给对应真实需求。</p></div>
+        <div>
+          <div class="record__head">
+            <h3>三 · 把 Agent 的决策与执行分开</h3>
+            <p>内部大模型调用网关</p>
+          </div>
+          <dl class="record record--4">
+            <div><dt>处境</dt><dd>如果不设统一的入口，每个 Agent 都会各自实现一套身份、权限与预算。</dd></div>
+            <div><dt>约束</dt><dd>入口要兼容多类客户端与上游通路；外部身份协议的字段也不归我们控制。</dd></div>
+            <div class="key"><dt>判断</dt><dd>主导网关的需求定义、核心实体关系与用户组权限设计，把身份、权限、预算与审计收敛到网关层。划分边界的依据是所有权与变更速率，而不是今天的数据是否刚好一致。</dd></div>
+            <div><dt>代价</dt><dd>前期多出一层看似冗余的映射，用灵活性换确定性。初期把配额与用户组的边界后补，造成过一次返工。</dd></div>
+          </dl>
+        </div>
+
+        <div>
+          <div class="record__head">
+            <h3>四 · 改造优先于自研</h3>
+            <p>五周，从需求到上线</p>
+          </div>
+          <dl class="record record--4">
+            <div><dt>处境</dt><dd>交付窗口短，工作线并行。任何一条从零自研，都会挤占判断与验收的时间。</dd></div>
+            <div><dt>约束</dt><dd>团队没有余量长期维护新的轮子。「先可用」和「架构完美」在这个窗口里是冲突的。</dd></div>
+            <div class="key"><dt>判断</dt><dd>默认先找现有实现，再过三道筛：它是否扛掉了最不值得自己写的部分；改动集中在边界层还是核心层；它隐含的身份与权限假设，是否适合多人场景。并且提前写下退役条件。</dd></div>
+            <div><dt>代价</dt><dd>过渡件往往比计划活得更久。分叉之后，上游的更新也不再自动获得。</dd></div>
+          </dl>
+        </div>
+
+        <div>
+          <div class="record__head">
+            <h3>五 · 先建立事实，再谈推行</h3>
+            <p>使用基线调研</p>
+          </div>
+          <dl class="record record--4">
+            <div><dt>处境</dt><dd>一种常见的判断是：模型继续变强之后，体验与采纳的问题会自然减弱。</dd></div>
+            <div><dt>约束</dt><dd>我不能靠立场赢得讨论，也不能让一次宣讲替代真实的使用证据。</dd></div>
+            <div class="key"><dt>判断</dt><dd>推动使用基线调研，按具体工具拆分使用频率。结果显示，阻塞采纳的不是模型上限，而是稳定性、上下文连续性、工作流连接与概念理解。这四项共同指向使用者对 AI 输出的信任度。我据此把 enablement 从「推广活动」重新定义为供需对齐的机制。</dd></div>
+            <div><dt>代价</dt><dd>先调研、后演示，放慢了短期的推进节奏。第一次讨论也没有可以立即宣布的成果。</dd></div>
+          </dl>
+        </div>
+      </div>
     </div>
   </section>
 
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Decision Archive</p>
-    <h2 class="chapter-title reveal">真正稀缺的产出，<br>是五次有代价的判断。</h2>
-    <p class="chapter-copy reveal">实现细节大多不能公开，判断可以。以下五个决策分别记录当时的处境、约束、决定与代价；没有代价的决定，不值得被包装成案例。</p>
+  <!-- ========================================================== 03 Process -->
+  <section class="sec" id="process">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">03</span>过程<span lang="en">Process</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">规格的精度，</span><span class="beat">就是产品的精度。</span></h2>
+        <p class="measure">我的工作路径是：需求调研，规格与实体关系，任务拆解，Coding Agent 实现，再由我负责变更管理、测试范围、回归与验收。与工程侧按领域的所有权分工，而不是按页面或功能切割责任。这段实习里我写的代码不多，写的规格很多。这不是角色的限制，而是 Agent 参与开发之后，最重要的产品控制面。</p>
+      </div>
+    </div>
   </section>
 
-  <div class="decision-archive">
-    <article class="decision-card reveal">
-      <p class="decision-number">Decision 01</p><h3>先建立事实，再谈推行</h3>
-      <dl class="decision-grid">
-        <div class="decision-field"><dt>处境</dt><dd>一种常见判断是：模型继续增强后，体验与采纳问题会自然减弱。</dd></div>
-        <div class="decision-field"><dt>约束</dt><dd>我不能靠立场赢得讨论，也不能让一次宣讲替代真实使用证据。</dd></div>
-        <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>推动使用基线调研，按具体工具拆分频率、分别评价不同 AI 角色，并避免让临时检索替代真实经验。结果显示阻塞采纳的核心不是模型上限，而是稳定性、上下文连续性、工作流连接与概念理解；这四项共同指向的是使用者对 AI 输出的信任度，而不是模型能力上限。我据此把 enablement 从“推广活动”重定义为供需对齐机制。</dd></div>
-        <div class="decision-field decision-field--cost"><dt>代价</dt><dd>先调研、后演示放慢了短期推进节奏；第一次讨论也没有可立即宣布的成果。</dd></div>
-      </dl>
-    </article>
+  <!-- ========================================================= 04 Delivery -->
+  <section class="sec" id="delivery">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">04</span>交付<span lang="en">Delivery</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">结果不只是一组数字，</span><span class="beat">也是清楚的交付状态。</span></h2>
+        <ul class="status">
+          <li><span>大模型调用网关：需求、实体关系与权限设计</span><span>已交付</span></li>
+          <li><span>协作入口与 Coding Agent 的桥接</span><span>已交付</span></li>
+          <li><span>招聘自动化</span><span>已交付</span></li>
+          <li><span>内部对话前端</span><span>已交付</span></li>
+          <li><span>内部 Skills 管理平台；重复工作流沉淀为 Agent Skill</span><span>已交付</span></li>
+          <li class="off"><span>自研的多 Agent 协作方向</span><span>已停止投入</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <article class="decision-card reveal">
-      <p class="decision-number">Decision 02</p><h3>从“能不能修”转向“值不值得继续投入”</h3>
-      <dl class="decision-grid">
-        <div class="decision-field"><dt>处境</dt><dd>组织已有一项持续投入的多 Agent 协作方向，最自然的动作是继续修补。</dd></div>
-        <div class="decision-field"><dt>约束</dt><dd>我不是最终决策者，只能提供足以改变投资判断的可复现证据。</dd></div>
-        <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>我没有把讨论停在代码质量，而是构造协作主体相互等待的可复现场景，证明缺少确定性调度时会出现无法检测、也没有恢复路径的语义死锁；再叠加既有实现的结构性风险，建议重估继续投入的边际收益。结论被采纳，这条方向停止投入。</dd></div>
-        <div class="decision-field decision-field--cost"><dt>代价</dt><dd>证据在并行工作中逐步积累；若先定义“什么证据足以下结论”，可以更早收口。</dd></div>
-      </dl>
-    </article>
+  <!-- ==================================================== 05 Retrospective -->
+  <section class="sec" id="retrospective">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">05</span>回顾<span lang="en">Retrospective</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">边界要先于功能，</span><span class="beat">调研要先于推广。</span></h2>
+        <div class="cols">
+          <div class="span-6">
+            <p class="measure">初期按「先跑起来」推进，把配额与用户组的边界后补，最终造成返工。多租户系统的第一个实体不是功能，是边界。</p>
+            <p class="measure">我也曾把采纳理解成「做完再去讲」。调研之后才明白，它首先是产品问题：没有人会因为公司在推 AI，就去忍受一个会断连的工具。如果重来，组织调研会发生在第一周。</p>
+          </div>
+          <p class="note span-4">披露说明：公开版本不呈现公司身份、内部系统名称、供应商、代码与文档原文。数字与简历一致。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <article class="decision-card reveal">
-      <p class="decision-number">Decision 03</p><h3>不自己写：先找到值得改造的基础设施</h3>
-      <dl class="decision-grid">
-        <div class="decision-field"><dt>处境</dt><dd>交付窗口短、工作线并行，任何一条从零自研都会挤占关键判断与验收。</dd></div>
-        <div class="decision-field"><dt>约束</dt><dd>团队没有余量长期维护新轮子，“先可用”和“架构完美”在这个窗口里冲突。</dd></div>
-        <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>默认先找现有实现，再用三条筛子判断：它是否扛掉最不值得自写的部分；改动集中在边界层还是核心层；它的隐含身份与权限假设是否适合多人场景。面向对话与能力共享的交付均复用既有基础设施，并提前写下退役条件。</dd></div>
-        <div class="decision-field decision-field--cost"><dt>代价</dt><dd>过渡件往往比计划活得更久；fork 之后，上游更新也不再自动获得。</dd></div>
-      </dl>
-    </article>
+  <nav class="pager" aria-label="其他作品">
+    <div class="wrap sheet">
+      <p class="rail label">回到第一个<span class="label__n">01 / 04</span></p>
+      <p class="main"><a class="title" href="spektralab.html"><span class="name">SpektraLab</span><svg class="arr"><use href="#a-r"/></svg></a></p>
+    </div>
+  </nav>
+</main>
 
-    <article class="decision-card reveal">
-      <p class="decision-number">Decision 04</p><h3>先画边界，再写功能</h3>
-      <dl class="decision-grid">
-        <div class="decision-field"><dt>处境</dt><dd>统一调用入口要兼容多类客户端与上游通路，早期又因权限边界后补发生返工。</dd></div>
-        <div class="decision-field"><dt>约束</dt><dd>通用中间格式会损失语义；外部身份协议的字段也不归我们控制。</dd></div>
-        <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>把协议类型定义为凭证创建时确定、之后不可变的属性，让转换路径彼此独立并保持语义；同时强制外部身份声明经过显式映射，再进入内部权限模型。边界依据是所有权与变更速率，而不是今天的数据是否刚好一致。</dd></div>
-        <div class="decision-field decision-field--cost"><dt>代价</dt><dd>切换协议必须更换凭证，前期也多出一层看似冗余的映射；这是用灵活性换确定性。</dd></div>
-      </dl>
-    </article>
-
-    <article class="decision-card reveal">
-      <p class="decision-number">Decision 05</p><h3>不为能力共享再建一个后台</h3>
-      <dl class="decision-grid">
-        <div class="decision-field"><dt>处境</dt><dd>组织需要可配置、可共享、有版本且可审计的 Agent 能力机制。</dd></div>
-        <div class="decision-field"><dt>约束</dt><dd>团队没有余量维护新的管理后台，既有版本协作基础设施已经承载权限与审计。</dd></div>
-        <div class="decision-field decision-field--judgment"><dt>判断</dt><dd>直接复用已有平台：权限沿用现有体系，提交历史提供审计，差异与评审管理变更，回滚也使用团队熟悉的动作。产品形态服从已有基建，而不是为一张更漂亮的界面复制整套治理能力。</dd></div>
-        <div class="decision-field decision-field--cost"><dt>代价</dt><dd>非技术同事必须面对版本协作的心智模型。模板和薄封装只能缓解，不能消除——这是全页最有争议的取舍。</dd></div>
-      </dl>
-    </article>
+<footer class="footer">
+  <div class="wrap sheet">
+    <p class="rail">© 2026 邱瀚泽</p>
+    <div class="main grid grid--3 notes">
+      <div><h4>字体</h4><p>系统字体，不加载字体文件。</p></div>
+      <div><h4>构建</h4><p>手写 HTML、CSS 与少量 JavaScript。没有框架，没有追踪。</p></div>
+      <div><h4>联系</h4><p><a href="mailto:hq2144@nyu.edu">hq2144@nyu.edu</a></p></div>
+    </div>
   </div>
+</footer>
 
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Process</p>
-    <h2 class="chapter-title reveal">规格的精度，<br>就是产品的精度。</h2>
-    <p class="chapter-copy reveal">我的工作路径是需求调研 → 规格与实体关系 → 任务拆解 → Coding Agent 实现，再由我负责变更管理、测试范围、回归与验收。与工程侧按领域所有权分工，而不是按页面或功能切割责任。<strong>这段实习里我写的代码不多，写的 spec 很多；这不是角色限制，而是 Agent 参与开发后最重要的产品控制面。</strong></p>
-  </section>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Outcome</p>
-    <h2 class="chapter-title reveal">结果不只是一组数字，<br>也是不同的交付状态。</h2>
-    <p class="chapter-copy reveal">多个跨职能工作流完成试点并进入使用；更重要的是，交付状态被明确区分为已交付、过渡期、开发中、讨论中与停止投入。<strong>本页不公开精确效率数字，以避免由样本规模、流程类型与时间窗口反推组织信息。</strong></p>
-    <div class="delivery-list reveal">
-      <div class="delivery-item"><span>统一调用边界与权限设计</span><span class="delivery-status">已交付</span></div>
-      <div class="delivery-item"><span>协作入口与执行 Agent 的连接层</span><span class="delivery-status">已交付</span></div>
-      <div class="delivery-item"><span>重复信息处理工作流</span><span class="delivery-status">已交付</span></div>
-      <div class="delivery-item"><span>基于现有实现改造的过渡工具</span><span class="delivery-status">已交付 · 待退役</span></div>
-      <div class="delivery-item"><span>可复用 Agent 能力的配置与共享</span><span class="delivery-status">开发中</span></div>
-      <div class="delivery-item"><span>能力准备度与采纳机制</span><span class="delivery-status">讨论中</span></div>
-      <div class="delivery-item"><span>自研多 Agent 协作方向</span><span class="delivery-status">已停止投入</span></div>
-    </div>
-  </section>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Retrospective</p>
-    <h2 class="chapter-title reveal">边界要先于功能，<br>调研要先于推广。</h2>
-    <p class="chapter-copy reveal">初期按“先跑起来”推进，把配额与用户组边界后补，最终造成返工：<strong>多租户系统的第一个实体不是功能，是边界。</strong>我也曾把采纳理解成“做完再去讲”，调研后才明白它首先是产品问题——没有人会为了公司在推 AI，去忍受一个会断连的工具。如果重来，组织调研会发生在第一周。</p>
-    <p class="disclosure-note reveal"><strong>第三次脱敏说明：</strong>公开版本不呈现公司身份、内部系统名称、供应商、代码与文档原文。交付状态最后更新于 2026.08.06。</p>
-    <a class="chapter-cta reveal" href="../#work">← 返回全部作品</a>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-note">
-      <span>内部 AI 工具体系 · 产品经理实习</span>
-      <span class="key">in C major, always.</span>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
+<script src="../js/site.js" defer></script>
 </body>
 </html>

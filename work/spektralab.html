@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="zh-Hans" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SpektraLab · 模拟胶片的过程 · 邱瀚泽</title>
+  <meta name="description" content="SpektraLab：macOS 物理胶片模拟与数字暗房。一个人完成市场调研、产品定义、界面与品牌、引擎移植、发布与冷启动的完整案例。">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SpektraLab · 不模仿胶片的结果，模拟胶片的过程">
+  <meta property="og:description" content="4500 万像素 1.13 秒出图，18 天 14 个版本。一个人从市场缺口做到开源发布与冷启动。">
+  <meta property="og:image" content="https://jamesqiu2005.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/kit.css">
+  <link rel="stylesheet" href="../css/ground.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="a-r" viewBox="0 0 12 12"><path d="M1 6h10M6.5 1.5 11 6l-4.5 4.5"/></symbol>
+  <symbol id="a-l" viewBox="0 0 12 12"><path d="M11 6H1M5.5 1.5 1 6l4.5 4.5"/></symbol>
+  <symbol id="a-ne" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top__inner">
+    <a class="top__mark" href="../" aria-label="邱瀚泽，回到首页">
+      <svg viewBox="0 0 290 108" aria-hidden="true"><rect x="24" y="42" width="12" height="60"/><rect x="6" width="36" height="12"/><rect x="6" y="36" width="36" height="12"/><rect width="12" height="102"/><rect y="96" width="42" height="12"/><path d="M80,12 H68 A12,12 0 1 1 80,24 Z"/><rect x="50" width="30" height="12"/><polygon points="80,12 90.1760,18.3600 70.4861,49.8638 60.3101,43.5038"/><polygon points="60.3101,43.5038 74.3080,43.7488 92,74.3923 78.6077,75.1962"/><polygon points="75.6077,70 92,74.3923 50,98.6410 50,84.7846"/><rect x="44" width="12" height="108"/><path d="M120,24 A24,24 0 0 1 96,0 H108 A12,12 0 0 0 120,12 Z"/><path d="M120,60 A24,24 0 0 1 96,36 H108 A12,12 0 0 0 120,48 Z"/><path d="M108,72 H120 V84 A24,24 0 0 1 96,108 V96 A12,12 0 0 0 108,84 Z"/><rect x="122" y="12" width="20" height="12"/><rect x="126" width="12" height="32"/><rect x="122" y="84" width="20" height="12"/><rect x="126" y="76" width="12" height="32"/><path d="M126,26 H138 A4,4 0 0 1 142,30 V78 A4,4 0 0 1 138,82 H126 A4,4 0 0 1 122,78 V30 A4,4 0 0 1 126,26 Z M131,36 V48 H133 V36 Z M131,60 V72 H133 V60 Z"/><path d="M144,24 A24,24 0 0 1 168,0 A24,24 0 0 1 192,24 H180 A12,12 0 0 0 168,12 A12,12 0 0 0 156,24 Z"/><polygon points="144,26 167,26 167,102 155,102 155,36 144,36"/><rect x="146" y="48" width="7" height="12"/><rect x="146" y="72" width="7" height="12"/><path d="M146,96 H167 V108 H158 A12,12 0 0 1 146,96 Z"/><polygon points="169,26 192,26 192,102 180,102 180,36 169,36"/><rect x="171" y="48" width="7" height="12"/><rect x="171" y="72" width="7" height="12"/><path d="M171,96 H192 V108 H183 A12,12 0 0 1 171,96 Z"/><path d="M228,24 A24,24 0 0 1 204,0 H216 A12,12 0 0 0 228,12 Z"/><path d="M228,60 A24,24 0 0 1 204,36 H216 A12,12 0 0 0 228,48 Z"/><path d="M216,72 H228 V84 A24,24 0 0 1 204,108 V96 A12,12 0 0 0 216,84 Z"/><path d="M290,0 A60,60 0 0 1 230,60 V48 A48,48 0 0 0 276.4758,12 H272 V0 Z"/><path d="M230,0 A60,60 0 0 0 290,60 V48 A48,48 0 0 1 242,0 Z"/><rect x="240" width="38" height="12"/><rect x="230" y="62" width="60" height="12"/><rect x="230" y="86" width="60" height="12"/><rect x="254" y="60" width="12" height="48"/></svg>
+    </a>
+    <nav class="top__links" aria-label="站点导航">
+      <a href="../#work" aria-current="true">作品<span lang="en">Work</span></a>
+      <a href="../#practice">方法<span lang="en">Practice</span></a>
+      <a href="../#experience">经历<span lang="en">Experience</span></a>
+      <a href="../#imaging">影像<span lang="en">Imaging</span></a>
+      <a href="../#contact">联系<span lang="en">Contact</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================================================================ Head -->
+  <header class="mast" data-stars-scope>
+    <div class="wrap sheet">
+      <div class="rail mast__facts">
+        <p><a href="../#work"><svg class="arr arr--l"><use href="#a-l"/></svg>全部作品</a></p>
+        <p><b>01 / 04</b></p>
+        <p>独立产品 · 开源</p>
+        <p>2026.08 – 今</p>
+      </div>
+      <div class="main">
+        <h1><span class="name">SpektraLab</span></h1>
+        <p class="title mast__claim"><span class="beat">不模仿胶片的结果，</span><span class="beat">模拟胶片的过程。</span></p>
+        <div class="cols mast__leads">
+          <p class="measure span-6">一款 macOS 上的物理胶片模拟与数字暗房应用。打开一张 RAW，选好胶片和相纸，约一秒得到一张按物理过程建模的照片。我一个人完成了市场调研、产品定义、界面与品牌、引擎移植、打包分发和冷启动，并根据用户反馈持续迭代。</p>
+          <dl class="spec span-4">
+            <div><dt>角色</dt><dd>独立完成</dd></div>
+            <div><dt>周期</dt><dd>2026.08 – 今</dd></div>
+            <div><dt>平台</dt><dd>macOS 15 及以上，Apple 芯片</dd></div>
+            <div><dt>技术</dt><dd>SwiftUI · Metal · C++20</dd></div>
+            <div><dt>许可</dt><dd>GPL-3.0-or-later</dd></div>
+            <div><dt>链接</dt><dd><a href="https://github.com/JamesQiu2005/SpektraLab" rel="noopener">GitHub<svg class="arr arr--ne"><use href="#a-ne"/></svg></a><a href="https://github.com/JamesQiu2005/SpektraLab/releases" rel="noopener">下载<svg class="arr arr--ne"><use href="#a-ne"/></svg></a></dd></div>
+          </dl>
+        </div>
+
+        <figure class="figure figure--wide mast__figure">
+          <div class="figure__media">
+            <img src="../assets/img/sl-app-1280.webp" srcset="../assets/img/sl-app-1280.webp 1280w, ../assets/img/sl-app-2560.webp 2560w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 78vw, 92vw" width="2560" height="1440" alt="SpektraLab 主界面：左栏选择胶片与相纸，中间是按物理过程显影的曼哈顿夜景，右栏是曝光与宽容度参数" fetchpriority="high">
+          </div>
+          <figcaption><strong>SpektraLab 1.x · macOS</strong><span>曼哈顿下城 · Kodak Portra 160 · Kodak Vision 2383</span></figcaption>
+        </figure>
+
+        <dl class="stats" style="--n: 3">
+          <div><dt>4500 万像素出图。参考实现约 30 s</dt><dd>1.13<span>s</span></dd></div>
+          <div><dt>1 亿像素峰值内存。首个版本为 27.4 GB</dt><dd>13.7<span>GB</span></dd></div>
+          <div><dt>导出文件与屏幕软打样的差异</dt><dd>0<span>px</span></dd></div>
+          <div><dt>与参考实现的最大误差</dt><dd>1.1 × 10<sup>−5</sup></dd></div>
+          <div><dt>GitHub，<span class="nw">截至 <span data-stars-date>2026.10.08</span></span></dt><dd><b data-stars="139">139</b><span>Stars</span></dd></div>
+          <div><dt>首发后 18 天内发布</dt><dd>14<span>个版本</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================== 01 Gap -->
+  <section class="sec" id="gap">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">01</span>缺口<span lang="en">Gap</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">能用的不真实，</span><span class="beat">真实的不能用。</span></h2>
+        <div class="table-wrap">
+          <table class="table table--fixed table--stack">
+            <thead>
+              <tr><th scope="col"><span class="visually-hidden">比较项</span></th><th scope="col">RGB LUT 滤镜</th><th scope="col">物理模型 spektrafilm</th><th scope="col">SpektraLab</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">怎么算</th><td data-l="RGB LUT 滤镜">输入三个数，查表，输出三个数</td><td data-l="物理模型 spektrafilm">81 个光谱波段，21 个节点，实测的胶片与相纸数据</td><td class="hl" data-l="SpektraLab">同一个物理模型，原生移植到 C++ 与 Metal</td></tr>
+              <tr><th scope="row">得到什么</th><td data-l="RGB LUT 滤镜">快，容易上手，能长得像</td><td data-l="物理模型 spektrafilm">换一卷胶片、多给一档曝光，颜色的变化有物理依据</td><td class="hl" data-l="SpektraLab">物理真实，并且能实时拖动滑杆</td></tr>
+              <tr><th scope="row">代价</th><td data-l="RGB LUT 滤镜">回答不了「颜色为什么这样变」</td><td data-l="物理模型 spektrafilm">只有 Python 命令行；4500 万像素一张约 30 秒</td><td class="hl" data-l="SpektraLab">目前只支持 macOS 与 Apple 芯片</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="measure">摄影师不需要懂光谱，只需要懂暗房。产品要做的，是把正确的物理放在熟悉的操作后面。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== 02 Positioning -->
+  <section class="sec" id="positioning">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">02</span>定位<span lang="en">Positioning</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">数字暗房，不是图库。</h2>
+        <div class="grid grid--2">
+          <div>
+            <h3 class="items-head">做</h3>
+            <ul class="items">
+              <li>按暗房流程组织：进片、胶片曝光、显影、印相、呈现</li>
+              <li>任何参数改动都能实时看到</li>
+              <li>导出的成片，等于屏幕上确认过的样子</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="items-head">不做</h3>
+            <ul class="items items--no">
+              <li>图库与素材管理</li>
+              <li>复刻化学操作台</li>
+              <li>一键滤镜、玻璃拟态、触屏尺寸的控件</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">参照：Capture One 的专业工作流与工具栏；Dehancer 连续的胶片模块。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== 03 Process -->
+  <section class="sec" id="process">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">03</span>过程<span lang="en">Process</span></p>
+      <div class="main flow">
+        <h2 class="title">一张照片，走完 21 个节点。</h2>
+        <p class="measure">场景的光先被还原成光谱，再依次经过胶片的感光、显影、成色剂耦合与颗粒，由放大机印到相纸上，最后在标准光源下被「看」出来。每一步都是一个有物理意义的方程，界面上的每个控件都对应其中一步。</p>
+
+        <figure class="figure figure--wide">
+          <div class="compare-stage" style="--pos: 50%">
+            <img src="../assets/img/sl-compare-film-1000.webp" srcset="../assets/img/sl-compare-film-1000.webp 1000w, ../assets/img/sl-compare-film-2000.webp 2000w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 78vw, 92vw" width="2000" height="1332" loading="lazy" alt="优胜美地山谷的冬季清晨，经 Kodak Portra 400 胶片与 Portra Endura 相纸显影后的成片">
+            <img class="compare-a" src="../assets/img/sl-compare-raw-1000.webp" srcset="../assets/img/sl-compare-raw-1000.webp 1000w, ../assets/img/sl-compare-raw-2000.webp 2000w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 78vw, 92vw" width="2000" height="1332" loading="lazy" alt="同一张照片未经显影的 RAW 解码结果，色彩平淡">
+            <span class="compare-line" aria-hidden="true"></span>
+            <span class="compare-tag compare-tag-a" aria-hidden="true">RAW 解码</span>
+            <span class="compare-tag compare-tag-b" aria-hidden="true">胶片与相纸</span>
+            <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="拖动对比：左侧为 RAW 解码，右侧为胶片与相纸显影">
+          </div>
+          <figcaption><strong>拖动对比</strong><span>Yosemite Valley, CA</span><span>Kodak Portra 400 · Kodak Portra Endura</span><span>Nikon 45.7 MP NEF</span></figcaption>
+        </figure>
+
+        <div class="shots shots--3x2" style="--n: 3">
+          <figure>
+            <img src="../assets/img/sl-pipe-1-input.webp" width="900" height="600" loading="lazy" alt="输入：线性 ProPhoto RGB 图像">
+            <figcaption><span class="num">01</span><b>输入</b>线性 ProPhoto RGB，每个像素 3 个数</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/sl-pipe-2-spectral.webp" width="900" height="600" loading="lazy" alt="光谱上采样：同一画面按波长从 400 到 720 纳米切成 17 条">
+            <figcaption><span class="num">02</span><b>光谱上采样</b>还原为 380 至 780 nm 的 81 个波段。图中是其中 17 个</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/sl-pipe-3-layers.webp" width="900" height="600" loading="lazy" alt="胶片感光：感蓝、感绿、感红三层乳剂各自的曝光">
+            <figcaption><span class="num">03</span><b>胶片感光</b>感蓝、感绿、感红三层乳剂各自曝光，加入光晕</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/sl-pipe-4-negative.webp" width="900" height="600" loading="lazy" alt="负片：带橙色片基的彩色负片，放在 D50 灯箱上观看">
+            <figcaption><span class="num">04</span><b>负片</b>特性曲线、成色剂耦合与颗粒，得到负片密度</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/sl-pipe-5-print.webp" width="900" height="600" loading="lazy" alt="相纸印放：相纸上青、品红、黄三层染料的密度">
+            <figcaption><span class="num">05</span><b>相纸印放</b>放大机把负片印到相纸的青、品红、黄三层染料上</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/sl-pipe-6-final.webp" width="900" height="600" loading="lazy" alt="成片：在 D50 标准光源下观看的照片">
+            <figcaption><span class="num">06</span><b>成片</b>在 D50 光源下观看，做一次色域映射后输出</figcaption>
+          </figure>
+        </div>
+
+        <dl class="nodes">
+          <div><dt>预处理 · 3</dt><dd>input_cast → auto_exposure → crop_rescale</dd></div>
+          <div><dt>胶片 · 8</dt><dd>upsample → exposure → boost → halation → log → curves → dir_couplers → grain</dd></div>
+          <div><dt>印相 · 3</dt><dd>enlarger_spectral → print_exposure → print_curves</dd></div>
+          <div><dt>观看 · 7</dt><dd>scan_spectral → bw_correction → glare → xyz_to_rgb → gamut_compress → unsharp → cctf</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== 04 Engine -->
+  <section class="sec" id="engine">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">04</span>引擎<span lang="en">Engine</span></p>
+      <div class="main flow">
+        <h2 class="title">先定验收，再写实现。</h2>
+        <p class="measure">8 月 24 日的第一批提交不是功能，而是一套 1600 万像素的基线、一个视觉等价测试框架和 RFC-001。之后 21 个节点从 Python 逐个移植到 C++ 与 Metal，每个节点都与参考实现对拍。性能和内存不是感觉，是写进基线的数字。</p>
+
+        <figure class="viz viz--bars">
+          <p class="viz-title">峰值内存，按照片像素数</p>
+          <p class="viz-sub">单位 GB，越低越好。M3 Max 实测；RAW 分别来自 Hasselblad CFV 100C、Nikon Z7 II、Sony α7 III。</p>
+          <p class="legend"><span class="k0"><i></i>v0.3.1，首个公开版本</span><span><i></i>v1.0.3，两天后</span></p>
+          <table class="bars">
+            <tbody>
+              <tr>
+                <th scope="row"><b>1 亿像素</b><span>102 MP</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="1 亿像素，v0.3.1：27.4 GB" data-tip="27.4 GB|1 亿像素 · v0.3.1" style="--v:27.4; --max:27.4"><i></i>27.4</span>
+                  <span class="bar now" tabindex="0" role="img" aria-label="1 亿像素，v1.0.3：13.7 GB" data-tip="13.7 GB|1 亿像素 · v1.0.3" style="--v:13.7; --max:27.4"><i></i>13.7</span>
+                </td>
+                <td class="delta">−50%</td>
+              </tr>
+              <tr>
+                <th scope="row"><b>4500 万像素</b><span>45 MP</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="4500 万像素，v0.3.1：9.3 GB" data-tip="9.3 GB|4500 万像素 · v0.3.1" style="--v:9.3; --max:27.4"><i></i>9.3</span>
+                  <span class="bar now" tabindex="0" role="img" aria-label="4500 万像素，v1.0.3：7.0 GB" data-tip="7.0 GB|4500 万像素 · v1.0.3" style="--v:7; --max:27.4"><i></i>7.0</span>
+                </td>
+                <td class="delta">−24%</td>
+              </tr>
+              <tr>
+                <th scope="row"><b>2400 万像素</b><span>24 MP</span></th>
+                <td>
+                  <span class="bar" tabindex="0" role="img" aria-label="2400 万像素，v0.3.1：5.6 GB" data-tip="5.6 GB|2400 万像素 · v0.3.1" style="--v:5.6; --max:27.4"><i></i>5.6</span>
+                  <span class="bar now" tabindex="0" role="img" aria-label="2400 万像素，v1.0.3：4.1 GB" data-tip="4.1 GB|2400 万像素 · v1.0.3" style="--v:4.1; --max:27.4"><i></i>4.1</span>
+                </td>
+                <td class="delta">−26%</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+
+        <div>
+          <div class="record__head">
+            <h3>取舍：对齐参考实现，还是对用户正确？</h3>
+            <p>引擎移植 · 已知差异</p>
+          </div>
+          <dl class="record">
+            <div><dt>现象</dt><dd>参考实现在构建计算图时，把「镜头模糊」当成无效节点剪掉了。用户拖这个滑杆，什么都不会发生。</dd></div>
+            <div><dt>约束</dt><dd>移植版必须能和参考实现逐节点对拍，任何差异都要能解释。</dd></div>
+            <div class="key"><dt>洞察</dt><dd>对拍是为了守住物理，不是为了复制缺陷。「一致」不等于「正确」。</dd></div>
+            <div><dt>方案</dt><dd>每次运行时按实际像素尺寸计算模糊半径，让参数真正生效。</dd></div>
+            <div><dt>验证</dt><dd>对拍测试把这里登记为「已知差异」，而不是把它「修」成一致。</dd></div>
+            <div><dt>结果</dt><dd>界面上的每个滑杆都真的做了点什么。差异有记录，可追溯。</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 05 Interface -->
+  <section class="sec" id="interface">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">05</span>界面与身份<span lang="en">Interface, identity</span></p>
+      <div class="main flow">
+        <h2 class="title">控件在哪一侧，</span><span class="beat">说明移动它的代价。</span></h2>
+        <p class="measure">左栏回答「照片如何形成」：胶片、画幅、相纸，改这里等于重新显影一次。右栏回答「成片长什么样」：白平衡、曲线、色彩平衡，改这里只是重新绘制。信息架构本身就在告诉用户，每一次调整要付出多少。</p>
+
+        <div class="grid grid--3 notes">
+          <div>
+            <h3>三种「变亮」，三个位置</h3>
+            <p>胶片曝光、印相曝光、后期调色，物理上是三件事。所以名字不同，位置不同，重算的代价也不同。</p>
+          </div>
+          <div>
+            <h3>一个「120」，四种画幅</h3>
+            <p>由画幅类型、对齐边与照片比例，推导出 645、6×6、6×7、6×9。用户不必选四次。</p>
+          </div>
+          <div>
+            <h3>裁切不重算颗粒，默认关</h3>
+            <p>这也是物理上正确的答案：裁切一张底片，颗粒不会变细。</p>
+          </div>
+        </div>
+
+        <div class="shots shots--stack" style="--n: 3">
+          <figure>
+            <img src="../assets/img/sl-ui-v1.webp" width="1280" height="720" loading="lazy" alt="第一版界面参考图：圆角卡片堆叠，橙色选中态，编号步骤">
+            <figcaption><b>第一版 · 否决</b>AI 生成的参考图。圆角卡片堆叠，大面积橙色选中，仪表盘式的层级。它在装饰界面，而不是让位给照片。</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/sl-ui-v2.webp" width="1280" height="720" loading="lazy" alt="第二版设计稿：石墨底色，发丝线分隔，照片占据中心">
+            <figcaption><b>第二版 · 我画的设计稿</b>石墨底色，1 pt 发丝线就是栅格，一点琥珀色表示激活。以这一张 1920 × 1080 的稿子为唯一事实源，推导全部设计 token。</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/img/sl-app-1280.webp" width="1280" height="720" loading="lazy" alt="上线的 SpektraLab 界面">
+            <figcaption><b>成品</b>在三种窗口尺寸下逐项量测，与设计稿的差异写进文档。照片是主角。</figcaption>
+          </figure>
+        </div>
+
+        <div class="cols">
+          <figure class="icon-fig span-6">
+            <img src="../assets/img/sl-icon.webp" width="384" height="384" loading="lazy" alt="SpektraLab 图标：蓝、品红、黄三层染料叠在深色片基之上">
+            <figcaption><b>三层染料，叠在片基之上。</b>图标是一张彩色负片的截面。名字里的 Spektra 是光谱，Lab 是暗房。品牌、图标和界面讲的是同一件事：照片是怎么形成的。</figcaption>
+          </figure>
+          <figure class="figure span-4">
+            <div class="figure__media"><img src="../assets/img/sl-grain.webp" width="1200" height="1200" loading="lazy" alt="Portra 400 颗粒的原始像素裁切：酋长岩的岩壁与天空"></div>
+            <figcaption><strong>颗粒，原始像素裁切</strong><span>颗粒按画幅以微米为单位计算</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== 06 Launch -->
+  <section class="sec" id="launch" data-stars-scope>
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">06</span>发布<span lang="en">Launch</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">一级一级建立信任。</h2>
+        <p class="measure">冷启动的内容不是「滤镜好看」，而是把过程本身当卖点。每一篇只证明一件事，从审美上的共鸣，一步步走到专业上的可信。渠道是小红书、知乎与 GitHub；安装包同时放在 GitHub Release 和国内网盘。</p>
+
+        <div class="shots" style="--n: 5">
+          <figure>
+            <span class="num">01 · 先被看见</span>
+            <img src="../assets/img/sl-post-1-launch.webp" width="640" height="853" loading="lazy" alt="小红书封面：SpektraLab，物理真实的胶片模拟应用">
+            <figcaption><b>首发</b>一张图讲清主张：照片由三层叠成</figcaption>
+          </figure>
+          <figure>
+            <span class="num">02 · 证明好看</span>
+            <img src="../assets/img/sl-post-2-samples.webp" width="640" height="853" loading="lazy" alt="小红书封面：样片日记 01，海纳百川">
+            <figcaption><b>样片日记</b>成片说话，统一的图注格式</figcaption>
+          </figure>
+          <figure>
+            <span class="num">03 · 证明是真的</span>
+            <img src="../assets/img/sl-post-3-engine.webp" width="640" height="853" loading="lazy" alt="小红书封面：从 spektrafilm 到 SpektraLab，高效的胶片模拟引擎">
+            <figcaption><b>引擎原理</b>RGB 只有三个数，还原成 81 个波段</figcaption>
+          </figure>
+          <figure>
+            <span class="num">04 · 证明能用</span>
+            <img src="../assets/img/sl-post-4-memory.webp" width="640" height="853" loading="lazy" alt="小红书封面：SpektraLab 1.0.3，优化的内存管理">
+            <figcaption><b>内存对比</b>1 亿像素，峰值减半</figcaption>
+          </figure>
+          <figure>
+            <span class="num">05 · 证明可靠</span>
+            <img src="../assets/img/sl-post-5-tests.webp" width="640" height="853" loading="lazy" alt="小红书封面：6 万行代码，近三分之一是测试">
+            <figcaption><b>代码与测试</b>再加一篇知乎长文：一张照片走完 21 个节点</figcaption>
+          </figure>
+        </div>
+
+        <dl class="stats" style="--n: 3">
+          <div><dt>小红书首发周末的互动数</dt><dd>1,000<span>+</span></dd></div>
+          <div><dt>GitHub，另有 <span data-forks="7">7</span> 个 Fork。<span class="nw">截至 <span data-stars-date>2026.10.08</span></span></dt><dd><b data-stars="139">139</b><span>Stars</span></dd></div>
+          <div><dt>GitHub Release 的累计下载，不含国内网盘。<span class="nw">截至 2026.10.12</span></dt><dd>600<span>+ 次下载</span></dd></div>
+        </dl>
+
+        <figure class="viz">
+          <p class="viz-title">发版节奏：18 天，14 个版本</p>
+          <p class="viz-sub">每个圆点是一次公开发布，按北京时间的日期堆叠。标出的是每个新版本线的第一天。</p>
+          <div class="cadence" role="group" aria-label="2026 年 9 月 19 日至 10 月 6 日，共 14 次发布。完整列表见下方表格。">
+            <div><span class="rel" tabindex="0" role="img" aria-label="v0.3.1，09.19 01:17，首个公开版本" data-tip="v0.3.1|09.19 01:17 · 首个公开版本"></span><span class="cadence-tag">0.3</span></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.0.1，09.20 18:22" data-tip="v1.0.1|09.20 18:22"></span><span class="rel" tabindex="0" role="img" aria-label="v1.0.2，09.20 20:08" data-tip="v1.0.2|09.20 20:08"></span><span class="rel" tabindex="0" role="img" aria-label="v1.0.3，09.20 23:18，内存减半" data-tip="v1.0.3|09.20 23:18 · 内存减半"></span><span class="cadence-tag">1.0</span></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.0.4，09.21 20:06，更新检查" data-tip="v1.0.4|09.21 20:06 · 更新检查"></span></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.0.5，09.22 10:45，快捷键与界面缩放" data-tip="v1.0.5|09.22 10:45 · 快捷键与界面缩放"></span></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.1.0，09.26 16:43，新界面，场景宽容度" data-tip="v1.1.0|09.26 16:43 · 新界面，场景宽容度"></span><span class="rel" tabindex="0" role="img" aria-label="v1.1.1，09.26 17:42" data-tip="v1.1.1|09.26 17:42"></span><span class="cadence-tag">1.1</span></div>
+            <div></div>
+            <div></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.2.0，09.29 11:34，数字中间片导出" data-tip="v1.2.0|09.29 11:34 · 数字中间片导出"></span><span class="rel" tabindex="0" role="img" aria-label="v1.2.1，09.29 13:29" data-tip="v1.2.1|09.29 13:29"></span><span class="cadence-tag">1.2</span></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.2.2，09.30 01:51" data-tip="v1.2.2|09.30 01:51"></span></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.3.0，10.04 19:05，片边、全景画幅与半格拼接" data-tip="v1.3.0|10.04 19:05 · 片边、全景画幅与半格拼接"></span><span class="cadence-tag">1.3</span></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.3.1，10.05 01:03" data-tip="v1.3.1|10.05 01:03"></span></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.3.2，10.06 16:35" data-tip="v1.3.2|10.06 16:35"></span></div>
+          </div>
+          <div class="cadence-axis" aria-hidden="true">
+            <span>09.19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>10.01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span>
+          </div>
+          <details>
+            <summary>以表格查看全部 14 次发布</summary>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">版本</th><th scope="col">发布时间（北京时间）</th><th scope="col">备注</th></tr></thead>
+                <tbody>
+                  <tr><td class="n">v0.3.1</td><td class="n">2026.09.19 01:17</td><td>首个公开版本</td></tr>
+                  <tr><td class="n">v1.0.1</td><td class="n">2026.09.20 18:22</td><td></td></tr>
+                  <tr><td class="n">v1.0.2</td><td class="n">2026.09.20 20:08</td><td></td></tr>
+                  <tr><td class="n">v1.0.3</td><td class="n">2026.09.20 23:18</td><td>内存管理，1 亿像素峰值减半</td></tr>
+                  <tr><td class="n">v1.0.4</td><td class="n">2026.09.21 20:06</td><td>更新检查</td></tr>
+                  <tr><td class="n">v1.0.5</td><td class="n">2026.09.22 10:45</td><td>快捷键与界面缩放</td></tr>
+                  <tr><td class="n">v1.1.0</td><td class="n">2026.09.26 16:43</td><td>新界面，场景宽容度与反差遮罩</td></tr>
+                  <tr><td class="n">v1.1.1</td><td class="n">2026.09.26 17:42</td><td></td></tr>
+                  <tr><td class="n">v1.2.0</td><td class="n">2026.09.29 11:34</td><td>数字中间片导出，设置剪贴板</td></tr>
+                  <tr><td class="n">v1.2.1</td><td class="n">2026.09.29 13:29</td><td></td></tr>
+                  <tr><td class="n">v1.2.2</td><td class="n">2026.09.30 01:51</td><td></td></tr>
+                  <tr><td class="n">v1.3.0</td><td class="n">2026.10.04 19:05</td><td>片边、全景画幅与半格拼接</td></tr>
+                  <tr><td class="n">v1.3.1</td><td class="n">2026.10.05 01:03</td><td></td></tr>
+                  <tr><td class="n">v1.3.2</td><td class="n">2026.10.06 16:35</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 07 Iteration -->
+  <section class="sec" id="iteration">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">07</span>迭代<span lang="en">Iteration</span></p>
+      <div class="main flow">
+        <h2 class="title">反馈不直接变成功能，</span><span class="beat">先变成一个约束问题。</span></h2>
+        <div class="table-wrap">
+          <table class="table table--stack" style="--lw: 3.2em">
+            <thead><tr><th scope="col">收到的信号</th><th scope="col">来源</th><th scope="col">处理</th><th scope="col">记录</th></tr></thead>
+            <tbody>
+              <tr><td>1 亿像素的 RAW 占满 24 GB 内存</td><td data-l="来源">已发布版本的用户报告</td><td data-l="处理">修掉缓冲池的问题，并砍掉原定的后续方案</td><td class="n" data-l="记录">RFC-020</td></tr>
+              <tr><td>「JPG 进去，效果比 RAW 好」</td><td data-l="来源">用户原话</td><td data-l="处理">不改实测数据，拆成两个暗房里真实存在的操作</td><td class="n" data-l="记录">RFC-023、024</td></tr>
+              <tr><td>一天发了三个版本，用户不知道自己是不是最新</td><td data-l="来源">发版节奏</td><td data-l="处理">一个按钮，一次请求，一个外链。不做自动更新，不做遥测</td><td class="n" data-l="记录">RFC-021</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div class="record__head">
+            <h3>案例 A：一亿像素，24 GB 内存</h3>
+            <p>RFC-020</p>
+          </div>
+          <dl class="record">
+            <div><dt>现象</dt><dd>用户报告：哈苏 X2D 的 16-bit RAW（101.9 MP）在 24 GB 内存的 Mac 上占到 23 GB。</dd></div>
+            <div><dt>约束</dt><dd>用户机器的内存是硬上限；画质零损失是硬门槛。新方案的输出必须与原来逐位一致，否则不发。</dd></div>
+            <div class="key"><dt>洞察</dt><dd>大头不在渲染本身。缓冲池在持有 13.1 GB 已经没用的缓冲时，还在继续申请新的。</dd></div>
+            <div><dt>方案与验证</dt><dd>修复后峰值从 28.9 GB 降到 19.1 GB，输出逐位一致；打包版实测，1 亿像素峰值 13.7 GB。</dd></div>
+            <div class="key"><dt>反转</dt><dd>原计划的条带渲染，在这些优化之后实测反而更差：9,914 MB 对 9,571 MB。我砍掉了已经规划好的下一篇 RFC。</dd></div>
+            <div><dt>结果</dt><dd>1 亿像素的中画幅用户可以在 24 GB 的 Mac 上工作。他们正是最专业的那一批人。</dd></div>
+          </dl>
+        </div>
+
+        <div>
+          <div class="record__head">
+            <h3>案例 B：「JPG 进去，比 RAW 好看」</h3>
+            <p>RFC-023 · RFC-024</p>
+          </div>
+          <dl class="record">
+            <div><dt>现象</dt><dd>用户原话：「jpg 进去效果比 raw 好，因为曝光的原因」。</dd></div>
+            <div><dt>约束</dt><dd>不能改实测的胶片与相纸数据。那是「物理真实」的根基。</dd></div>
+            <div class="key"><dt>洞察</dt><dd>这不是 bug，而是对产品主张的一次测量。相机 JPEG 在机内已被压到 5 至 8 档，接近相纸的宽容度；RAW 带着 12 至 15 档，直接进了胶片模型。</dd></div>
+            <div><dt>方案</dt><dd>拆成两个暗房里真实存在的操作：曝光时控制光比，印相时做反差遮罩。两者互不偷偷开启对方。</dd></div>
+            <div><dt>验证</dt><dd>在真实 RAW 上跑完设计。三处假设没有通过测量，已在文档里原地更正。</dd></div>
+            <div><dt>结果</dt><dd>用户的困惑变成暗房语言里的两个工具，而不是一个「自动修复」滑杆。</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== 08 Method -->
+  <section class="sec" id="method">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">08</span>工作方式<span lang="en">Method</span></p>
+      <div class="main flow">
+        <h2 class="title">人保留判断，Agent 负责执行。</h2>
+        <div class="grid grid--2">
+          <div>
+            <h3 class="items-head">我保留</h3>
+            <ul class="items">
+              <li>需求与范围：什么做，什么不做</li>
+              <li>架构取舍与性能预算</li>
+              <li>验收：什么才算「好了」</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="items-head">用来约束 Agent 的</h3>
+            <ul class="items">
+              <li>RFC 与 PRD，固定产品定义与技术路径</li>
+              <li>参考实现对拍、回归、延迟与内存基线</li>
+              <li>真实窗口截图验收：测试全绿，不等于用户看到的是对的</li>
+            </ul>
+          </div>
+        </div>
+        <dl class="stats" style="--n: 4">
+          <div><dt>篇 RFC</dt><dd>30</dd></div>
+          <div><dt>个测试用例</dt><dd>555</dd></div>
+          <div><dt>次提交，自 2026.08.24 起</dt><dd>400<span>+</span></dd></div>
+          <div><dt>代码，其中近三分之一是测试。2026.09.23 统计</dt><dd>6<span>万行</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== 09 Samples -->
+  <section class="sec" id="samples">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">09</span>样片<span lang="en">Samples</span></p>
+      <div class="main flow">
+        <h2 class="title">照片是主角。</h2>
+        <p class="measure">以下照片由我拍摄，全部用 SpektraLab 显影。图注格式在所有物料里保持一致：地点、胶片、相纸。</p>
+
+        <div>
+          <div class="photos" style="grid-template-columns: 1.5012fr .6663fr">
+            <figure class="figure">
+              <div class="figure__media"><img src="../assets/img/ph-nyc.webp" width="1240" height="826" loading="lazy" alt="哈德逊河对岸的曼哈顿下城，蓝调时刻，两束纪念光柱射向天空"></div>
+              <figcaption><strong>New York, NY</strong><span>Portra 400 · Portra Endura</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><img src="../assets/img/ph-nanao.webp" width="1102" height="1654" loading="lazy" alt="南澳岛退潮的滩涂上停着几艘渔船"></div>
+              <figcaption><strong>Nan’ao Island, China</strong><span>Portra 400 · Portra Endura</span></figcaption>
+            </figure>
+          </div>
+          <div class="photos" style="grid-template-columns: .6663fr 1fr 1.5012fr">
+            <figure class="figure">
+              <div class="figure__media"><img src="../assets/img/ph-sf-chinatown.webp" width="1102" height="1654" loading="lazy" alt="旧金山唐人街，大明星戏院的招牌与街道"></div>
+              <figcaption><strong>San Francisco, CA</strong><span>Portra 400 · Portra Endura</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><img src="../assets/img/ph-yosemite.webp" width="1240" height="1240" loading="lazy" alt="优胜美地山谷，雾中的酋长岩与结霜的树"></div>
+              <figcaption><strong>Yosemite, CA</strong><span>Provia 100F</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><img src="../assets/img/ph-sf-cathedral.webp" width="1240" height="826" loading="lazy" alt="旧金山圣母升天主教座堂，日落时分的混凝土立面"></div>
+              <figcaption><strong>San Francisco, CA</strong><span>Portra 400 · Portra Endura</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== 10 Credits -->
+  <section class="sec" id="credits">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">10</span>致谢与下一步<span lang="en">Credits, next</span></p>
+      <div class="main">
+        <p class="measure">胶片过程模型、28 款实测的胶片与相纸配置，以及放大机 LUT，来自 Andrea Volpato 的开源项目 <a href="https://github.com/andreavolpato/spektrafilm" rel="noopener">spektrafilm</a>（GPLv3；配置数据为 CC BY-SA 4.0）。SpektraLab 是这个引擎的原生 C++ 与 Metal 移植，以及围绕它构建的应用。产品定义、界面、移植、品牌与发布由我完成。</p>
+        <p class="measure">接下来：Windows 开发版已经进入仓库，使用 C++ 与 Vulkan 后端；命令行与 MCP 服务器让同一个会话可以被脚本驱动。</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="pager" aria-label="其他作品">
+    <div class="wrap sheet">
+      <p class="rail label">下一个<span class="label__n">02 / 04</span></p>
+      <p class="main"><a class="title" href="bowmark.html"><span class="name">Bowmark</span><svg class="arr"><use href="#a-r"/></svg></a></p>
+    </div>
+  </nav>
+</main>
+
+<footer class="footer">
+  <div class="wrap sheet">
+    <p class="rail">© 2026 邱瀚泽</p>
+    <div class="main grid grid--3 notes">
+      <div><h4>字体</h4><p>系统字体，不加载字体文件。</p></div>
+      <div><h4>构建</h4><p>手写 HTML、CSS 与少量 JavaScript。没有框架，没有追踪。</p></div>
+      <div><h4>联系</h4><p><a href="mailto:hq2144@nyu.edu">hq2144@nyu.edu</a></p></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js" defer></script>
+</body>
+</html>

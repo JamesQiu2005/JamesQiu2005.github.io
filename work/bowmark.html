@@ -1,101 +1,283 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="zh-Hans" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bowmark · 为作品组织，为演奏阅读 · 邱瀚泽</title>
-  <meta name="description" content="Bowmark 把散落的 PDF 组织成作品、乐章与分谱，并为翻页、缩放和 Apple Pencil 批注重新设计 iPad 乐谱阅读体验。">
-  <link rel="stylesheet" href="../css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bowmark · 为作品而组织，为演奏而阅读 · 邱瀚泽</title>
+  <meta name="description" content="Bowmark：一个可以写字的 iPad 谱台。从乐团排练现场定义问题，砍掉谱面识别，以 14 篇 RFC 驱动实现，已在校乐团推广使用。">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bowmark · 为作品而组织，为演奏而阅读">
+  <meta property="og:description" content="一个可以写字的 iPad 谱台：竞品判断、范围取舍与真机验收。">
+  <meta property="og:image" content="https://jamesqiu2005.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/kit.css">
+  <link rel="stylesheet" href="../css/ground.css">
 </head>
 <body>
+<a class="skip" href="#main">跳到正文</a>
 
-  <header class="subnav">
-    <a class="brand" href="../" aria-label="邱瀚泽"><span class="brand-logo" aria-hidden="true"></span></a>
-    <nav>
-      <a href="../#work">← What I build</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="a-r" viewBox="0 0 12 12"><path d="M1 6h10M6.5 1.5 11 6l-4.5 4.5"/></symbol>
+  <symbol id="a-l" viewBox="0 0 12 12"><path d="M11 6H1M5.5 1.5 1 6l4.5 4.5"/></symbol>
+  <symbol id="a-ne" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top__inner">
+    <a class="top__mark" href="../" aria-label="邱瀚泽，回到首页">
+      <svg viewBox="0 0 290 108" aria-hidden="true"><rect x="24" y="42" width="12" height="60"/><rect x="6" width="36" height="12"/><rect x="6" y="36" width="36" height="12"/><rect width="12" height="102"/><rect y="96" width="42" height="12"/><path d="M80,12 H68 A12,12 0 1 1 80,24 Z"/><rect x="50" width="30" height="12"/><polygon points="80,12 90.1760,18.3600 70.4861,49.8638 60.3101,43.5038"/><polygon points="60.3101,43.5038 74.3080,43.7488 92,74.3923 78.6077,75.1962"/><polygon points="75.6077,70 92,74.3923 50,98.6410 50,84.7846"/><rect x="44" width="12" height="108"/><path d="M120,24 A24,24 0 0 1 96,0 H108 A12,12 0 0 0 120,12 Z"/><path d="M120,60 A24,24 0 0 1 96,36 H108 A12,12 0 0 0 120,48 Z"/><path d="M108,72 H120 V84 A24,24 0 0 1 96,108 V96 A12,12 0 0 0 108,84 Z"/><rect x="122" y="12" width="20" height="12"/><rect x="126" width="12" height="32"/><rect x="122" y="84" width="20" height="12"/><rect x="126" y="76" width="12" height="32"/><path d="M126,26 H138 A4,4 0 0 1 142,30 V78 A4,4 0 0 1 138,82 H126 A4,4 0 0 1 122,78 V30 A4,4 0 0 1 126,26 Z M131,36 V48 H133 V36 Z M131,60 V72 H133 V60 Z"/><path d="M144,24 A24,24 0 0 1 168,0 A24,24 0 0 1 192,24 H180 A12,12 0 0 0 168,12 A12,12 0 0 0 156,24 Z"/><polygon points="144,26 167,26 167,102 155,102 155,36 144,36"/><rect x="146" y="48" width="7" height="12"/><rect x="146" y="72" width="7" height="12"/><path d="M146,96 H167 V108 H158 A12,12 0 0 1 146,96 Z"/><polygon points="169,26 192,26 192,102 180,102 180,36 169,36"/><rect x="171" y="48" width="7" height="12"/><rect x="171" y="72" width="7" height="12"/><path d="M171,96 H192 V108 H183 A12,12 0 0 1 171,96 Z"/><path d="M228,24 A24,24 0 0 1 204,0 H216 A12,12 0 0 0 228,12 Z"/><path d="M228,60 A24,24 0 0 1 204,36 H216 A12,12 0 0 0 228,48 Z"/><path d="M216,72 H228 V84 A24,24 0 0 1 204,108 V96 A12,12 0 0 0 216,84 Z"/><path d="M290,0 A60,60 0 0 1 230,60 V48 A48,48 0 0 0 276.4758,12 H272 V0 Z"/><path d="M230,0 A60,60 0 0 0 290,60 V48 A48,48 0 0 1 242,0 Z"/><rect x="240" width="38" height="12"/><rect x="230" y="62" width="60" height="12"/><rect x="230" y="86" width="60" height="12"/><rect x="254" y="60" width="12" height="48"/></svg>
+    </a>
+    <nav class="top__links" aria-label="站点导航">
+      <a href="../#work" aria-current="true">作品<span lang="en">Work</span></a>
+      <a href="../#practice">方法<span lang="en">Practice</span></a>
+      <a href="../#experience">经历<span lang="en">Experience</span></a>
+      <a href="../#imaging">影像<span lang="en">Imaging</span></a>
+      <a href="../#contact">联系<span lang="en">Contact</span></a>
     </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================================================================ Head -->
+  <header class="mast">
+    <div class="wrap sheet">
+      <div class="rail mast__facts">
+        <p><a href="../#work"><svg class="arr arr--l"><use href="#a-l"/></svg>全部作品</a></p>
+        <p><b>02 / 04</b></p>
+        <p>独立产品</p>
+        <p>2026.07 – 今</p>
+      </div>
+      <div class="main">
+        <h1><span class="name">Bowmark</span></h1>
+        <p class="title mast__claim"><span class="beat">为作品而组织，</span><span class="beat">为演奏而阅读。</span></p>
+        <div class="cols mast__leads">
+          <p class="measure span-6">一个可以写字的 iPad 谱台。Bowmark 把散落的 PDF 组织成作品、乐章与分谱，并为琴架上的翻页、缩放与 Apple Pencil 批注重写阅读器。问题来自我在乐团排练里的亲身经历，产品已经回到同一个乐团里使用。</p>
+          <dl class="spec span-4">
+            <div><dt>角色</dt><dd>独立完成：定义、设计、开发编排、真机验收</dd></div>
+            <div><dt>周期</dt><dd>2026.07 – 今</dd></div>
+            <div><dt>平台</dt><dd>iPadOS 18 及以上，Apple Pencil</dd></div>
+            <div><dt>技术</dt><dd>Swift 6 · SwiftUI · SwiftData · PDFKit · PencilKit · VisionKit</dd></div>
+            <div><dt>状态</dt><dd>真机 MVP，已在校乐团推广使用</dd></div>
+            <div><dt>链接</dt><dd><a href="https://github.com/JamesQiu2005/Bowmark" rel="noopener">GitHub<svg class="arr arr--ne"><use href="#a-ne"/></svg></a></dd></div>
+          </dl>
+        </div>
+
+        <div class="plate plate--pads mast__figure">
+          <figure>
+            <div class="pad"><img src="../assets/img/bm-library-640.webp" srcset="../assets/img/bm-library-640.webp 640w, ../assets/img/bm-library-1056.webp 1056w" sizes="(min-width: 600px) 24vw, 60vw" width="1056" height="1532" alt="Bowmark 曲库：以作品卡片组织马勒第二交响曲与贝多芬第九小提琴奏鸣曲" fetchpriority="high"></div>
+            <figcaption><b>曲库</b>先呈现音乐作品，而不是文件路径。</figcaption>
+          </figure>
+          <figure>
+            <div class="pad"><img src="../assets/img/bm-work-640.webp" srcset="../assets/img/bm-work-640.webp 640w, ../assets/img/bm-work-1056.webp 1056w" sizes="(min-width: 600px) 24vw, 60vw" width="1056" height="1532" alt="Bowmark 作品详情：《克莱采奏鸣曲》下并列总谱与小提琴分谱"></div>
+            <figcaption><b>作品</b>同一部《克莱采》下，总谱与分谱各自独立，又共享作品语境。</figcaption>
+          </figure>
+          <figure>
+            <div class="pad"><img src="../assets/img/bm-reader-640.webp" srcset="../assets/img/bm-reader-640.webp 640w, ../assets/img/bm-reader-1056.webp 1056w" sizes="(min-width: 600px) 24vw, 60vw" width="1056" height="1532" alt="Bowmark 阅读器：小提琴分谱占满屏幕，右侧浮出 Apple Pencil 工具"></div>
+            <figcaption><b>阅读与批注</b>谱面占据视觉中心，工具只在需要修改时出现。</figcaption>
+          </figure>
+        </div>
+
+        <dl class="stats" style="--n: 4">
+          <div><dt>每个技术决策先成文，再交给 Coding Agent 实现</dt><dd>14<span>篇 RFC</span></dd></div>
+          <div><dt>Swift 6 应用本体</dt><dd>65<span>个源文件</span></dd></div>
+          <div><dt>含两次数据模型迁移的文件级测试</dt><dd>31<span>个测试文件</span></dd></div>
+          <div><dt>处纵向滚动。阅读器只有离散的横向翻页</dt><dd>0</dd></div>
+        </dl>
+      </div>
+    </div>
   </header>
 
-  <section class="chapter">
-    <p class="eyebrow reveal">Case Study · 2026.07 – 至今</p>
-    <h1 class="chapter-title reveal">Bowmark</h1>
-    <p class="chapter-copy reveal"><strong>为作品而组织，为演奏而阅读。</strong> Bowmark 把散落的 PDF 组织成作品、乐章与分谱，并为琴架上的翻页、缩放和 Apple Pencil 批注重新设计阅读体验。</p>
-  </section>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Problem</p>
-    <h2 class="chapter-title reveal">乐谱不是一叠 PDF。<br>批注也不该只是一层墨迹。</h2>
-    <p class="chapter-copy reveal">作为校管弦乐团第一小提琴手，我面对的并不只是“怎么在 PDF 上写字”。同一部作品可能同时有总谱、不同乐器分谱、多个乐章和演奏版本；但通用文件管理只看见一份份彼此无关的文件。进入阅读后，连续滚动、常驻工具栏和通用批注逻辑，又没有围绕排练与演出的节奏设计。<strong>缺少的不是更多笔刷，而是以乐谱为中心的组织与阅读方式。</strong></p>
-    <p class="chapter-copy reveal">我进一步访谈了乐团内不同声部的乐手，确认这不是个人习惯问题：分谱版本在排练中被反复混淆，而排练时写下的指法与弓法，在换用另一份 PDF 后就失去了上下文。</p>
-    <p class="chapter-copy reveal">我也看过现有的专业乐谱应用（如 forScore、Newzik）与通用笔记产品（如 GoodNotes）：前者解决了谱面阅读，却没有解决作品的组织；后者解决了批注，却不理解乐谱的结构。Bowmark 选择切在两者之间——既把作品组织起来，也让批注依附于正确的谱面语境。</p>
-  </section>
-
-  <figure class="product-visual reveal">
-    <img src="../assets/img/bowmark_main.png" alt="Bowmark 曲库以作品卡片组织贝多芬与马勒乐谱" loading="eager">
-    <figcaption>曲库首先呈现音乐作品，而不是文件路径。</figcaption>
-  </figure>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Definition</p>
-    <h2 class="chapter-title reveal">先定义一部作品，<br>再定义一笔批注。</h2>
-    <p class="chapter-copy reveal">在曲库中，<strong>作品</strong>是稳定的音乐身份：它可以包含乐章、总谱、分谱和不同演奏版本，每份 PDF 仍然是一份可以独立打开的乐谱。进入谱面后，Bowmark 再把内容分成两个概念层：印刷音符属于稳定的<strong>作品层</strong>，指法、弓法和排练记录属于持续变化的<strong>演奏层</strong>。这两个模型共同决定导航、命名、批注图层与未来的结构化记号编辑。</p>
-  </section>
-
-  <figure class="product-visual reveal">
-    <img src="../assets/img/bowmark_work_demonstration.png" alt="Bowmark 作品详情中并列展示总谱与小提琴分谱" loading="lazy">
-    <figcaption>同一部《克莱采奏鸣曲》下，总谱与小提琴分谱保持各自独立，又共享作品语境。</figcaption>
-  </figure>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Reading &amp; Annotation</p>
-    <h2 class="chapter-title reveal">阅读先要像乐谱，<br>工具才有资格出现。</h2>
-    <p class="chapter-copy reveal">Bowmark 使用离散横向翻页，在宽屏上组成双页谱面，并让界面在阅读时退到内容之后。手指负责翻页、平移与缩放，Apple Pencil 只在明确进入批注模式后书写；批注按页面与图层保存，在改变方向、窗口尺寸或缩放后仍对齐原谱。<strong>阅读可靠性不是最后的 polish，而是产品成立的前提。</strong></p>
-  </section>
-
-  <figure class="product-visual product-visual--wide reveal">
-    <img src="../assets/img/bowmark_sheet_reading_and_annotation.png" alt="Bowmark 在 iPad 上显示小提琴谱与 Apple Pencil 批注工具" loading="lazy">
-    <figcaption>谱面占据视觉中心；工具只在演奏者需要修改时出现。</figcaption>
-  </figure>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Process</p>
-    <h2 class="chapter-title reveal">为一个足够具体的场景，<br>重写阅读器的默认假设。</h2>
-    <p class="chapter-copy reveal">我先用 PRD 与持续演进的 RFC 固化产品边界，再编排 Coding Agent 完成 Swift 实现，由自己负责方案取舍、代码审查、Git 变更管理、回归测试与 iPad 真机验收。开发中逐步替换通用 PDF 视口，建立 Bowmark 自己的分页、缩放、预渲染与墨迹坐标系统，解决快速翻页白屏、缩放跳变和 PencilKit 墨迹偏移等设备级问题。</p>
-    <p class="chapter-copy reveal">技术决策：缩放视口 · 墨迹持久化 · 扫描增强</p>
-  </section>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Outcome</p>
-    <h2 class="chapter-title reveal">从文件进入作品，<br>从作品进入演奏。</h2>
-    <p class="chapter-copy reveal">当前 MVP 已覆盖作品化曲库、总谱与分谱组织、文件与相机导入、页面增强、沉浸式乐谱阅读、Markup Layers 和 Apple Pencil 自由批注，并在真机上验证持久化与缩放稳定性。<strong>MVP 已在校乐团内推广使用，真实排练场景成为后续迭代的需求来源与验收环境。</strong>下一阶段将在这套模型之上，把指法、弓法和连弓从自由墨迹进一步转化为可选择、修改与重新渲染的演奏对象。</p>
-  </section>
-
-  <hr class="hairline">
-
-  <section class="chapter">
-    <p class="eyebrow reveal">Retrospective</p>
-    <h2 class="chapter-title reveal">在模拟器上正确，<br>不等于在琴架上可靠。</h2>
-    <p class="chapter-copy reveal">模拟器无法复现真实 Pencil 延迟、内存压力与缩放过程中的墨迹行为。早期把设备验证放得太晚，让快速翻页白屏和墨迹偏移在后期才暴露。现在每一项阅读器性能决策都必须带着真机场景验收：<strong>练习中不会打断演奏，才算完成。</strong></p>
-    <a class="chapter-cta reveal" href="../#work">← 返回全部作品</a>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-note">
-      <span>Bowmark · 个人产品实验</span>
-      <span class="key">in C major, always.</span>
+  <!-- ========================================================== 01 Problem -->
+  <section class="sec" id="problem">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">01</span>问题<span lang="en">Problem</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">乐谱不是一叠 PDF。</h2>
+        <div class="cols">
+          <div class="span-6">
+            <p class="measure">我在校管弦乐团拉小提琴。同一部作品同时有总谱、不同乐器的分谱、多个乐章和演奏版本，而文件管理只看得见一份份彼此无关的 PDF。进入阅读之后，连续滚动、常驻的工具栏和通用的批注逻辑，也没有一样是围绕排练与演出的节奏设计的。</p>
+            <p class="measure">我又访谈了乐团里不同声部的乐手，确认这不是个人习惯问题：分谱版本在排练中被反复混淆；排练时写下的指法与弓法，换一份 PDF 就失去了上下文。</p>
+          </div>
+          <p class="note span-4">样本说明：访谈对象是身边的乐手，数量少，非结构化。它足够支撑产品方向，不足以支撑功能优先级。</p>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="../js/main.js"></script>
+  <!-- ====================================================== 02 Competition -->
+  <section class="sec" id="competition">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">02</span>竞品判断<span lang="en">Competition</span></p>
+      <div class="main flow">
+        <h2 class="title">真正的对手不是 forScore，</span><span class="beat">是 GoodNotes。</span></h2>
+        <p class="measure">专业的乐谱阅读器功能完备，但对学生有付费门槛。结果是身边练琴的人，实际在用 GoodNotes、预览和系统文件凑合，而且凑合得还行。付费门槛把学生推向了笔记类应用，这个替代行为本身就是市场信号。</p>
+        <div class="table-wrap">
+          <table class="table table--fixed table--stack">
+            <thead>
+              <tr><th scope="col"><span class="visually-hidden">比较项</span></th><th scope="col">乐谱类应用<br>forScore、Newzik</th><th scope="col">笔记类应用<br>GoodNotes</th><th scope="col">Bowmark</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">解决了</th><td data-l="乐谱类应用">谱面阅读</td><td data-l="笔记类应用">书写手感</td><td class="hl" data-l="Bowmark">作品的组织，以及依附于谱面的批注</td></tr>
+              <tr><th scope="row">留下了</th><td data-l="乐谱类应用">付费门槛；作品层的组织</td><td data-l="笔记类应用">不理解乐谱的结构：什么是作品、乐章与分谱；老师的标记和自己的标记分不开</td><td class="hl" data-l="Bowmark">见下文的范围取舍</td></tr>
+              <tr><th scope="row">竞争维度</th><td data-l="乐谱类应用">功能完备度</td><td data-l="笔记类应用">书写手感与管理成本</td><td class="hl" data-l="Bowmark">管理侧比笔记应用懂乐谱；书写侧以打平它为设计目标</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 03 Scope -->
+  <section class="sec" id="scope">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">03</span>范围<span lang="en">Scope</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">最重要的决定，</span><span class="beat">是砍掉了什么。</span></h2>
+        <p class="measure">最初的设想有两层：乐谱的数据库结构，也就是作品、乐章、分谱与版本的关系；以及谱面的结构化识别，识别小节与音符，让标记锚定在乐理对象上。我砍掉了第二层，保留第一层。</p>
+        <div>
+          <div class="record__head">
+            <h3>取舍：谱面识别，做还是不做？</h3>
+            <p>产品范围</p>
+          </div>
+          <dl class="record">
+            <div><dt>为什么不做</dt><dd>识别依赖光学乐谱识别，准确率不稳定，失败模式极差：标记锚错了小节，比没有锚定更糟。</dd></div>
+            <div class="key"><dt>判断</dt><dd>它会把项目从「一个能用的谱台」变成「一个识别系统」。识别系统在做出来之前，没有任何可用性。</dd></div>
+            <div><dt>换来什么</dt><dd>作品与乐章的关系靠人工录入就能成立。当天就能上谱台。</dd></div>
+            <div><dt>代价</dt><dd>放弃了按小节跳转、标记跟随移调、自动翻页这一整类能力。这些是真实的损失，不是「本来也不重要」。</dd></div>
+            <div><dt>保留下来的模型</dt><dd>一份 PDF 是一个乐谱单元；作品可选地把乐章与分谱聚在一起，用整数排序键而不是字典序。</dd></div>
+            <div><dt>一个细节</dt><dd>作品编号是不设限的字符串。Op. 27 No. 2、BWV 1004、K. 218 都能原样往返，不解析目录制式。</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= 04 Principles -->
+  <section class="sec" id="principles">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">04</span>原则<span lang="en">Principles</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">三条原则，</span><span class="beat">都来自演奏本身。</span></h2>
+        <div class="grid grid--3">
+          <div>
+            <h3 class="items-head">一 · 演奏者不能停</h3>
+            <ul class="items">
+              <li>离散的横向翻页，阅读时没有纵向滚动</li>
+              <li>竖屏一页，宽横屏两页对开，像一份摊开的分谱</li>
+              <li>缩放 1.0 永远等于适合视口</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="items-head">二 · 控件不与书写争夺输入</h3>
+            <ul class="items">
+              <li>悬浮控件三秒后自动隐藏</li>
+              <li>手指点击切换；Pencil 接触永不触发</li>
+              <li>320 pt 的悬浮侧栏，从不改变乐谱的尺寸</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="items-head">三 · 不静默丢失用户的东西</h3>
+            <ul class="items">
+              <li>批量编辑有「多个值」状态，不压平没碰过的字段</li>
+              <li>按内容的 SHA-256 指纹识别重复，改名重导入也认得</li>
+              <li>删除作品或文件夹，绝不级联删除乐谱</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= 05 Scanning -->
+  <section class="sec" id="scanning">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">05</span>扫描<span lang="en">Capture</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">消除手影，</span><span class="beat">但不擦掉铅笔痕迹。</span></h2>
+        <div>
+          <p class="measure">拍摄或选图之后、任何文件产生之前，先进入全屏审阅：旋转、裁切、删除、重排、追加。相机取景与透视检测交给系统；快门之后的一切，由 Bowmark 负责。</p>
+          <p class="measure">默认的增强不是二值化，而是平场校正：用页面除以它自己的模糊副本。原因是一页乐谱上不存在可用的全局阈值：高到能去掉手影，就会擦掉五线；低到能保住五线，就留下了手影。而铅笔写下的标记，正是用户最在意的东西。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== 06 Process -->
+  <section class="sec" id="process">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">06</span>过程<span lang="en">Process</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">为一个足够具体的场景，</span><span class="beat">重写阅读器的默认假设。</span></h2>
+        <p class="measure">我先用 PRD 与持续演进的 RFC 固定产品边界，再编排 Coding Agent 完成 Swift 实现；方案取舍、代码审查、Git 变更管理、回归测试与 iPad 真机验收由我负责。开发中逐步替换了通用的 PDF 视口，建立 Bowmark 自己的分页、缩放、预渲染与墨迹坐标系统。</p>
+        <div>
+          <div class="record__head">
+            <h3>一次结构层的诊断：封面一直在转圈</h3>
+            <p>曲库 · 封面</p>
+          </div>
+          <dl class="record">
+            <div><dt>现象</dt><dd>新导入的乐谱，封面的加载动画转个不停；旧的乐谱一切正常。</dd></div>
+            <div><dt>补丁式的解法</dt><dd>加超时，加重试，加一个刷新按钮。每一个都能让症状消失。</dd></div>
+            <div class="key"><dt>根因</dt><dd>没有任何一方拥有这次读取。格子只在出现的那一刻看一眼磁盘，而导入在封面渲染完成之前就插入了记录。</dd></div>
+            <div><dt>方案</dt><dd>解法落在所有权上：先渲染封面再插入记录，永不发布半成品；所有写入路径收进同一个服务。</dd></div>
+            <div><dt>判定</dt><dd>缺失的文件解析为「缺失」，永不解析为「加载中」。一个永远不结束的加载动画，是在谎称有工作正在进行。</dd></div>
+            <div><dt>结果</dt><dd>解决的是「这一类问题以后不再出现」，而不是「这个 bug 修好了」。</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== 07 Outcome -->
+  <section class="sec" id="outcome">
+    <div class="wrap sheet">
+      <p class="rail label"><span class="label__n">07</span>结果与回顾<span lang="en">Outcome</span></p>
+      <div class="main flow">
+        <h2 class="title"><span class="beat">在模拟器上正确，</span><span class="beat">不等于在琴架上可靠。</span></h2>
+        <div>
+          <p class="measure">当前的 MVP 覆盖作品化曲库、总谱与分谱的组织、文件与相机导入、页面增强、沉浸式阅读、标记图层和 Apple Pencil 自由批注，并在真机上验证了持久化与缩放的稳定性。它已经在校乐团内推广使用，真实的排练成为后续迭代的需求来源与验收环境。</p>
+          <p class="measure">回顾：模拟器无法复现真实的 Pencil 延迟、内存压力与缩放过程中的墨迹行为。早期把设备验证放得太晚，快速翻页的白屏和墨迹偏移到后期才暴露。现在每一项阅读器的性能决策，都必须带着真机场景验收。练习中不会打断演奏，才算完成。</p>
+        </div>
+        <div class="grid grid--2 notes">
+          <div>
+            <h3>测试抓不到的那一类</h3>
+            <p>缩放时墨迹相对谱线的抖动，前后修了四轮。这几个缺陷没有一个能被单元测试抓到：判定对错的状态，只存在于真机的渲染进程里。我的判断是两套坐标系在各算各的，于是停止打补丁，交给下一篇 RFC 从结构上解决。</p>
+          </div>
+          <div>
+            <h3>下一步</h3>
+            <p>把指法、弓法和连弓从自由墨迹，转化为可以选择、修改与重新渲染的演奏对象。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="pager" aria-label="其他作品">
+    <div class="wrap sheet">
+      <p class="rail label">下一个<span class="label__n">03 / 04</span></p>
+      <p class="main"><a class="title" href="reggia.html"><span class="name">Reggia</span><svg class="arr"><use href="#a-r"/></svg></a></p>
+    </div>
+  </nav>
+</main>
+
+<footer class="footer">
+  <div class="wrap sheet">
+    <p class="rail">© 2026 邱瀚泽</p>
+    <div class="main grid grid--3 notes">
+      <div><h4>字体</h4><p>系统字体，不加载字体文件。</p></div>
+      <div><h4>构建</h4><p>手写 HTML、CSS 与少量 JavaScript。没有框架，没有追踪。</p></div>
+      <div><h4>联系</h4><p><a href="mailto:hq2144@nyu.edu">hq2144@nyu.edu</a></p></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js" defer></script>
 </body>
 </html>

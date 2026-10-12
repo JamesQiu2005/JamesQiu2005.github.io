@@ -1,147 +1,456 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="zh-Hans" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>邱瀚泽 · AI 产品构建者</title>
-  <meta name="description" content="构想，并落地。邱瀚泽 —— AI 产品构建者：产品定义、系统建模与 Agentic Development。">
-  <link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>邱瀚泽 Hanze Qiu · 把产品做到用户手里</title>
+  <meta name="description" content="邱瀚泽，上海纽约大学数据科学 2027 届。独立完成 SpektraLab、Bowmark、Reggia 三款产品：从需求定义、工程实现，到发布、冷启动与迭代。">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="邱瀚泽 Hanze Qiu · 把产品做到用户手里">
+  <meta property="og:description" content="三款独立产品，一段实习：从需求定义、工程实现，到发布、冷启动与迭代。">
+  <meta property="og:url" content="https://jamesqiu2005.github.io/">
+  <meta property="og:image" content="https://jamesqiu2005.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/kit.css">
+  <link rel="stylesheet" href="css/ground.css">
 </head>
 <body>
+<a class="skip" href="#main">跳到正文</a>
 
-  <!-- 吸顶局部导航（Apple local sub-nav 模式） -->
-  <header class="subnav">
-    <a class="brand" href="#top" aria-label="邱瀚泽"><span class="brand-logo" aria-hidden="true"></span></a>
-    <nav>
-      <a href="#who">Who I am</a>
-      <a href="#work">What I build</a>
-      <a href="#pursuit">What I pursue</a>
-      <a href="writing/">Writing</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="a-r" viewBox="0 0 12 12"><path d="M1 6h10M6.5 1.5 11 6l-4.5 4.5"/></symbol>
+  <symbol id="a-l" viewBox="0 0 12 12"><path d="M11 6H1M5.5 1.5 1 6l4.5 4.5"/></symbol>
+  <symbol id="a-ne" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top__inner">
+    <a class="top__mark" href="#top" aria-label="邱瀚泽，回到页首">
+      <svg viewBox="0 0 290 108" aria-hidden="true"><rect x="24" y="42" width="12" height="60"/><rect x="6" width="36" height="12"/><rect x="6" y="36" width="36" height="12"/><rect width="12" height="102"/><rect y="96" width="42" height="12"/><path d="M80,12 H68 A12,12 0 1 1 80,24 Z"/><rect x="50" width="30" height="12"/><polygon points="80,12 90.1760,18.3600 70.4861,49.8638 60.3101,43.5038"/><polygon points="60.3101,43.5038 74.3080,43.7488 92,74.3923 78.6077,75.1962"/><polygon points="75.6077,70 92,74.3923 50,98.6410 50,84.7846"/><rect x="44" width="12" height="108"/><path d="M120,24 A24,24 0 0 1 96,0 H108 A12,12 0 0 0 120,12 Z"/><path d="M120,60 A24,24 0 0 1 96,36 H108 A12,12 0 0 0 120,48 Z"/><path d="M108,72 H120 V84 A24,24 0 0 1 96,108 V96 A12,12 0 0 0 108,84 Z"/><rect x="122" y="12" width="20" height="12"/><rect x="126" width="12" height="32"/><rect x="122" y="84" width="20" height="12"/><rect x="126" y="76" width="12" height="32"/><path d="M126,26 H138 A4,4 0 0 1 142,30 V78 A4,4 0 0 1 138,82 H126 A4,4 0 0 1 122,78 V30 A4,4 0 0 1 126,26 Z M131,36 V48 H133 V36 Z M131,60 V72 H133 V60 Z"/><path d="M144,24 A24,24 0 0 1 168,0 A24,24 0 0 1 192,24 H180 A12,12 0 0 0 168,12 A12,12 0 0 0 156,24 Z"/><polygon points="144,26 167,26 167,102 155,102 155,36 144,36"/><rect x="146" y="48" width="7" height="12"/><rect x="146" y="72" width="7" height="12"/><path d="M146,96 H167 V108 H158 A12,12 0 0 1 146,96 Z"/><polygon points="169,26 192,26 192,102 180,102 180,36 169,36"/><rect x="171" y="48" width="7" height="12"/><rect x="171" y="72" width="7" height="12"/><path d="M171,96 H192 V108 H183 A12,12 0 0 1 171,96 Z"/><path d="M228,24 A24,24 0 0 1 204,0 H216 A12,12 0 0 0 228,12 Z"/><path d="M228,60 A24,24 0 0 1 204,36 H216 A12,12 0 0 0 228,48 Z"/><path d="M216,72 H228 V84 A24,24 0 0 1 204,108 V96 A12,12 0 0 0 216,84 Z"/><path d="M290,0 A60,60 0 0 1 230,60 V48 A48,48 0 0 0 276.4758,12 H272 V0 Z"/><path d="M230,0 A60,60 0 0 0 290,60 V48 A48,48 0 0 1 242,0 Z"/><rect x="240" width="38" height="12"/><rect x="230" y="62" width="60" height="12"/><rect x="230" y="86" width="60" height="12"/><rect x="254" y="60" width="12" height="48"/></svg>
+    </a>
+    <nav class="top__links" aria-label="页内导航">
+      <a href="#work">作品<span lang="en">Work</span></a>
+      <a href="#practice">方法<span lang="en">Practice</span></a>
+      <a href="#experience">经历<span lang="en">Experience</span></a>
+      <a href="#imaging">影像<span lang="en">Imaging</span></a>
+      <a href="#contact">联系<span lang="en">Contact</span></a>
     </nav>
-  </header>
-
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="top">
-    <!-- Bravura / SMuFL：高音谱号、4/4、GDAE 四根空弦与终止线。
-         按谱面坐标排布：1 个间 = 250 单位，底线 E4 = y0。 -->
-    <div class="hero-staff" aria-hidden="true">
-      <svg class="notation notation--hero" viewBox="0 -1400 62400 2250" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><defs><g id="hero-measure"><path d="M376 415C374 427 376 428 382 434C490 535 572 662 572 815C572 902 548 988 507 1048C492 1070 466 1098 455 1098C441 1098 410 1072 390 1050C316 968 292 843 292 739C292 681 299 616 306 575C308 563 309 561 297 551C153 432 0 289 0 87C0 -87 119 -252 364 -252C387 -252 413 -250 433 -246C444 -244 446 -243 448 -255C460 -322 475 -409 475 -456C475 -604 375 -622 316 -622C262 -622 236 -606 236 -593C236 -586 245 -583 268 -576C299 -567 335 -540 335 -482C335 -427 300 -380 239 -380C172 -380 132 -433 132 -495C132 -560 171 -658 322 -658C389 -658 519 -628 519 -458C519 -401 501 -306 490 -244C488 -232 489 -233 503 -227C604 -187 671 -102 671 11C671 139 577 252 430 252C404 252 404 252 401 270ZM470 943C503 943 530 916 530 861C530 750 435 660 356 591C349 585 345 586 343 599C339 625 337 659 337 691C337 847 409 943 470 943ZM361 262C364 243 364 244 346 238C258 208 201 129 201 44C201 -46 248 -110 316 -133C324 -136 336 -139 343 -139C351 -139 355 -134 355 -128C355 -121 347 -118 340 -115C298 -97 268 -54 268 -8C268 49 307 92 368 109C384 113 386 112 388 101L438 -197C440 -208 439 -208 424 -211C408 -214 388 -216 368 -216C193 -216 80 -119 80 20C80 79 90 158 173 252C233 319 279 356 326 394C336 402 338 401 340 390ZM430 103C428 115 429 118 441 117C522 110 589 42 589 -46C589 -109 551 -160 495 -188C483 -194 481 -194 479 -182Z" transform="translate(200,-250) scale(1,-1)"/><path d="M362 -74V140C362 148 361 157 350 157C341 157 336 155 330 148L235 33C231 28 226 22 226 10V-74H91C171 -6 331 221 334 233L335 236C335 245 328 251 320 251C311 251 270 249 252 249C234 249 189 251 181 251C172 251 158 248 158 232C158 108 60 -31 30 -73L24 -81C24 -81 24 -82 24 -82L23 -83C21 -88 20 -92 20 -95C20 -105 28 -112 40 -112H226V-175C226 -202 204 -210 186 -210C170 -210 163 -219 163 -229C163 -239 167 -250 182 -250H395C405 -250 415 -243 415 -229C415 -215 403 -209 393 -209C383 -209 362 -203 362 -171V-112H435C445 -112 450 -105 450 -93C450 -81 446 -74 435 -74Z" transform="translate(1150,-750) scale(1,-1)"/><path d="M362 -74V140C362 148 361 157 350 157C341 157 336 155 330 148L235 33C231 28 226 22 226 10V-74H91C171 -6 331 221 334 233L335 236C335 245 328 251 320 251C311 251 270 249 252 249C234 249 189 251 181 251C172 251 158 248 158 232C158 108 60 -31 30 -73L24 -81C24 -81 24 -82 24 -82L23 -83C21 -88 20 -92 20 -95C20 -105 28 -112 40 -112H226V-175C226 -202 204 -210 186 -210C170 -210 163 -219 163 -229C163 -239 167 -250 182 -250H395C405 -250 415 -243 415 -229C415 -215 403 -209 393 -209C383 -209 362 -203 362 -171V-112H435C445 -112 450 -105 450 -93C450 -81 446 -74 435 -74Z" transform="translate(1150,-250) scale(1,-1)"/><path d="M412 -20V20H-80V-20Z" transform="translate(2100,250) scale(1,-1)"/><path d="M412 -20V20H-80V-20Z" transform="translate(2100,500) scale(1,-1)"/><path d="M302 115C283 132 255 141 222 141C99 141 0 50 0 -47C0 -106 48 -141 109 -141C209 -141 332 -48 332 47V875H302Z" transform="translate(2100,625) scale(1,-1)"/><path d="M302 115C283 132 255 141 222 141C99 141 0 50 0 -47C0 -106 48 -141 109 -141C209 -141 332 -48 332 47V875H302Z" transform="translate(2750,125) scale(1,-1)"/><path d="M302 115C283 132 255 141 222 141C99 141 0 50 0 -47C0 -106 48 -141 109 -141C209 -141 332 -48 332 47V875H302Z" transform="translate(3400,-375) scale(1,-1)"/><path d="M222 141C99 141 0 50 0 -47V-875H30V-114C50 -131 78 -141 109 -141C209 -141 332 -48 332 47C332 104 287 141 222 141Z" transform="translate(4050,-875) scale(1,-1)"/><path d="M36 0V1000H0V0ZM228 1000H103V0H228Z" transform="translate(4700,0) scale(1,-1)"/></g></defs><g><rect x="0" y="-16" width="62400" height="32"/><rect x="0" y="-266" width="62400" height="32"/><rect x="0" y="-516" width="62400" height="32"/><rect x="0" y="-766" width="62400" height="32"/><rect x="0" y="-1016" width="62400" height="32"/></g><use href="#hero-measure" x="0"/><use href="#hero-measure" x="5200"/><use href="#hero-measure" x="10400"/><use href="#hero-measure" x="15600"/><use href="#hero-measure" x="20800"/><use href="#hero-measure" x="26000"/><use href="#hero-measure" x="31200"/><use href="#hero-measure" x="36400"/><use href="#hero-measure" x="41600"/><use href="#hero-measure" x="46800"/><use href="#hero-measure" x="52000"/><use href="#hero-measure" x="57200"/></svg>
-    </div>
-
-    <div class="hero-inner">
-      <p class="eyebrow reveal">QIU HANZE · 邱瀚泽</p>
-      <h1 class="hero-title reveal">构想，<br>并落地。</h1>
-      <p class="hero-sub reveal">AI 产品构建者 · 上海纽约大学 数据科学（人工智能方向）'27 · 现于一家早期科技公司做 AI-Native 产品</p>
-      <p class="hero-motto reveal">Envisioning and grounding good products that benefit.</p>
-      <div class="hero-anchors reveal">
-        <a href="#who">Who I am <span class="arrow">↓</span></a>
-        <a href="#work">What I build <span class="arrow">↓</span></a>
-        <a href="#pursuit">What I pursue <span class="arrow">↓</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHO I AM ============ -->
-  <section class="chapter" id="who">
-    <p class="eyebrow reveal">Who I am</p>
-    <h2 class="chapter-title reveal">一个人，<br>三种身份。</h2>
-
-    <div class="who-grid">
-      <div class="who-card reveal">
-        <h3>学生</h3>
-        <p><strong>NYU Shanghai</strong> 数据科学（AI 方向）+ 经济学辅修，GPA 3.68/4.0。机器学习、算法、数据库、计量经济学——技术是第二语言。</p>
-      </div>
-      <div class="who-card reveal">
-        <h3>产品构建者</h3>
-        <p><strong>早期科技公司</strong>产品经理实习：参与定义公司内部 AI 工具体系，并推动关键取舍落地。此前在 Bridgestone 交付 LLM 市场情报流水线。</p>
-      </div>
-      <div class="who-card reveal">
-        <h3>创作者</h3>
-        <p>校管弦乐团<strong>第一小提琴</strong>。英文三部曲投稿 <em>Aeon</em>（审稿中）。<em>Frontiers in Medicine</em> 论文二作。业余数码&胶片摄影师。</p>
-        <img class="violin-line" src="assets/svg/vendor/openmoji/violin-line.svg" alt="" aria-hidden="true">
-      </div>
-    </div>
-
-    <div class="who-also reveal">
-      <span>ICMI 2026 Grand Challenge · 技术与项目负责人（5 人团队）</span>
-      <span>暨南大学 研究助理</span>
-      <span>TOEFL 110 · GRE 326</span>
-    </div>
-  </section>
-
-  <hr class="hairline">
-
-  <!-- ============ WHAT I BUILD ============ -->
-  <section class="chapter" id="work">
-    <p class="eyebrow reveal">What I build</p>
-    <h2 class="chapter-title reveal">从问题定义，<br>到真机验收。</h2>
-    <p class="chapter-copy reveal">每个项目走完同一个闭环：<strong>问题定义 → 系统建模 → PRD/RFC → Agent 协作实现 → 测试与验收</strong>。以下四个，按时间倒序也按成色排序。</p>
-
-    <div class="work-grid">
-      <a class="work-card reveal" href="work/bowmark.html">
-        <p class="meta">2026.07 – 至今 · 个人产品实验 · 独立设计与开发编排</p>
-        <h3>Bowmark · iPadOS 乐谱阅读与批注</h3>
-        <p class="one-liner">源于第一小提琴手的真实需求：把乐谱的作品层与演奏批注层分开，让指法、弓法、表情记号成为可编辑对象。14 篇 RFC 驱动 Coding Agent 实现。</p>
-        <p class="result"><span>真机可用 MVP · 31 个测试文件</span><span class="arrow">→</span></p>
-      </a>
-
-      <a class="work-card reveal" href="work/internal-ai-systems.html">
-        <p class="meta">2026.07 – 至今 · 产品经理实习 · AI-Native 产品与内部工具</p>
-        <h3>公司内部 AI 工具体系</h3>
-        <p class="one-liner">从 AI 供给、工作流介入与组织采纳三层定义内部工具体系；判断哪些能力值得继续投入、哪些应复用既有基础设施，以及人必须留在哪个闭环节点。</p>
-        <p class="result"><span>多个工作流进入使用 · 一项高成本方向停止投入</span><span class="arrow">→</span></p>
-      </a>
-
-      <a class="work-card reveal" href="work/reggia.html">
-        <p class="meta">2026.05 – 至今 · 个人产品实验 · 独立设计与开发编排</p>
-        <h3>Reggia · AI 个人情境编排系统</h3>
-        <p class="one-liner">反转 AI memory 的方向：由人而非模型决定什么是信号。结构化 context 实体模型 + 轻量 ReAct 对话 Agent + Notion 长期记忆。</p>
-        <p class="result"><span>单次冲刺完成全闭环</span><span class="arrow">→</span></p>
-      </a>
-
-      <a class="work-card reveal" href="work/foreign-whispers.html">
-        <p class="meta">2026.04 – 05 · 课程项目 · 端到端流水线</p>
-        <h3>Foreign Whispers · 视频配音流水线</h3>
-        <p class="one-liner">转录、翻译、说话人分离、声音克隆、重混音：Whisper + pyannote + Chatterbox TTS，部署于 Docker + FastAPI + Next.js。</p>
-        <p class="result"><span>90.5–100% 说话人匹配 · 峰值内存 85GB→4GB</span><span class="arrow">→</span></p>
-      </a>
-    </div>
-  </section>
-
-  <!-- Bravura / SMuFL：巴赫 G 弦咏叹调起句轮廓（B–A–G–F♯ 下行）。 -->
-  <div class="bach-staff" aria-hidden="true">
-    <svg class="notation notation--bach" viewBox="0 -1400 18000 1850" aria-hidden="true"><g><rect x="0" y="-16" width="18000" height="32"/><rect x="0" y="-266" width="18000" height="32"/><rect x="0" y="-516" width="18000" height="32"/><rect x="0" y="-766" width="18000" height="32"/><rect x="0" y="-1016" width="18000" height="32"/></g><path d="M376 415C374 427 376 428 382 434C490 535 572 662 572 815C572 902 548 988 507 1048C492 1070 466 1098 455 1098C441 1098 410 1072 390 1050C316 968 292 843 292 739C292 681 299 616 306 575C308 563 309 561 297 551C153 432 0 289 0 87C0 -87 119 -252 364 -252C387 -252 413 -250 433 -246C444 -244 446 -243 448 -255C460 -322 475 -409 475 -456C475 -604 375 -622 316 -622C262 -622 236 -606 236 -593C236 -586 245 -583 268 -576C299 -567 335 -540 335 -482C335 -427 300 -380 239 -380C172 -380 132 -433 132 -495C132 -560 171 -658 322 -658C389 -658 519 -628 519 -458C519 -401 501 -306 490 -244C488 -232 489 -233 503 -227C604 -187 671 -102 671 11C671 139 577 252 430 252C404 252 404 252 401 270ZM470 943C503 943 530 916 530 861C530 750 435 660 356 591C349 585 345 586 343 599C339 625 337 659 337 691C337 847 409 943 470 943ZM361 262C364 243 364 244 346 238C258 208 201 129 201 44C201 -46 248 -110 316 -133C324 -136 336 -139 343 -139C351 -139 355 -134 355 -128C355 -121 347 -118 340 -115C298 -97 268 -54 268 -8C268 49 307 92 368 109C384 113 386 112 388 101L438 -197C440 -208 439 -208 424 -211C408 -214 388 -216 368 -216C193 -216 80 -119 80 20C80 79 90 158 173 252C233 319 279 356 326 394C336 402 338 401 340 390ZM430 103C428 115 429 118 441 117C522 110 589 42 589 -46C589 -109 551 -160 495 -188C483 -194 481 -194 479 -182Z" transform="translate(400,-250) scale(1,-1)"/><path d="M222 141C99 141 0 50 0 -47V-875H30V-114C50 -131 78 -141 109 -141C209 -141 332 -48 332 47C332 104 287 141 222 141Z" transform="translate(3200,-500) scale(1,-1)"/><path d="M302 115C283 132 255 141 222 141C99 141 0 50 0 -47C0 -106 48 -141 109 -141C209 -141 332 -48 332 47V875H302Z" transform="translate(7300,-375) scale(1,-1)"/><path d="M302 115C283 132 255 141 222 141C99 141 0 50 0 -47C0 -106 48 -141 109 -141C209 -141 332 -48 332 47V875H302Z" transform="translate(11400,-250) scale(1,-1)"/><path d="M237 118C244 121 249 129 249 135V206C249 211 246 214 242 214C240 214 239 214 237 213C237 213 217 205 212 204C205 204 198 209 198 217V339C198 345 192 350 184 350C174 350 168 345 168 339V209C167 199 164 186 155 180C143 173 109 159 92 155C83 155 80 167 80 175V295C80 301 73 306 66 306C56 306 50 301 50 295V160C50 146 44 136 38 133C32 130 12 122 12 122C5 120 0 112 0 106V35C0 29 3 26 9 26L11 27C12 27 27 33 35 37L36 38C44 38 50 28 50 20V-79C50 -90 45 -99 39 -102C33 -104 12 -113 12 -113C5 -115 0 -123 0 -129V-200C0 -206 3 -209 9 -209L11 -208C12 -208 26 -202 35 -199C36 -198 37 -198 38 -198C45 -198 50 -209 50 -214V-337C50 -343 56 -348 63 -348C73 -348 80 -343 80 -337V-198C80 -185 85 -178 90 -176L151 -151C151 -151 152 -151 152 -151L154 -150C163 -150 168 -162 168 -168V-293C168 -299 174 -304 181 -304C192 -304 198 -299 198 -293V-151C198 -143 202 -131 209 -128C216 -125 237 -117 237 -117C244 -114 249 -106 249 -100V-29C249 -24 246 -21 242 -21C240 -21 239 -21 237 -22L211 -32C205 -32 198 -26 198 -14V79C198 86 203 105 211 108ZM168 -45C162 -65 115 -85 92 -85C86 -85 81 -83 80 -80C78 -76 77 -54 77 -30C77 1 78 36 80 44C82 61 128 82 153 82C160 82 166 80 168 76C170 71 172 46 172 19C172 -8 170 -36 168 -45Z" transform="translate(15210,-125) scale(1,-1)"/><path d="M302 115C283 132 255 141 222 141C99 141 0 50 0 -47C0 -106 48 -141 109 -141C209 -141 332 -48 332 47V875H302Z" transform="translate(15500,-125) scale(1,-1)"/><path d="M36 0V1000H0V0ZM228 1000H103V0H228Z" transform="translate(17700,0) scale(1,-1)"/></svg>
   </div>
+</header>
 
-  <!-- ============ WHAT I PURSUE ============ -->
-  <section class="chapter" id="pursuit">
-    <p class="eyebrow reveal">What I pursue</p>
-    <p class="pursuit-quote reveal">好产品的两半：一半是 <em>envisioning</em>——在技术与人的交界处，看见还不存在的东西；另一半是 <em>grounding</em>——把它拆成实体、状态流、RFC 与验收标准，一寸寸落到地上。</p>
-    <p class="pursuit-en reveal">Envisioning and grounding good products that benefit.</p>
-    <a class="chapter-cta reveal" href="writing/">读我的英文三部曲选段 <span class="arrow">→</span></a>
+<main id="main">
+
+  <!-- Masthead: who, in the rail; what the work claims, as the title. No greeting, no portrait. -->
+  <section class="mast" id="top">
+    <div class="wrap sheet">
+      <div class="rail mast__facts">
+        <p><b>邱瀚泽</b><span lang="en">Hanze Qiu</span></p>
+        <p><span class="nw">AI 产品经理</span><span class="sep"> · </span><span class="nw">创新产品经理</span><span lang="en">AI product manager</span></p>
+        <p><span class="nw">上海纽约大学</span><span class="sep"> · </span><span class="nw">2027 届</span><span lang="en">NYU Shanghai, <span class="nw">class of 2027</span></span></p>
+        <p>秋招进行中<span lang="en">Open to 2027 <span class="nw">new-grad roles</span></span></p>
+      </div>
+      <div class="main">
+        <h1>把产品做到用户手里。</h1>
+        <div class="cols mast__leads">
+          <p class="lede lede--ink span-6">今年我独立做了三款产品，每一款都走完同一条链路：从真实场景里找到缺口，写 PRD 与 RFC，组织 Coding Agent 实现，自己验收，打包发布，再根据真实用户的反馈迭代。</p>
+          <p class="lede span-4" lang="en">I take products all the way: from an open question, through specification and engineering, to a shipped release and the people who use it.</p>
+        </div>
+        <dl class="stats stats--lg" style="--n: 4" data-stars-scope>
+          <div><dt>SpektraLab 各个 Release 的实际下载量</dt><dd>600<span>+</span></dd></div>
+          <div><dt>SpektraLab 在 GitHub 上获得，<span class="nw">截至 <span data-stars-date>2026.10.08</span></span></dt><dd><b data-stars="139">139</b><span>Stars</span></dd></div>
+          <div><dt>小红书首发周末的互动数</dt><dd>1,000<span>+</span></dd></div>
+          <div><dt>实习期间为 3 个职能部门节省的时间，约数</dt><dd>8<span>人时 / 周</span></dd></div>
+        </dl>
+      </div>
+    </div>
   </section>
 
-  <!-- ============ CONTACT / 页脚 ============ -->
-  <footer class="footer" id="contact">
-    <!-- 抽象视觉 #2：琴弦振动波形（GDAE 四弦频率叠加） -->
-    <svg class="string-wave" viewBox="0 0 980 36" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 18 Q 61 14 122 18 T 245 18 T 367 18 T 490 18 T 612 18 T 735 18 T 857 18 T 980 18"
-            data-excited="M0 18 Q 61 6 122 18 T 245 18 T 367 18 T 490 18 T 612 18 T 735 18 T 857 18 T 980 18"
-            fill="none" stroke="#E8DCC8" stroke-width="1"/>
-    </svg>
+  <!-- ================================================================ Work -->
+  <section class="sec" id="work">
+    <div class="wrap sheet">
+      <h2 class="rail label"><span class="label__n">01</span>作品<span lang="en">Work</span></h2>
+      <div class="main flow">
+        <div>
+          <p class="lede lede--ink">三款独立产品，一段实习。每一项都有可以点开的案例。</p>
+          <ol class="index" style="margin-top: 24px">
+            <li><a class="cols" href="work/spektralab.html">
+              <span class="index__name span-3"><span class="num">01</span><span class="name">SpektraLab</span></span>
+              <span class="index__what span-4">macOS 物理胶片模拟与数字暗房。一个人从市场调研做到开源发布与冷启动。</span>
+              <span class="index__meta span-2">独立产品 · 开源<br>2026.08 – 今</span>
+              <span class="index__go span-1" aria-hidden="true"><svg class="arr"><use href="#a-r"/></svg></span>
+            </a></li>
+            <li><a class="cols" href="work/bowmark.html">
+              <span class="index__name span-3"><span class="num">02</span><span class="name">Bowmark</span></span>
+              <span class="index__what span-4">iPadOS 乐谱阅读与批注。从乐团排练现场定义问题，已在校乐团推广使用。</span>
+              <span class="index__meta span-2">独立产品<br>2026.07 – 今</span>
+              <span class="index__go span-1" aria-hidden="true"><svg class="arr"><use href="#a-r"/></svg></span>
+            </a></li>
+            <li><a class="cols" href="work/reggia.html">
+              <span class="index__name span-3"><span class="num">03</span><span class="name">Reggia</span></span>
+              <span class="index__what span-4">AI 个人情境编排。记忆由用户策展，Agent 按需读取，每一次读取都可以解释。</span>
+              <span class="index__meta span-2">独立产品 · 开源<br>2026.05 – 今</span>
+              <span class="index__go span-1" aria-hidden="true"><svg class="arr"><use href="#a-r"/></svg></span>
+            </a></li>
+            <li><a class="cols" href="work/internal-ai-systems.html">
+              <span class="index__name span-3"><span class="num">04</span><span>内部 AI 工具体系</span></span>
+              <span class="index__what span-4">在一家早期科技公司，把「哪些交给 Agent」写成可执行标准，五周从需求到上线。</span>
+              <span class="index__meta span-2">实习 · 向 CEO 汇报<br>2026.07 – 09</span>
+              <span class="index__go span-1" aria-hidden="true"><svg class="arr"><use href="#a-r"/></svg></span>
+            </a></li>
+          </ol>
+        </div>
 
-    <div class="footer-contact">
-      <a href="mailto:hq2144@nyu.edu">hq2144@nyu.edu</a>
-      <a href="https://github.com/JamesQiu2005">github.com/JamesQiu2005</a>
-      <a href="tel:+8615202045055">+86 15202045055</a>
+        <!-- 01 SpektraLab -->
+        <article class="entry" data-stars-scope>
+          <p class="meta">01 · macOS · 2026.08 – 今</p>
+          <h3 class="title"><a href="work/spektralab.html"><span class="name">SpektraLab</span></a><span class="title__sub">不模仿胶片的结果，模拟胶片的过程。</span></h3>
+          <figure class="figure figure--wide">
+            <a class="figure__media" href="work/spektralab.html" aria-label="SpektraLab 案例">
+              <img src="assets/img/sl-app-1280.webp" srcset="assets/img/sl-app-1280.webp 1280w, assets/img/sl-app-2560.webp 2560w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 78vw, 92vw" width="2560" height="1440" alt="SpektraLab 主界面：左栏选择胶片与相纸，中间是按物理过程显影的曼哈顿夜景，右栏是曝光与宽容度参数" fetchpriority="high">
+            </a>
+            <figcaption><strong>SpektraLab 1.x · macOS</strong><span>曼哈顿下城 · Kodak Portra 160 · Kodak Vision 2383</span></figcaption>
+          </figure>
+          <div class="cols">
+            <div class="span-6">
+              <p class="measure">市面上的胶片模拟大多是套在 RGB 上的 LUT，好用但不真实；开源物理模型 spektrafilm 按光谱计算，真实，却只有 Python 命令行，4500 万像素一张约 30 秒。SpektraLab 把后者做成摄影师能用的 macOS 应用：打开一张 RAW，选好胶片和相纸，约一秒出图。</p>
+              <p class="more"><a class="link" href="work/spektralab.html">读完整案例<svg class="arr"><use href="#a-r"/></svg></a></p>
+            </div>
+            <dl class="stats span-4" style="--n: 2">
+              <div><dt>4500 万像素出图，参考实现约 30 s</dt><dd>1.13<span>s</span></dd></div>
+              <div><dt>1 亿像素峰值内存，原 27.4 GB</dt><dd>13.7<span>GB</span></dd></div>
+              <div><dt>导出与屏幕软打样的差异</dt><dd>0<span>px</span></dd></div>
+              <div><dt>个测试用例，守住每一次改动</dt><dd>555</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- 02 Bowmark · 03 Reggia -->
+        <div class="grid grid--2 duo entry">
+          <article class="entry--sm">
+            <a class="plate" href="work/bowmark.html" aria-label="Bowmark 案例">
+              <span class="pad"><img src="assets/img/bm-library-640.webp" width="640" height="928" loading="lazy" alt="Bowmark 曲库：以作品卡片组织马勒与贝多芬的乐谱"></span>
+              <span class="pad"><img src="assets/img/bm-reader-640.webp" width="640" height="928" loading="lazy" alt="Bowmark 阅读器：贝多芬第九小提琴奏鸣曲分谱与 Apple Pencil 批注工具"></span>
+            </a>
+            <p class="meta">02 · iPadOS · 2026.07 – 今</p>
+            <h3 class="title title--sm"><a href="work/bowmark.html"><span class="name">Bowmark</span></a><span class="title__sub">为作品而组织，为演奏而阅读。</span></h3>
+            <p class="small">乐谱不是一叠 PDF。Bowmark 把散落的文件组织成作品、乐章与分谱，再为琴架上的翻页、缩放与 Apple Pencil 批注重写阅读器。最重要的一次取舍是砍掉谱面识别，换来当天就能上谱台。</p>
+            <ul class="facts">
+              <li>14 篇 RFC 驱动实现</li>
+              <li>真机 MVP</li>
+              <li>已在校乐团推广使用</li>
+            </ul>
+            <p class="more"><a class="link" href="work/bowmark.html">读完整案例<svg class="arr"><use href="#a-r"/></svg></a></p>
+          </article>
+
+          <article class="entry--sm">
+            <a class="plate plate--flat" href="work/reggia.html" aria-label="Reggia 案例">
+              <img src="assets/img/rg-main-1280.webp" srcset="assets/img/rg-main-1280.webp 1280w, assets/img/rg-main-2560.webp 2560w" sizes="(min-width: 900px) 50vw, 120vw" width="2560" height="1357" loading="lazy" alt="Reggia 主界面：左侧会话，中间是基于个人情境的回答，右侧是当前事项">
+            </a>
+            <p class="meta">03 · Web · 2026.05 – 今</p>
+            <h3 class="title title--sm"><a href="work/reggia.html"><span class="name">Reggia</span></a><span class="title__sub">记忆由人策展，Agent 按需读取。</span></h3>
+            <p class="small">通用聊天产品替用户猜什么值得记住，向量检索的召回又看不见、改不了。Reggia 反过来：长期背景与当前事项由用户维护，Agent 先查目录、再读全文，每一次读取都有理由。</p>
+            <ul class="facts">
+              <li>两级读取：先索引，后详情</li>
+              <li>ReAct 循环不超过 8 轮</li>
+              <li>单次冲刺完成</li>
+            </ul>
+            <p class="more"><a class="link" href="work/reggia.html">读完整案例<svg class="arr"><use href="#a-r"/></svg></a></p>
+          </article>
+        </div>
+
+        <!-- 04 Internal AI systems -->
+        <article class="entry cols">
+          <div class="span-6">
+            <p class="meta">04 · 实习 · 一家早期科技公司 · 2026.07 – 09</p>
+            <h3 class="title title--sm"><a href="work/internal-ai-systems.html">内部 AI 工具体系</a><span class="title__sub">判断什么该交给 Agent，什么不该。</span></h3>
+            <p class="small">AI Native 实习生，直接向 CEO 汇报。用可复现的证据推动叫停一条负收益的自研方向，把 Agent 的介入方式写成逐流程的标准，并以「改造优先于自研」在五周内完成交付。</p>
+            <p class="more"><a class="link" href="work/internal-ai-systems.html">读完整案例<svg class="arr"><use href="#a-r"/></svg></a></p>
+          </div>
+          <dl class="stats span-4" style="--n: 2">
+            <div><dt>Agent 介入标准覆盖的职能部门</dt><dd>3<span>个部门</span></dd></div>
+            <div><dt>单类任务耗时下降</dt><dd>60<span>% 以上</span></dd></div>
+            <div><dt>每周节省，约数</dt><dd>8<span>人时</span></dd></div>
+            <div><dt>从需求到上线</dt><dd>5<span>周</span></dd></div>
+          </dl>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="footer-note">
-      <span>本站由本人以 Agentic Development 方式构建——它本身就是第 5 个作品。</span>
-      <span class="key">in C major, always.</span>
+  <!-- ============================================================ Practice -->
+  <section class="sec" id="practice">
+    <div class="wrap sheet">
+      <h2 class="rail label"><span class="label__n">02</span>方法<span lang="en">Practice</span></h2>
+      <div class="main flow">
+        <div>
+          <p class="lede lede--ink">人保留判断，Agent 负责执行。四个项目用的是同一个循环。</p>
+          <h3 class="title">需求与测试，双重约束。</h3>
+          <p class="measure">Coding Agent 让实现变便宜，判断因此更贵。我把分工写死：需求、架构取舍与验收留在我手里；实现交给 Agent，但必须同时被两样东西约束，写在前面的 PRD 与 RFC，和跑在后面的测试与基线。</p>
+        </div>
+
+        <ol class="grid grid--3 loop">
+          <li>
+            <span class="num">01</span>
+            <h4>缺口<span lang="en">Gap</span></h4>
+            <p>从真实场景里找问题，不从技术里找用途。先看用户现在拿什么凑合。</p>
+            <p class="note">SpektraLab：能用的不真实，真实的不能用。</p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h4>定义<span lang="en">Define</span></h4>
+            <p>写清做什么，更写清不做什么。范围表比功能表重要。</p>
+            <p class="note">Bowmark：砍掉谱面识别。</p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h4>规格<span lang="en">Specify</span></h4>
+            <p>每个技术决策一篇 RFC，先于实现；验收标准和实体关系写在里面。</p>
+            <p class="note">SpektraLab 30 篇，Bowmark 14 篇。</p>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <h4>实现<span lang="en">Build</span></h4>
+            <p>多个 Agent 在隔离的 worktree 里并行给出方案，我评审、取舍并合并。</p>
+            <p class="note">Claude Code、Codex。</p>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <h4>验收<span lang="en">Accept</span></h4>
+            <p>对拍参考实现、回归测试、延迟与内存基线，再加真实窗口截图。</p>
+            <p class="note">测试全绿，不等于用户看到的是对的。</p>
+          </li>
+          <li>
+            <span class="num">06</span>
+            <h4>发布<span lang="en">Ship</span></h4>
+            <p>打包、分发、写内容、收反馈，然后回到第一步。</p>
+            <p class="note">18 天，14 个版本。</p>
+          </li>
+        </ol>
+
+        <div class="table-wrap">
+          <table class="table">
+            <caption>分工 · Who decides what</caption>
+            <thead>
+              <tr><th scope="col">我保留</th><th scope="col">交给 Agent</th><th scope="col">用来约束 Agent 的</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>需求与范围：做什么，不做什么</td><td>按 RFC 实现</td><td>PRD 与 RFC，固定产品定义与技术路径</td></tr>
+              <tr><td>架构取舍与性能预算</td><td>并行给出备选方案</td><td>参考实现对拍与回归测试</td></tr>
+              <tr><td>验收：什么才算「好了」</td><td>修复、重构与文档同步</td><td>延迟与峰值内存基线；真实窗口截图</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <dl class="stats" style="--n: 3">
+          <div><dt>SpektraLab 的技术决策记录，每一篇先于实现</dt><dd>30<span>篇 RFC</span></dd></div>
+          <div><dt>SpektraLab 约 6 万行代码里，测试所占的比例，近似值</dt><dd>1/3</dd></div>
+          <div><dt>移植引擎与参考实现的最大误差，21 个节点逐一对拍</dt><dd>1.1 × 10<sup>−5</sup></dd></div>
+        </dl>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="js/main.js"></script>
+  <!-- ========================================================== Experience -->
+  <section class="sec" id="experience">
+    <div class="wrap sheet">
+      <h2 class="rail label"><span class="label__n">03</span>经历<span lang="en">Experience</span></h2>
+      <div class="main flow">
+        <table class="table ledger">
+          <thead>
+            <tr><th scope="col">时间</th><th scope="col">机构与角色</th><th scope="col">做了什么</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="n">2026.07 – 2026.09</td>
+              <td><span class="who">一家早期科技公司</span>AI Native 实习生，直接向 CEO 汇报</td>
+              <td>负责 AI-Native 产品与内部工具。推动叫停一条负收益的自研框架；把 Agent 的介入方式写成覆盖 3 个职能部门的标准；主导内部大模型调用网关的需求与权限设计；五周交付四个内部工具。<a href="work/internal-ai-systems.html">案例<svg class="arr"><use href="#a-r"/></svg></a></td>
+            </tr>
+            <tr>
+              <td class="n">2025.05 – 2025.08</td>
+              <td><span class="who">普利司通中国</span>IT 与财务部实习生</td>
+              <td>搭建 LLM 市场情报流水线：社交内容抓取、情感分析与结构化抽取，并投入使用；用 MySQL 与 Power BI 支持跨部门经营分析。</td>
+            </tr>
+            <tr>
+              <td class="n">2023.09 – 2027.05</td>
+              <td><span class="who">上海纽约大学</span>数据科学学士（人工智能方向），辅修经济学</td>
+              <td>GPA 3.68 / 4.0。机器学习、人工智能、算法、数据库、计量经济学、概率论与数理统计。校管弦乐团小提琴手。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="grid grid--3 notes">
+          <div>
+            <h4>产品</h4>
+            <p>问题定义与 MVP、竞品与替代行为判断、PRD、验收标准设计、内容冷启动。</p>
+          </div>
+          <div>
+            <h4>工程</h4>
+            <p>Swift、C++、Metal、Python、FastAPI。Claude Code 与 Codex 的任务拆解、worktree 隔离、方案评审与合并。</p>
+          </div>
+          <div>
+            <h4>语言</h4>
+            <p>普通话、粤语、英语（TOEFL 110，GRE 326）。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= Imaging -->
+  <section class="sec" id="imaging">
+    <div class="wrap sheet">
+      <h2 class="rail label"><span class="label__n">04</span>影像<span lang="en">Imaging</span></h2>
+      <div class="main flow">
+        <div class="cols">
+          <div class="span-6">
+            <p class="lede lede--ink">领域背景，不是主线。</p>
+            <p class="measure" style="margin-top: 16px">我 7 岁开始拍照，数码和中画幅胶片都拍，也进过暗房；在学校办过影展，讲过后期。做 SpektraLab 时，这些经验的用处不在审美，而在判断：一个结果在物理上对不对，一个参数被移动之后，应该付出什么代价。</p>
+          </div>
+          <div class="span-4">
+            <p class="note">在 SpektraLab 里实际处理过的环节</p>
+            <ol class="chain">
+              <li>RAW 解码</li>
+              <li>光谱上采样</li>
+              <li>胶片与相纸特性曲线</li>
+              <li>颗粒与光晕</li>
+              <li>色彩管理与软打样</li>
+              <li>色域压缩</li>
+            </ol>
+          </div>
+        </div>
+
+        <div>
+          <!-- The light table from spektralab.app. js/lighttable.js (three.js) mounts it when this
+               section is near. Until then, and wherever WebGL is not available, the gallery
+               after it is what shows. -->
+          <div class="lt" data-lighttable hidden>
+            <div class="lt__stage" tabindex="0" role="img" aria-label="观片台：每条胶片按真实的相对尺寸摆在上面，从 135 半格到 6×12 全景。按左右方向键沿台面移动。">
+              <canvas class="lt__canvas"></canvas>
+              <p class="lt__hint" aria-hidden="true"><span class="lt__hint--fine">横向滚动，或按住拖动</span><span class="lt__hint--touch">左右滑动 · 长按放大</span></p>
+            </div>
+            <div class="lt__bar">
+              <p class="lt__caption"></p>
+              <div class="lt__nav">
+                <span class="lt__count" aria-hidden="true"></span>
+                <button class="lt__btn" type="button" aria-label="上一条胶片"><svg viewBox="0 0 12 12" aria-hidden="true"><use href="#a-l"/></svg></button>
+                <button class="lt__btn" type="button" aria-label="下一条胶片"><svg viewBox="0 0 12 12" aria-hidden="true"><use href="#a-r"/></svg></button>
+              </div>
+            </div>
+            <p class="visually-hidden lt__live" aria-live="polite"></p>
+            <ol class="visually-hidden lt__list" aria-label="观片台上的胶片，从左到右"></ol>
+          </div>
+          <div class="gallery">
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-badlands/strip-badlands-480.avif 480w, assets/img/lighttable/strip-badlands/strip-badlands-960.avif 960w, assets/img/lighttable/strip-badlands/strip-badlands-1440.avif 1440w, assets/img/lighttable/strip-badlands/strip-badlands-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-badlands/strip-badlands-480.webp 480w, assets/img/lighttable/strip-badlands/strip-badlands-960.webp 960w, assets/img/lighttable/strip-badlands/strip-badlands-1440.webp 1440w, assets/img/lighttable/strip-badlands/strip-badlands-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-badlands/strip-badlands-1440.jpg" width="1920" height="3547" loading="lazy" decoding="async" alt="一个人站在恶地的荒原上"></picture></div>
+              <figcaption><strong>Kodak Portra 160</strong><span>135 半格</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/bw-tmax/bw-tmax-480.avif 480w, assets/img/lighttable/bw-tmax/bw-tmax-960.avif 960w, assets/img/lighttable/bw-tmax/bw-tmax-1440.avif 1440w, assets/img/lighttable/bw-tmax/bw-tmax-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/bw-tmax/bw-tmax-480.webp 480w, assets/img/lighttable/bw-tmax/bw-tmax-960.webp 960w, assets/img/lighttable/bw-tmax/bw-tmax-1440.webp 1440w, assets/img/lighttable/bw-tmax/bw-tmax-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/bw-tmax/bw-tmax-1440.jpg" width="1920" height="1338" loading="lazy" decoding="async" alt="雪后的大峡谷，黑白"></picture></div>
+              <figcaption><strong>Kodak T-Max 100</strong><span>6×9 · 相纸 Ilford Multigrade IV RC</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-beach/strip-beach-480.avif 480w, assets/img/lighttable/strip-beach/strip-beach-960.avif 960w, assets/img/lighttable/strip-beach/strip-beach-1440.avif 1440w, assets/img/lighttable/strip-beach/strip-beach-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-beach/strip-beach-480.webp 480w, assets/img/lighttable/strip-beach/strip-beach-960.webp 960w, assets/img/lighttable/strip-beach/strip-beach-1440.webp 1440w, assets/img/lighttable/strip-beach/strip-beach-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-beach/strip-beach-1440.jpg" width="1920" height="1772" loading="lazy" decoding="async" alt="积云下的长海滩，片边上有片边字与格号"></picture></div>
+              <figcaption><strong>Kodak Portra 400</strong><span>135</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-trails/strip-trails-480.avif 480w, assets/img/lighttable/strip-trails/strip-trails-960.avif 960w, assets/img/lighttable/strip-trails/strip-trails-1440.avif 1440w, assets/img/lighttable/strip-trails/strip-trails-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-trails/strip-trails-480.webp 480w, assets/img/lighttable/strip-trails/strip-trails-960.webp 960w, assets/img/lighttable/strip-trails/strip-trails-1440.webp 1440w, assets/img/lighttable/strip-trails/strip-trails-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-trails/strip-trails-1440.jpg" width="1920" height="2761" loading="lazy" decoding="async" alt="夜里水面上的光轨"></picture></div>
+              <figcaption><strong>Kodak Portra 800</strong><span>6×9</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-courtyard/strip-courtyard-480.avif 480w, assets/img/lighttable/strip-courtyard/strip-courtyard-960.avif 960w, assets/img/lighttable/strip-courtyard/strip-courtyard-1440.avif 1440w, assets/img/lighttable/strip-courtyard/strip-courtyard-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-courtyard/strip-courtyard-480.webp 480w, assets/img/lighttable/strip-courtyard/strip-courtyard-960.webp 960w, assets/img/lighttable/strip-courtyard/strip-courtyard-1440.webp 1440w, assets/img/lighttable/strip-courtyard/strip-courtyard-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-courtyard/strip-courtyard-1440.jpg" width="1920" height="1772" loading="lazy" decoding="async" alt="洒满阳光的院子里，几位邻居"></picture></div>
+              <figcaption><strong>Kodak Portra 400</strong><span>135</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-bark/strip-bark-480.avif 480w, assets/img/lighttable/strip-bark/strip-bark-960.avif 960w, assets/img/lighttable/strip-bark/strip-bark-1440.avif 1440w, assets/img/lighttable/strip-bark/strip-bark-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-bark/strip-bark-480.webp 480w, assets/img/lighttable/strip-bark/strip-bark-960.webp 960w, assets/img/lighttable/strip-bark/strip-bark-1440.webp 1440w, assets/img/lighttable/strip-bark/strip-bark-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-bark/strip-bark-1440.jpg" width="1920" height="2608" loading="lazy" decoding="async" alt="剥落的刺柏树皮，格号印在片边上"></picture></div>
+              <figcaption><strong>Kodak Portra 400</strong><span>645</span></figcaption>
+            </figure>
+            <figure class="figure figure--wide">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-xpan/strip-xpan-480.avif 480w, assets/img/lighttable/strip-xpan/strip-xpan-960.avif 960w, assets/img/lighttable/strip-xpan/strip-xpan-1440.avif 1440w, assets/img/lighttable/strip-xpan/strip-xpan-1920.avif 1920w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 80vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-xpan/strip-xpan-480.webp 480w, assets/img/lighttable/strip-xpan/strip-xpan-960.webp 960w, assets/img/lighttable/strip-xpan/strip-xpan-1440.webp 1440w, assets/img/lighttable/strip-xpan/strip-xpan-1920.webp 1920w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 80vw, 92vw"><img src="assets/img/lighttable/strip-xpan/strip-xpan-1440.jpg" width="1920" height="1008" loading="lazy" decoding="async" alt="时代广场上一位穿红色球衣的男子，全景画幅"></picture></div>
+              <figcaption><strong>Kodak Vision3 500T</strong><span>XPan · 放映拷贝片 Vision 2383</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-harbour/strip-harbour-480.avif 480w, assets/img/lighttable/strip-harbour/strip-harbour-960.avif 960w, assets/img/lighttable/strip-harbour/strip-harbour-1440.avif 1440w, assets/img/lighttable/strip-harbour/strip-harbour-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-harbour/strip-harbour-480.webp 480w, assets/img/lighttable/strip-harbour/strip-harbour-960.webp 960w, assets/img/lighttable/strip-harbour/strip-harbour-1440.webp 1440w, assets/img/lighttable/strip-harbour/strip-harbour-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-harbour/strip-harbour-1440.jpg" width="1920" height="2736" loading="lazy" decoding="async" alt="黄昏的渔港，片边上印着 FUJI RDP III"></picture></div>
+              <figcaption><strong>Fujifilm Provia 100F</strong><span>6×9</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-alcatraz/strip-alcatraz-480.avif 480w, assets/img/lighttable/strip-alcatraz/strip-alcatraz-960.avif 960w, assets/img/lighttable/strip-alcatraz/strip-alcatraz-1440.avif 1440w, assets/img/lighttable/strip-alcatraz/strip-alcatraz-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-alcatraz/strip-alcatraz-480.webp 480w, assets/img/lighttable/strip-alcatraz/strip-alcatraz-960.webp 960w, assets/img/lighttable/strip-alcatraz/strip-alcatraz-1440.webp 1440w, assets/img/lighttable/strip-alcatraz/strip-alcatraz-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-alcatraz/strip-alcatraz-1440.jpg" width="1920" height="1479" loading="lazy" decoding="async" alt="从恶魔岛望向旧金山，拍摄数据与日期印在片边上"></picture></div>
+              <figcaption><strong>Fujifilm X-Tra 400</strong><span>6×8 · 日期后背与拍摄数据</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/bw-acros/bw-acros-480.avif 480w, assets/img/lighttable/bw-acros/bw-acros-960.avif 960w, assets/img/lighttable/bw-acros/bw-acros-1440.avif 1440w, assets/img/lighttable/bw-acros/bw-acros-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/bw-acros/bw-acros-480.webp 480w, assets/img/lighttable/bw-acros/bw-acros-960.webp 960w, assets/img/lighttable/bw-acros/bw-acros-1440.webp 1440w, assets/img/lighttable/bw-acros/bw-acros-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/bw-acros/bw-acros-1440.jpg" width="1920" height="2079" loading="lazy" decoding="async" alt="华特·迪士尼音乐厅的金属立面，黑白"></picture></div>
+              <figcaption><strong>Fujifilm Neopan 100 Acros II</strong><span>135 · 相纸 Ilford Multigrade IV RC</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-pair/strip-pair-480.avif 480w, assets/img/lighttable/strip-pair/strip-pair-960.avif 960w, assets/img/lighttable/strip-pair/strip-pair-1440.avif 1440w, assets/img/lighttable/strip-pair/strip-pair-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-pair/strip-pair-480.webp 480w, assets/img/lighttable/strip-pair/strip-pair-960.webp 960w, assets/img/lighttable/strip-pair/strip-pair-1440.webp 1440w, assets/img/lighttable/strip-pair/strip-pair-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-pair/strip-pair-1440.jpg" width="1920" height="2078" loading="lazy" decoding="async" alt="上下两格：栏杆上的一排鸽子，和码头上的人群"></picture></div>
+              <figcaption><strong>Kodak Portra 400</strong><span>135 半格拼接</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-swing/strip-swing-480.avif 480w, assets/img/lighttable/strip-swing/strip-swing-960.avif 960w, assets/img/lighttable/strip-swing/strip-swing-1440.avif 1440w, assets/img/lighttable/strip-swing/strip-swing-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-swing/strip-swing-480.webp 480w, assets/img/lighttable/strip-swing/strip-swing-960.webp 960w, assets/img/lighttable/strip-swing/strip-swing-1440.webp 1440w, assets/img/lighttable/strip-swing/strip-swing-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-swing/strip-swing-1440.jpg" width="1920" height="1971" loading="lazy" decoding="async" alt="海滩秋千上的孩子"></picture></div>
+              <figcaption><strong>Kodak Portra 160</strong><span>6×6</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-cliff/strip-cliff-480.avif 480w, assets/img/lighttable/strip-cliff/strip-cliff-960.avif 960w, assets/img/lighttable/strip-cliff/strip-cliff-1440.avif 1440w, assets/img/lighttable/strip-cliff/strip-cliff-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-cliff/strip-cliff-480.webp 480w, assets/img/lighttable/strip-cliff/strip-cliff-960.webp 960w, assets/img/lighttable/strip-cliff/strip-cliff-1440.webp 1440w, assets/img/lighttable/strip-cliff/strip-cliff-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-cliff/strip-cliff-1440.jpg" width="1920" height="1990" loading="lazy" decoding="async" alt="花岗岩壁与半个月亮"></picture></div>
+              <figcaption><strong>Kodak Portra 400</strong><span>6×6</span></figcaption>
+            </figure>
+            <figure class="figure figure--wide">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-stars/strip-stars-480.avif 480w, assets/img/lighttable/strip-stars/strip-stars-960.avif 960w, assets/img/lighttable/strip-stars/strip-stars-1440.avif 1440w, assets/img/lighttable/strip-stars/strip-stars-1920.avif 1920w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 80vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-stars/strip-stars-480.webp 480w, assets/img/lighttable/strip-stars/strip-stars-960.webp 960w, assets/img/lighttable/strip-stars/strip-stars-1440.webp 1440w, assets/img/lighttable/strip-stars/strip-stars-1920.webp 1920w" sizes="(min-width: 1260px) 980px, (min-width: 900px) 80vw, 92vw"><img src="assets/img/lighttable/strip-stars/strip-stars-1440.jpg" width="1920" height="1013" loading="lazy" decoding="async" alt="雪山与静湖上空的星轨，全景画幅"></picture></div>
+              <figcaption><strong>Fujifilm Velvia 100</strong><span>6×12</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-window/strip-window-480.avif 480w, assets/img/lighttable/strip-window/strip-window-960.avif 960w, assets/img/lighttable/strip-window/strip-window-1440.avif 1440w, assets/img/lighttable/strip-window/strip-window-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-window/strip-window-480.webp 480w, assets/img/lighttable/strip-window/strip-window-960.webp 960w, assets/img/lighttable/strip-window/strip-window-1440.webp 1440w, assets/img/lighttable/strip-window/strip-window-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-window/strip-window-1440.jpg" width="1920" height="1772" loading="lazy" decoding="async" alt="窗边的人影"></picture></div>
+              <figcaption><strong>Fujifilm Pro 400H</strong><span>135</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-nyc-night/strip-nyc-night-480.avif 480w, assets/img/lighttable/strip-nyc-night/strip-nyc-night-960.avif 960w, assets/img/lighttable/strip-nyc-night/strip-nyc-night-1440.avif 1440w, assets/img/lighttable/strip-nyc-night/strip-nyc-night-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-nyc-night/strip-nyc-night-480.webp 480w, assets/img/lighttable/strip-nyc-night/strip-nyc-night-960.webp 960w, assets/img/lighttable/strip-nyc-night/strip-nyc-night-1440.webp 1440w, assets/img/lighttable/strip-nyc-night/strip-nyc-night-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-nyc-night/strip-nyc-night-1440.jpg" width="1920" height="1773" loading="lazy" decoding="async" alt="黄昏的曼哈顿下城，日期曝在画面里"></picture></div>
+              <figcaption><strong>Kodak Vision3 500T</strong><span>135 · 日期后背</span></figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__media"><picture><source type="image/avif" srcset="assets/img/lighttable/strip-skyline/strip-skyline-480.avif 480w, assets/img/lighttable/strip-skyline/strip-skyline-960.avif 960w, assets/img/lighttable/strip-skyline/strip-skyline-1440.avif 1440w, assets/img/lighttable/strip-skyline/strip-skyline-1920.avif 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><source type="image/webp" srcset="assets/img/lighttable/strip-skyline/strip-skyline-480.webp 480w, assets/img/lighttable/strip-skyline/strip-skyline-960.webp 960w, assets/img/lighttable/strip-skyline/strip-skyline-1440.webp 1440w, assets/img/lighttable/strip-skyline/strip-skyline-1920.webp 1920w" sizes="(min-width: 1260px) 313px, (min-width: 901px) 26vw, (min-width: 561px) 46vw, 92vw"><img src="assets/img/lighttable/strip-skyline/strip-skyline-1440.jpg" width="1920" height="1772" loading="lazy" decoding="async" alt="黄昏时隔着海湾看旧金山"></picture></div>
+              <figcaption><strong>Fujifilm Pro 400H</strong><span>135</span></figcaption>
+            </figure>
+          </div>
+          <p class="note lt__note">照片由我拍摄，用 SpektraLab 显影。画面外的片基、齿孔与片边字由它的「片边」功能按真实胶片的实测数据生成，不是扫描件。<span class="lt__only">观片台以毫米为单位，每条胶片保持真实的相对大小。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= Contact -->
+  <section class="sec" id="contact">
+    <div class="wrap sheet">
+      <h2 class="rail label"><span class="label__n">05</span>联系<span lang="en">Contact</span></h2>
+      <div class="main">
+        <p class="lede lede--ink">有合适的岗位，或者想聊其中任何一个项目，直接写信。</p>
+        <a class="mail" href="mailto:hq2144@nyu.edu">hq2144@nyu.edu</a>
+        <dl class="grid grid--4 reach">
+          <div><dt>GitHub</dt><dd><a href="https://github.com/JamesQiu2005" rel="noopener">JamesQiu2005<svg class="arr arr--ne"><use href="#a-ne"/></svg></a></dd></div>
+          <div><dt>电话</dt><dd><a href="tel:+8615202045055">+86 152 0204 5055</a></dd></div>
+          <div><dt>求职意向</dt><dd>AI 产品经理 · 创新产品经理</dd></div>
+          <div><dt>简历</dt><dd>邮件索取</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap sheet">
+    <p class="rail">© 2026 邱瀚泽</p>
+    <div class="main grid grid--3 notes">
+      <div><h4>字体</h4><p>系统字体，不加载字体文件。</p></div>
+      <div><h4>构建</h4><p>手写 HTML、CSS 与少量 JavaScript。没有框架，没有追踪。</p></div>
+      <div><h4>托管</h4><p>GitHub Pages。</p></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js" defer></script>
 </body>
 </html>
