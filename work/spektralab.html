@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="article">
   <meta property="og:title" content="SpektraLab · 不模仿胶片的结果，模拟胶片的过程">
-  <meta property="og:description" content="4500 万像素 1.13 秒出图，18 天 14 个版本。一个人从市场缺口做到开源发布与冷启动。">
+  <meta property="og:description" content="4500 万像素 1.13 秒出图，21 天 15 个版本。一个人从市场缺口做到开源发布与冷启动。">
   <meta property="og:image" content="https://jamesqiu2005.github.io/assets/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -47,7 +47,7 @@
 <main id="main">
 
   <!-- ================================================================ Head -->
-  <header class="mast" data-stars-scope>
+  <header class="mast" data-live-scope>
     <div class="wrap sheet">
       <div class="rail mast__facts">
         <p><a href="../#work"><svg class="arr arr--l"><use href="#a-l"/></svg>全部作品</a></p>
@@ -63,10 +63,10 @@
           <dl class="spec span-4">
             <div><dt>角色</dt><dd>独立完成</dd></div>
             <div><dt>周期</dt><dd>2026.08 – 今</dd></div>
-            <div><dt>平台</dt><dd>macOS 15 及以上，Apple 芯片</dd></div>
+            <div><dt>平台</dt><dd>macOS 15 及以上，Apple 芯片；iPhone 版在 TestFlight 公测</dd></div>
             <div><dt>技术</dt><dd>SwiftUI · Metal · C++20</dd></div>
             <div><dt>许可</dt><dd>GPL-3.0-or-later</dd></div>
-            <div><dt>链接</dt><dd><a href="https://github.com/JamesQiu2005/SpektraLab" rel="noopener">GitHub<svg class="arr arr--ne"><use href="#a-ne"/></svg></a><a href="https://github.com/JamesQiu2005/SpektraLab/releases" rel="noopener">下载<svg class="arr arr--ne"><use href="#a-ne"/></svg></a></dd></div>
+            <div><dt>链接</dt><dd><a href="https://spektralab.app/" rel="noopener">官网<svg class="arr arr--ne"><use href="#a-ne"/></svg></a><a href="https://github.com/JamesQiu2005/SpektraLab" rel="noopener">GitHub<svg class="arr arr--ne"><use href="#a-ne"/></svg></a><a href="https://github.com/JamesQiu2005/SpektraLab/releases" rel="noopener">下载<svg class="arr arr--ne"><use href="#a-ne"/></svg></a></dd></div>
           </dl>
         </div>
 
@@ -82,8 +82,8 @@
           <div><dt>1 亿像素峰值内存。首个版本为 27.4 GB</dt><dd>13.7<span>GB</span></dd></div>
           <div><dt>导出文件与屏幕软打样的差异</dt><dd>0<span>px</span></dd></div>
           <div><dt>与参考实现的最大误差</dt><dd>1.1 × 10<sup>−5</sup></dd></div>
-          <div><dt>GitHub，<span class="nw">截至 <span data-stars-date>2026.10.08</span></span></dt><dd><b data-stars="139">139</b><span>Stars</span></dd></div>
-          <div><dt>首发后 18 天内发布</dt><dd>14<span>个版本</span></dd></div>
+          <div><dt>GitHub，<span class="nw">截至 <span data-stars-date>2026.10.14</span></span></dt><dd><b data-stars="190">190</b><span>Stars</span></dd></div>
+          <div><dt>首发后 21 天内发布</dt><dd>15<span>个版本</span></dd></div>
         </dl>
       </div>
     </div>
@@ -103,7 +103,7 @@
             <tbody>
               <tr><th scope="row">怎么算</th><td data-l="RGB LUT 滤镜">输入三个数，查表，输出三个数</td><td data-l="物理模型 spektrafilm">81 个光谱波段，21 个节点，实测的胶片与相纸数据</td><td class="hl" data-l="SpektraLab">同一个物理模型，原生移植到 C++ 与 Metal</td></tr>
               <tr><th scope="row">得到什么</th><td data-l="RGB LUT 滤镜">快，容易上手，能长得像</td><td data-l="物理模型 spektrafilm">换一卷胶片、多给一档曝光，颜色的变化有物理依据</td><td class="hl" data-l="SpektraLab">物理真实，并且能实时拖动滑杆</td></tr>
-              <tr><th scope="row">代价</th><td data-l="RGB LUT 滤镜">回答不了「颜色为什么这样变」</td><td data-l="物理模型 spektrafilm">只有 Python 命令行；4500 万像素一张约 30 秒</td><td class="hl" data-l="SpektraLab">目前只支持 macOS 与 Apple 芯片</td></tr>
+              <tr><th scope="row">代价</th><td data-l="RGB LUT 滤镜">回答不了「颜色为什么这样变」</td><td data-l="物理模型 spektrafilm">只有 Python 命令行；4500 万像素一张约 30 秒</td><td class="hl" data-l="SpektraLab">Mac 版只支持 Apple 芯片；iPhone 版仍在公测</td></tr>
             </tbody>
           </table>
         </div>
@@ -311,12 +311,12 @@
   </section>
 
   <!-- =========================================================== 06 Launch -->
-  <section class="sec" id="launch" data-stars-scope>
+  <section class="sec" id="launch" data-live-scope>
     <div class="wrap sheet">
       <p class="rail label"><span class="label__n">06</span>发布<span lang="en">Launch</span></p>
       <div class="main flow">
         <h2 class="title"><span class="beat">一级一级建立信任。</h2>
-        <p class="measure">冷启动的内容不是「滤镜好看」，而是把过程本身当卖点。每一篇只证明一件事，从审美上的共鸣，一步步走到专业上的可信。渠道是小红书、知乎与 GitHub；安装包同时放在 GitHub Release 和国内网盘。</p>
+        <p class="measure">冷启动的内容不是「滤镜好看」，而是把过程本身当卖点。每一篇只证明一件事，从审美上的共鸣，一步步走到专业上的可信。渠道是小红书、知乎、GitHub 与官网 spektralab.app；Mac 安装包放在 GitHub Release 和国内网盘，iPhone 版通过 TestFlight 公测。</p>
 
         <div class="shots" style="--n: 5">
           <figure>
@@ -348,14 +348,14 @@
 
         <dl class="stats" style="--n: 3">
           <div><dt>小红书首发周末的互动数</dt><dd>1,000<span>+</span></dd></div>
-          <div><dt>GitHub，另有 <span data-forks="7">7</span> 个 Fork。<span class="nw">截至 <span data-stars-date>2026.10.08</span></span></dt><dd><b data-stars="139">139</b><span>Stars</span></dd></div>
-          <div><dt>GitHub Release 的累计下载，不含国内网盘。<span class="nw">截至 2026.10.12</span></dt><dd>600<span>+ 次下载</span></dd></div>
+          <div><dt>GitHub，另有 <span data-forks="11">11</span> 个 Fork。<span class="nw">截至 <span data-stars-date>2026.10.14</span></span></dt><dd><b data-stars="190">190</b><span>Stars</span></dd></div>
+          <div><dt>GitHub Release 的累计下载，加上 iPhone 版 TestFlight 的 200 位测试者；不含国内网盘。<span class="nw">截至 <span data-downloads-date>2026.10.14</span></span></dt><dd><b data-downloads="992">992</b><span>次下载</span></dd></div>
         </dl>
 
         <figure class="viz">
-          <p class="viz-title">发版节奏：18 天，14 个版本</p>
+          <p class="viz-title">发版节奏：21 天，15 个版本</p>
           <p class="viz-sub">每个圆点是一次公开发布，按北京时间的日期堆叠。标出的是每个新版本线的第一天。</p>
-          <div class="cadence" role="group" aria-label="2026 年 9 月 19 日至 10 月 6 日，共 14 次发布。完整列表见下方表格。">
+          <div class="cadence" role="group" aria-label="2026 年 9 月 19 日至 10 月 9 日，共 15 次发布。完整列表见下方表格。">
             <div><span class="rel" tabindex="0" role="img" aria-label="v0.3.1，09.19 01:17，首个公开版本" data-tip="v0.3.1|09.19 01:17 · 首个公开版本"></span><span class="cadence-tag">0.3</span></div>
             <div><span class="rel" tabindex="0" role="img" aria-label="v1.0.1，09.20 18:22" data-tip="v1.0.1|09.20 18:22"></span><span class="rel" tabindex="0" role="img" aria-label="v1.0.2，09.20 20:08" data-tip="v1.0.2|09.20 20:08"></span><span class="rel" tabindex="0" role="img" aria-label="v1.0.3，09.20 23:18，内存减半" data-tip="v1.0.3|09.20 23:18 · 内存减半"></span><span class="cadence-tag">1.0</span></div>
             <div><span class="rel" tabindex="0" role="img" aria-label="v1.0.4，09.21 20:06，更新检查" data-tip="v1.0.4|09.21 20:06 · 更新检查"></span></div>
@@ -363,7 +363,7 @@
             <div></div>
             <div></div>
             <div></div>
-            <div><span class="rel" tabindex="0" role="img" aria-label="v1.1.0，09.26 16:43，新界面，场景宽容度" data-tip="v1.1.0|09.26 16:43 · 新界面，场景宽容度"></span><span class="rel" tabindex="0" role="img" aria-label="v1.1.1，09.26 17:42" data-tip="v1.1.1|09.26 17:42"></span><span class="cadence-tag">1.1</span></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.1.0，09.26 16:43，新界面，场景宽容度" data-tip="v1.1.0|09.26 16:43 · 新界面，场景宽容度"></span><span class="rel" tabindex="0" role="img" aria-label="v1.1.1，09.26 17:42，命令行与 MCP 服务器" data-tip="v1.1.1|09.26 17:42 · 命令行与 MCP 服务器"></span><span class="cadence-tag">1.1</span></div>
             <div></div>
             <div></div>
             <div><span class="rel" tabindex="0" role="img" aria-label="v1.2.0，09.29 11:34，数字中间片导出" data-tip="v1.2.0|09.29 11:34 · 数字中间片导出"></span><span class="rel" tabindex="0" role="img" aria-label="v1.2.1，09.29 13:29" data-tip="v1.2.1|09.29 13:29"></span><span class="cadence-tag">1.2</span></div>
@@ -374,12 +374,15 @@
             <div><span class="rel" tabindex="0" role="img" aria-label="v1.3.0，10.04 19:05，片边、全景画幅与半格拼接" data-tip="v1.3.0|10.04 19:05 · 片边、全景画幅与半格拼接"></span><span class="cadence-tag">1.3</span></div>
             <div><span class="rel" tabindex="0" role="img" aria-label="v1.3.1，10.05 01:03" data-tip="v1.3.1|10.05 01:03"></span></div>
             <div><span class="rel" tabindex="0" role="img" aria-label="v1.3.2，10.06 16:35" data-tip="v1.3.2|10.06 16:35"></span></div>
+            <div></div>
+            <div></div>
+            <div><span class="rel" tabindex="0" role="img" aria-label="v1.3.3，10.09 19:46，黑白胶片，首个签名并公证的版本" data-tip="v1.3.3|10.09 19:46 · 黑白胶片，签名并公证"></span></div>
           </div>
           <div class="cadence-axis" aria-hidden="true">
-            <span>09.19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>10.01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span>
+            <span>09.19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>10.01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span>
           </div>
           <details>
-            <summary>以表格查看全部 14 次发布</summary>
+            <summary>以表格查看全部 15 次发布</summary>
             <div class="table-wrap">
               <table class="table">
                 <thead><tr><th scope="col">版本</th><th scope="col">发布时间（北京时间）</th><th scope="col">备注</th></tr></thead>
@@ -391,13 +394,14 @@
                   <tr><td class="n">v1.0.4</td><td class="n">2026.09.21 20:06</td><td>更新检查</td></tr>
                   <tr><td class="n">v1.0.5</td><td class="n">2026.09.22 10:45</td><td>快捷键与界面缩放</td></tr>
                   <tr><td class="n">v1.1.0</td><td class="n">2026.09.26 16:43</td><td>新界面，场景宽容度与反差遮罩</td></tr>
-                  <tr><td class="n">v1.1.1</td><td class="n">2026.09.26 17:42</td><td></td></tr>
+                  <tr><td class="n">v1.1.1</td><td class="n">2026.09.26 17:42</td><td>命令行与 MCP 服务器</td></tr>
                   <tr><td class="n">v1.2.0</td><td class="n">2026.09.29 11:34</td><td>数字中间片导出，设置剪贴板</td></tr>
                   <tr><td class="n">v1.2.1</td><td class="n">2026.09.29 13:29</td><td></td></tr>
                   <tr><td class="n">v1.2.2</td><td class="n">2026.09.30 01:51</td><td></td></tr>
                   <tr><td class="n">v1.3.0</td><td class="n">2026.10.04 19:05</td><td>片边、全景画幅与半格拼接</td></tr>
                   <tr><td class="n">v1.3.1</td><td class="n">2026.10.05 01:03</td><td></td></tr>
                   <tr><td class="n">v1.3.2</td><td class="n">2026.10.06 16:35</td><td></td></tr>
+                  <tr><td class="n">v1.3.3</td><td class="n">2026.10.09 19:46</td><td>黑白胶片；首个经 Developer ID 签名、Apple 公证的版本</td></tr>
                 </tbody>
               </table>
             </div>
@@ -603,8 +607,8 @@
     <div class="wrap sheet">
       <p class="rail label"><span class="label__n">10</span>致谢与下一步<span lang="en">Credits, next</span></p>
       <div class="main">
-        <p class="measure">胶片过程模型、28 款实测的胶片与相纸配置，以及放大机 LUT，来自 Andrea Volpato 的开源项目 <a href="https://github.com/andreavolpato/spektrafilm" rel="noopener">spektrafilm</a>（GPLv3；配置数据为 CC BY-SA 4.0）。SpektraLab 是这个引擎的原生 C++ 与 Metal 移植，以及围绕它构建的应用。产品定义、界面、移植、品牌与发布由我完成。</p>
-        <p class="measure">接下来：Windows 开发版已经进入仓库，使用 C++ 与 Vulkan 后端；命令行与 MCP 服务器让同一个会话可以被脚本驱动。</p>
+        <p class="measure">胶片过程模型、28 款实测的胶片与相纸配置，以及放大机 LUT，来自 Andrea Volpato 的开源项目 <a href="https://github.com/andreavolpato/spektrafilm" rel="noopener">spektrafilm</a>（GPLv3；配置数据为 CC BY-SA 4.0）；4 款黑白胶片的配置由我建立。SpektraLab 是这个引擎的原生 C++ 与 Metal 移植，以及围绕它构建的应用。产品定义、界面、移植、品牌与发布由我完成。</p>
+        <p class="measure">命令行与 MCP 服务器已随 v1.1.1 发布，Agent 用和窗口同一套代码修图。接下来：iPhone 版正在 TestFlight 公测；Windows 开发版已经进入仓库，使用 C++ 与 Vulkan 后端。</p>
       </div>
     </div>
   </section>

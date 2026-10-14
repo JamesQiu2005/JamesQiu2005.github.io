@@ -142,43 +142,69 @@
     }
   }
 
-  /* Live star and fork counts. The page ships with the numbers as of its last
-     edit; if GitHub answers quickly, show the current ones and today's date.
-     Never lower than shipped. */
-  var stars = doc.querySelectorAll("[data-stars]");
-  if (stars.length && window.fetch) {
+  /* Live stars, forks and downloads. The page ships with the numbers as of its
+     last edit; if GitHub answers quickly, show the current ones and today's
+     date. Never lower than shipped.
+     Downloads are every GitHub Release asset's count plus the iPhone beta's
+     TestFlight testers, one download each. GitHub does not know the testers:
+     the number is set by hand here, and the labels in index.html and
+     work/spektralab.html say it too. */
+  var TESTFLIGHT_TESTERS = 200;
+  var REPO = "https://api.github.com/repos/JamesQiu2005/SpektraLab";
+
+  var fromGitHub = function (url, use) {
     var ctl = "AbortController" in window ? new AbortController() : null;
     var timer = setTimeout(function () {
       if (ctl) ctl.abort();
     }, 4000);
-    fetch("https://api.github.com/repos/JamesQiu2005/SpektraLab", ctl ? { signal: ctl.signal } : undefined)
+    fetch(url, ctl ? { signal: ctl.signal } : undefined)
       .then(function (r) {
         return r.ok ? r.json() : null;
       })
       .then(function (d) {
         clearTimeout(timer);
-        var n = d && Number(d.stargazers_count);
-        if (!n) return;
-        var today = new Date();
-        var stamp =
-          today.getFullYear() +
-          "." +
-          String(today.getMonth() + 1).padStart(2, "0") +
-          "." +
-          String(today.getDate()).padStart(2, "0");
-        stars.forEach(function (el) {
-          if (n < Number(el.getAttribute("data-stars"))) return;
-          el.textContent = String(n);
-          var scope = el.closest("[data-stars-scope]") || doc;
-          scope.querySelectorAll("[data-stars-date]").forEach(function (d2) {
-            d2.textContent = stamp;
-          });
-        });
-        var forks = Number(d.forks_count);
-        doc.querySelectorAll("[data-forks]").forEach(function (el) {
-          if (forks >= Number(el.getAttribute("data-forks"))) el.textContent = String(forks);
-        });
+        if (d) use(d);
       })
       .catch(function () {});
+  };
+
+  /* n goes into each [data-<key>] that shipped with no more than n, and
+     today's date into the [data-<key>-date] of the same [data-live-scope]. */
+  var show = function (key, n) {
+    if (!n) return;
+    var today = new Date();
+    var stamp =
+      today.getFullYear() +
+      "." +
+      String(today.getMonth() + 1).padStart(2, "0") +
+      "." +
+      String(today.getDate()).padStart(2, "0");
+    doc.querySelectorAll("[data-" + key + "]").forEach(function (el) {
+      if (n < Number(el.getAttribute("data-" + key))) return;
+      el.textContent = n.toLocaleString("en-US");
+      var scope = el.closest("[data-live-scope]") || doc;
+      scope.querySelectorAll("[data-" + key + "-date]").forEach(function (d) {
+        d.textContent = stamp;
+      });
+    });
+  };
+
+  if (window.fetch && doc.querySelector("[data-stars], [data-forks]")) {
+    fromGitHub(REPO, function (d) {
+      show("stars", Number(d.stargazers_count));
+      show("forks", Number(d.forks_count));
+    });
+  }
+  if (window.fetch && doc.querySelector("[data-downloads]")) {
+    fromGitHub(REPO + "/releases?per_page=100", function (list) {
+      if (!Array.isArray(list)) return;
+      var n = 0;
+      list.forEach(function (rel) {
+        (rel.assets || []).forEach(function (a) {
+          n += Number(a.download_count) || 0;
+        });
+      });
+      if (n) show("downloads", n + TESTFLIGHT_TESTERS);
+    });
   }
 })();
