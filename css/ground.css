@@ -18,6 +18,10 @@
    .callout .card .bento .chip .badge .seg .steps .list .tile .frame--float .frame--settle .reveal .nav.
    Chips in particular: a row of pills under a name is how a person gets sold like a product.
 
+   Taken from spektralab.app itself, at the owner's request, and only on SpektraLab's own page:
+   the app's window as the site shows it, its icon before its name (10), and its spectrum of
+   Kodak Portra 400 (11). They are content, so they come in flat: no glow, no glass, no shadow.
+
      1 Tokens        5 Sections              9 Pictures       13 Small screens
      2 Rail          6 Work                 10 Case pages
      3 Top bar       7 Words and numbers    11 Charts
@@ -218,6 +222,7 @@ a:hover .arr--l { transform: translateX(-2px); }
 .shots { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 28px var(--gap); }
 .shots img { width: 100%; border-radius: var(--r-s); background: var(--bg-2); }
 .shots--3x2 img { aspect-ratio: 3 / 2; object-fit: cover; }
+.shots--stack img { aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }   /* drafts are 16:9; the shipped window is cut to them from its title bar down */
 .shots figcaption, .plate--pads figcaption { margin-top: 10px; font-size: var(--fs-caption); line-height: 1.6; color: var(--ink-2); text-wrap: pretty; }
 .shots figcaption b, .plate--pads figcaption b { display: block; font-size: var(--fs-ui); font-weight: 600; color: var(--ink); }
 .shots .num { display: block; font-weight: 600; color: var(--accent-ink); }
@@ -282,6 +287,11 @@ a:hover .arr--l { transform: translateX(-2px); }
 .gallery > .figure--wide { column-span: all; }
 
 /* ══════════════════════════════════════════════════════════════ 10 Case pages */
+/* A product's icon before its name, as on the product's own site. The tile sits inside a clear
+   margin of its own, so the picture is pulled left by that margin to stand on the column. */
+.app-name { display: flex; align-items: center; gap: 0.14em; }
+.app-name img { flex: none; width: 1.08em; height: auto; margin-left: -0.11em; }
+
 /* What a case is, at a glance: a short table of terms and values. */
 .spec { font-size: var(--fs-small); line-height: 1.6; }
 .spec > div { display: grid; grid-template-columns: 4.6em minmax(0, 1fr); gap: 0 16px; padding-block: 8px 9px; border-top: 1px solid var(--row); }
@@ -377,6 +387,27 @@ a:hover .arr--l { transform: translateX(-2px); }
 .cadence-tag { margin-bottom: 4px; font-size: 0.6875rem; font-weight: 600; line-height: 1.2; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .cadence-axis { display: grid; grid-template-columns: repeat(21, minmax(0, 1fr)); margin-top: 6px; font-size: 0.6875rem; line-height: 1.4; color: var(--ink-2); text-align: center; font-variant-numeric: tabular-nums; }
 .cadence-axis span { white-space: nowrap; }
+/* spektralab.app's spectrum: Kodak Portra 400's three layers over the 81 wavelengths the engine
+   works in, with the curves' data as that site draws it. The colours are the light's and the
+   layers', which is why the accent stays out; the bar is flat here, without its shadow. */
+.spectrum { max-width: 44em; }
+.spectrum .legend i { width: 16px; height: 3px; border-radius: 2px; vertical-align: middle; }
+.spectrum .legend .k-b i { background: #2f4fd0; }
+.spectrum .legend .k-g i { background: #1f9a48; }
+.spectrum .legend .k-r i { background: #cc3a35; }
+.layers { display: block; width: 100%; height: 84px; margin: 14px 0 -8px; }   /* the curves stand on the bar */
+.layers__fill { mix-blend-mode: multiply; }
+.layers__line { fill: none; stroke-width: 1.5; stroke-opacity: 0.85; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.spectrum__bar {
+  position: relative; height: 16px; border-radius: 8px;
+  /* stops at (λ − 380) / 4 %: 400 violet, 450 blue, 490 cyan, 520 green, 575 yellow, 600 orange, 640 red, 700+ deep red */
+  background: linear-gradient(90deg, #2a0f52 0%, #4a1fa6 5%, #3433d4 12.5%, #2361e6 20%, #1fa3e6 27.5%, #1fc0b0 31.25%, #26c55a 35%, #8ed22b 42.5%, #e9d93a 48.75%, #f6b12d 53.75%, #f27a2b 57.5%, #e63946 65%, #b81d2e 75%, #7a0f1c 87.5%, #3d0710 100%);
+}
+.spectrum__bar::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px calc(100% / 80)); }   /* 81 wavelengths, 80 steps */
+.spectrum__ticks { position: relative; height: 1.4em; margin-top: 8px; font-size: 0.6875rem; line-height: 1.4; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.spectrum__ticks span { position: absolute; left: var(--at); transform: translateX(-50%); white-space: nowrap; }
+.spectrum__ticks span:first-child { transform: none; }
+.spectrum__ticks span:last-child { transform: translateX(-100%); }
 .viz details { margin-top: 14px; font-size: var(--fs-caption); color: var(--ink-2); }
 .viz summary { width: fit-content; cursor: pointer; }
 .viz details .table { margin-top: 12px; font-size: var(--fs-caption); color: var(--ink); }
