@@ -149,7 +149,7 @@
      TestFlight testers, one download each. GitHub does not know the testers:
      the number is set by hand here, and the labels in index.html and
      work/spektralab.html say it too. */
-  var TESTFLIGHT_TESTERS = 328;
+  var TESTFLIGHT_TESTERS = 557;
   var REPO = "https://api.github.com/repos/JamesQiu2005/SpektraLab";
 
   var fromGitHub = function (url, use) {
