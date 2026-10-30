@@ -1,0 +1,36 @@
+name: Sync SpektraLab downloads
+
+# Apple publishes the previous day's sales report in the early hours, Pacific
+# time; 15:00 UTC is 23:00 in Beijing and leaves room for late reports.
+on:
+  schedule:
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-downloads
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node .github/scripts/sync-downloads.mjs
+        env:
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
+          ASC_VENDOR_NUMBER: ${{ secrets.ASC_VENDOR_NUMBER }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # A push with GITHUB_TOKEN still triggers the Pages build.
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/downloads.json index.html work/spektralab.html
+          git diff --cached --quiet || { git commit -m "Sync SpektraLab downloads" && git push; }

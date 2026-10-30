@@ -145,11 +145,11 @@
   /* Live stars, forks and downloads. The page ships with the numbers as of its
      last edit; if GitHub answers quickly, show the current ones and today's
      date. Never lower than shipped.
-     Downloads are every GitHub Release asset's count plus the iPhone beta's
-     TestFlight testers, one download each. GitHub does not know the testers:
-     the number is set by hand here, and the labels in index.html and
-     work/spektralab.html say it too. */
-  var TESTFLIGHT_TESTERS = 557;
+     Downloads are those on every platform SpektraLab is listed on: App Store
+     first-time downloads plus every GitHub Release asset's count. The App
+     Store's come from data/downloads.json, which
+     .github/workflows/sync-downloads.yml rewrites daily from App Store
+     Connect along with the shipped numbers; GitHub's are added live. */
   var REPO = "https://api.github.com/repos/JamesQiu2005/SpektraLab";
 
   var fromGitHub = function (url, use) {
@@ -196,15 +196,19 @@
     });
   }
   if (window.fetch && doc.querySelector("[data-downloads]")) {
-    fromGitHub(REPO + "/releases?per_page=100", function (list) {
-      if (!Array.isArray(list)) return;
-      var n = 0;
-      list.forEach(function (rel) {
-        (rel.assets || []).forEach(function (a) {
-          n += Number(a.download_count) || 0;
+    fromGitHub("/data/downloads.json", function (synced) {
+      var appStore = Number(synced.appStore) || 0;
+      show("downloads", Number(synced.total));
+      fromGitHub(REPO + "/releases?per_page=100", function (list) {
+        if (!Array.isArray(list)) return;
+        var n = 0;
+        list.forEach(function (rel) {
+          (rel.assets || []).forEach(function (a) {
+            n += Number(a.download_count) || 0;
+          });
         });
+        if (n) show("downloads", n + appStore);
       });
-      if (n) show("downloads", n + TESTFLIGHT_TESTERS);
     });
   }
 })();
